@@ -32,6 +32,8 @@ class MainMenu:
         rec = pygame.Rect(540, 306, 170, 100)
         click = False
 
+        s = None
+
         while not run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -59,7 +61,7 @@ class MainMenu:
                                 sleep(0.5)
                                 s.send("Start Server Connection\n".encode())
                                 run = True
-                                gameplay(screen)
+                                gameplay(screen, s)
                             except:
                                 print("Could not connect to Server, try another socket or IP")
 
