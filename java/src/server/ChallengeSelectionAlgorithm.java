@@ -92,7 +92,6 @@ public class ChallengeSelectionAlgorithm{
         out.println(messageJSON);
 
         try {
-            System.out.println("i sleep");
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();

@@ -54,8 +54,10 @@ class gameplay:
                 frame = 0
 
         while (dead == False):
+            #Recibe los mensajes del servidor
             messageJSON = s.recv(1024)
             print(messageJSON)
+            #################################
             setBackground()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
