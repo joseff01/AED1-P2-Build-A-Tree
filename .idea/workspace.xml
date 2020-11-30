@@ -24,6 +24,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/java" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Python.MainMenu">
     <configuration name="GamePlayMenu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -71,7 +75,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.MainMenu" />
-        <item itemvalue="Python.GamePlayMenu" />
       </list>
     </recent_temporary>
   </component>
@@ -83,29 +86,42 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606097173358</updated>
+      <workItem from="1606712544392" duration="388000" />
+      <workItem from="1606713747361" duration="48000" />
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606098016014">
+    <state x="223" y="67" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606713563074">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1606098016014" />
-    <state width="1515" height="226" key="GridCell.Tab.0.bottom" timestamp="1606255190027">
+    <state x="223" y="67" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1606713563074" />
+    <state x="526" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606713416031">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="226" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606255190027" />
-    <state width="1515" height="226" key="GridCell.Tab.0.center" timestamp="1606255190026">
+    <state x="526" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1606713416031" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1606713794313">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="226" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606255190026" />
-    <state width="1515" height="226" key="GridCell.Tab.0.left" timestamp="1606255190026">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606713794313" />
+    <state width="1515" height="226" key="GridCell.Tab.0.bottom" timestamp="1606713647320">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="226" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606255190026" />
-    <state width="1515" height="226" key="GridCell.Tab.0.right" timestamp="1606255190026">
+    <state width="1515" height="226" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606713647320" />
+    <state width="1515" height="226" key="GridCell.Tab.0.center" timestamp="1606713647320">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="226" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606255190026" />
+    <state width="1515" height="226" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606713647320" />
+    <state width="1515" height="226" key="GridCell.Tab.0.left" timestamp="1606713647320">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="226" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606713647320" />
+    <state width="1515" height="226" key="GridCell.Tab.0.right" timestamp="1606713647320">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="226" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606713647320" />
   </component>
 </project>
