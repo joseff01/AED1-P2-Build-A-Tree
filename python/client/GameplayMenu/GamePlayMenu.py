@@ -44,9 +44,12 @@ class gameplay:
                 frame = 0
 
         while (dead == False):
+
             #Recibe los mensajes del servidor
-            messageJSON = s.recv(1024)
+            #messageJSON = s.recv(1024)
+            #print(messageJSON)
             #################################
+            
             pygame.time.delay(85)
             setBackground()
             for event in pygame.event.get():
