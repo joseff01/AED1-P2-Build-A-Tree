@@ -1,13 +1,24 @@
 from time import sleep
 from python.client.GameplayMenu.GamePlayMenu import gameplay
-import pygame
+import pygame, socket
 
 pygame.init()
+
 
 class MainMenu:
     def __init__(self):
 
+        IpString = ""
+        SocketString = ""
+        IpRect = pygame.Rect(550, 200, 400, 50)
+        SocketRect = pygame.Rect(550, 300, 400, 50)
+        color = pygame.Color("white")
+        copperplateFont = pygame.font.SysFont("copperplate gothic", 32)
+        IpActive = False
+        SocketActive = False
+
         run = False
+        setServerSettingFlag = False
         frame = 0
 
         screen = pygame.display.set_mode((1200, 674))
@@ -21,35 +32,82 @@ class MainMenu:
         rec = pygame.Rect(540, 306, 170, 100)
         click = False
 
-        while (run == False):
+        s = None
+
+        while not run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = True
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     sleep(0.1)
                     click = True
+                    if IpRect.collidepoint(event.pos):
+                        IpActive = True
+                        SocketActive = False
+                    elif SocketRect.collidepoint(event.pos):
+                        IpActive = False
+                        SocketActive = True
+                    else:
+                        IpActive = False
+                        SocketActive = False
                 if event.type == pygame.MOUSEBUTTONUP:
                     click = False
+                if (event.type == pygame.KEYDOWN):
+                    if event.key == pygame.K_RETURN:
+                        if (IpString == "127.0.0.1"):
+                            try:
+                                s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                                s.connect(("127.0.0.1", int(SocketString)))
+                                sleep(0.5)
+                                s.send("Start Server Connection\n".encode())
+                                run = True
+                                gameplay(screen, s)
+                            except:
+                                print("Could not connect to Server, try another socket or IP")
+
+                    if IpActive:
+                        if event.key == pygame.K_BACKSPACE:
+                            IpString = IpString[:-1]
+                        elif len(IpString) < 18:
+                            IpString += event.unicode
+                    elif SocketActive:
+                        if event.key == pygame.K_BACKSPACE:
+                            SocketString = SocketString[:-1]
+                        elif len(SocketString) < 5:
+                            SocketString += event.unicode
+
 
             screen.blit(background_image[frame], [0, 0])
-            screen.blit(pygame.image.load("Imgs\\Logo.png"), [290, -20])
+
+            if not setServerSettingFlag:
+                screen.blit(pygame.image.load("Imgs\\Logo.png"), [290, -20])
+
             frame += 1
 
             if frame >= 8:
                 frame = 0
 
-            if rec.collidepoint(pygame.mouse.get_pos()) and click == True:
-                screen.blit(pygame.image.load("Imgs\\playButtonOn.png"), [510, 300])
-                run = True
-                print("hewo")
-                gameplay(screen)
-
-            elif rec.collidepoint(pygame.mouse.get_pos()):
-                screen.blit(pygame.image.load("Imgs\\playButtonOn.png"), [510, 305])
+            if not setServerSettingFlag:
+                if rec.collidepoint(pygame.mouse.get_pos()) and click == True:
+                    setServerSettingFlag = True
+                elif rec.collidepoint(pygame.mouse.get_pos()):
+                    screen.blit(pygame.image.load("Imgs\\playButtonOn.png"), [510, 305])
+                else:
+                    screen.blit(pygame.image.load("Imgs\\playButton.png"), [510, 305])
             else:
-                screen.blit(pygame.image.load("Imgs\\playButton.png"), [510, 305])
+                pygame.draw.rect(screen, color, IpRect)
+                pygame.draw.rect(screen, color, SocketRect)
+                IpLabelText = copperplateFont.render("Server Ip:", True, (0, 0, 0))
+                SocketLabelText = copperplateFont.render("Server Socket:", True, (0, 0, 0))
+                IpText = copperplateFont.render(IpString, True, (0, 0, 0))
+                SocketText = copperplateFont.render(SocketString, True, (0, 0, 0))
+                screen.blit(IpText, (IpRect.x + 5, IpRect.y + 5))
+                screen.blit(SocketText, (SocketRect.x + 5, SocketRect.y + 5))
+                screen.blit(IpLabelText, (IpRect.x - 190, IpRect.y + 10))
+                screen.blit(SocketLabelText, (SocketRect.x - 290, SocketRect.y + 10))
 
             sleep(0.1)
             pygame.display.update()
+
 
 play = MainMenu()

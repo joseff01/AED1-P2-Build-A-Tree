@@ -6,7 +6,7 @@ frame = 0
 class gameplay:
     jump = False
     jumpCount = 10
-    def __init__(self, screen):
+    def __init__(self, screen, s):
         dead = False
 
 
@@ -44,6 +44,9 @@ class gameplay:
                 frame = 0
 
         while (dead == False):
+            #Recibe los mensajes del servidor
+            messageJSON = s.recv(1024)
+            #################################
             pygame.time.delay(85)
             setBackground()
             for event in pygame.event.get():
