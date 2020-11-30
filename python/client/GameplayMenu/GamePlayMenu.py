@@ -1,4 +1,4 @@
-import pygame
+import pygame, threading
 from time import sleep
 
 frame = 0
@@ -43,6 +43,15 @@ class gameplay:
             if frame >= 19:
                 frame = 0
 
+        def receiveMessage():
+            while (dead == False):
+                messageJSON = s.recv(1024)
+                print(messageJSON)
+
+        receiveMessagesThread = threading.Thread(target=receiveMessage)
+
+        receiveMessagesThread.start()
+
         while (dead == False):
 
             #Recibe los mensajes del servidor
@@ -55,6 +64,7 @@ class gameplay:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     dead = True
+                    receiveMessagesThread.join()
             keys = pygame.key.get_pressed()
 
             if keys[ord('d')]:
@@ -76,4 +86,3 @@ class gameplay:
                     self.jumpCount = 10
 
             spawnBichito()
-

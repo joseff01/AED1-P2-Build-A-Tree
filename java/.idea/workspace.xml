@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f45f8a36-81cb-4664-aa55-572c2cb27d62" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,30 +46,19 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="server.Main" />
-      <module name="AED1-P2-Build-A-Tree" />
+      <module name="java" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -72,10 +79,48 @@
       <updated>1606713796733</updated>
       <workItem from="1606713798016" duration="266000" />
       <workItem from="1606714115235" duration="320000" />
+      <workItem from="1606715862843" duration="22000" />
+      <workItem from="1606715898037" duration="75000" />
+      <workItem from="1606715988787" duration="35000" />
+      <workItem from="1606716662479" duration="398000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="353" y="345" key="FileChooserDialogImpl" timestamp="1606715883467">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="353" y="345" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1606715883467" />
+    <state width="1024" height="265" key="GridCell.Tab.0.bottom" timestamp="1606716023764">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1024" height="265" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1606716023764" />
+    <state width="1024" height="265" key="GridCell.Tab.0.center" timestamp="1606716023764">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1024" height="265" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1606716023764" />
+    <state width="1024" height="265" key="GridCell.Tab.0.left" timestamp="1606716023764">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1024" height="265" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1606716023764" />
+    <state width="1024" height="265" key="GridCell.Tab.0.right" timestamp="1606716023764">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1024" height="265" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1606716023764" />
   </component>
 </project>

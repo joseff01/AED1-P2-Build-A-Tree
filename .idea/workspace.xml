@@ -17,6 +17,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JupyterTrust" id="14dc4eca-3bf1-4f36-8920-6c645fd1f52e" />
   <component name="ProjectId" id="1kfggrz49jPBapQJ5k9bMUOeuTY" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -27,6 +28,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/java" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Python.MainMenu">
@@ -42,6 +45,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python/client/GameplayMenu/GamePlayMenu.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -63,6 +67,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python/client/MainMenu/MainMenu.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -75,6 +80,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.MainMenu" />
+        <item itemvalue="Python.GamePlayMenu" />
       </list>
     </recent_temporary>
   </component>
@@ -88,6 +94,7 @@
       <updated>1606097173358</updated>
       <workItem from="1606712544392" duration="388000" />
       <workItem from="1606713747361" duration="48000" />
+      <workItem from="1606715886842" duration="9000" />
     </task>
     <servers />
   </component>
@@ -103,25 +110,34 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="526" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1606713416031" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1606713794313">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="732" y="225" key="FileChooserDialogImpl" timestamp="1606715893786">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606713794313" />
-    <state width="1515" height="226" key="GridCell.Tab.0.bottom" timestamp="1606713647320">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="732" y="225" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1606715893786" />
+    <state width="1142" height="150" key="GridCell.Tab.0.bottom" timestamp="1606716917492">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state width="1515" height="226" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606713647320" />
-    <state width="1515" height="226" key="GridCell.Tab.0.center" timestamp="1606713647320">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1142" height="150" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1606716917492" />
+    <state width="1142" height="150" key="GridCell.Tab.0.center" timestamp="1606716917492">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state width="1515" height="226" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606713647320" />
-    <state width="1515" height="226" key="GridCell.Tab.0.left" timestamp="1606713647320">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1142" height="150" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1606716917492" />
+    <state width="1142" height="150" key="GridCell.Tab.0.left" timestamp="1606716917492">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state width="1515" height="226" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606713647320" />
-    <state width="1515" height="226" key="GridCell.Tab.0.right" timestamp="1606713647320">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1142" height="150" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1606716917492" />
+    <state width="1142" height="150" key="GridCell.Tab.0.right" timestamp="1606716917492">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state width="1515" height="226" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606713647320" />
+    <state width="1142" height="150" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1606716917492" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/AED1_P2_Build_A_Tree$GamePlayMenu.coverage" NAME="GamePlayMenu Coverage Results" MODIFIED="1606716634461" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python/client/GameplayMenu" />
+    <SUITE FILE_PATH="coverage/AED1_P2_Build_A_Tree$MainMenu.coverage" NAME="MainMenu Coverage Results" MODIFIED="1606716917482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python/client/MainMenu" />
   </component>
 </project>
