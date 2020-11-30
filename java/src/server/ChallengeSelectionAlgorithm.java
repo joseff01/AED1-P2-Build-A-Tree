@@ -38,6 +38,7 @@ public class ChallengeSelectionAlgorithm{
         } else if (challengeType == 1){
             //Challenge Type B
             message = new BMessage();
+
         } else if (challengeType == 2){
             //Challenge AVL
             message = new AVLMessage();
