@@ -1,4 +1,5 @@
 from time import sleep
+
 from python.client.GameplayMenu.GamePlayMenu import gameplay
 import pygame, socket
 
@@ -30,6 +31,12 @@ class MainMenu:
                             pygame.image.load("Imgs\\Bg7.png"), pygame.image.load("Imgs\\Bg8.png")]
 
         rec = pygame.Rect(540, 306, 170, 100)
+        rec1 = pygame.Rect(300, 400, 183, 80)
+        rec2 = pygame.Rect(525, 400, 183, 80)
+        rec3 = pygame.Rect(750, 400, 183, 80)
+
+        choose = False
+        num = 0
         click = False
 
         s = None
@@ -61,7 +68,8 @@ class MainMenu:
                                 sleep(0.5)
                                 s.send("Start Server Connection\n".encode())
                                 run = True
-                                gameplay(screen, s)
+                                print(num)
+                                gameplay(screen, s, num)
                             except:
                                 print("Could not connect to Server, try another socket or IP")
 
@@ -89,12 +97,14 @@ class MainMenu:
 
             if not setServerSettingFlag:
                 if rec.collidepoint(pygame.mouse.get_pos()) and click == True:
-                    setServerSettingFlag = True
+                    choose = True
                 elif rec.collidepoint(pygame.mouse.get_pos()):
                     screen.blit(pygame.image.load("Imgs\\playButtonOn.png"), [510, 305])
                 else:
                     screen.blit(pygame.image.load("Imgs\\playButton.png"), [510, 305])
+
             else:
+                screen.blit(pygame.image.load("Imgs\\beforeImage2.png"), [0, 0])
                 pygame.draw.rect(screen, color, IpRect)
                 pygame.draw.rect(screen, color, SocketRect)
                 IpLabelText = copperplateFont.render("Server Ip:", True, (0, 0, 0))
@@ -105,6 +115,37 @@ class MainMenu:
                 screen.blit(SocketText, (SocketRect.x + 5, SocketRect.y + 5))
                 screen.blit(IpLabelText, (IpRect.x - 190, IpRect.y + 10))
                 screen.blit(SocketLabelText, (SocketRect.x - 290, SocketRect.y + 10))
+
+            if choose:
+                screen.blit(pygame.image.load("Imgs\\beforeImage.png"), [0, 0])
+                if rec1.collidepoint(pygame.mouse.get_pos()) and click == True:
+                    num = 2
+                    setServerSettingFlag = True
+                    choose = False
+                elif rec2.collidepoint(pygame.mouse.get_pos()) and click == True:
+                    num = 3
+                    setServerSettingFlag = True
+                    choose = False
+                elif rec3.collidepoint(pygame.mouse.get_pos()) and click == True:
+                    num = 4
+                    setServerSettingFlag = True
+                    choose = False
+                elif rec1.collidepoint(pygame.mouse.get_pos()):
+                    screen.blit(pygame.image.load("Imgs\\twoPlayersChoose.png"), [300, 400])
+                    screen.blit(pygame.image.load("Imgs\\threePlayers.png"), [525, 400])
+                    screen.blit(pygame.image.load("Imgs\\fourPlayers.png"), [750, 400])
+                elif rec2.collidepoint(pygame.mouse.get_pos()):
+                    screen.blit(pygame.image.load("Imgs\\threePlayersChoose.png"), [525, 400])
+                    screen.blit(pygame.image.load("Imgs\\twoPlayers.png"), [300, 400])
+                    screen.blit(pygame.image.load("Imgs\\fourPlayers.png"), [750, 400])
+                elif rec3.collidepoint(pygame.mouse.get_pos()):
+                    screen.blit(pygame.image.load("Imgs\\fourPlayersChoose.png"), [750, 400])
+                    screen.blit(pygame.image.load("Imgs\\threePlayers.png"), [525, 400])
+                    screen.blit(pygame.image.load("Imgs\\twoPlayers.png"), [300, 400])
+                else:
+                    screen.blit(pygame.image.load("Imgs\\twoPlayers.png"), [300, 400])
+                    screen.blit(pygame.image.load("Imgs\\threePlayers.png"), [525, 400])
+                    screen.blit(pygame.image.load("Imgs\\fourPlayers.png"), [750, 400])
 
             sleep(0.1)
             pygame.display.update()
