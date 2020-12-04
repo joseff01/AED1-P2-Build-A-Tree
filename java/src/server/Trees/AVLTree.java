@@ -3,55 +3,62 @@ package server.Trees;
 public class AVLTree {
     Node root;
 
-    public void insert(int key){
+    public void insert(int key) {
 
-        this.root= inserting(this.root,key);
+        this.root = inserting(this.root, key);
     }
-    public void reset(){
-        this.root=null;
+
+    public void reset() {
+        this.root = null;
     }
-    public int getHeight(){
+
+    public int getHeight() {
         return this.root.height;
     }
-    public Node getRoot(){return this.root;}
 
-    private int height(Node node){
-        if (node==null){
+    public Node getRoot() {
+        return this.root;
+    }
+
+    private int height(Node node) {
+        if (node == null) {
             return 0;
         }
         return node.height;
     }
-    private int getBalance(Node node){
-        if(node==null){
+
+    private int getBalance(Node node) {
+        if (node == null) {
             return 0;
         }
-        return height(node.left)-height(node.right);
+        return height(node.left) - height(node.right);
     }
 
-    private Node rightRotate(Node node){
+    private Node rightRotate(Node node) {
         //getting children
-        Node left= node.left;
-        Node change= left.right;
+        Node left = node.left;
+        Node change = left.right;
 
         //rotation
-        left.right=node;
-        node.left=change;
+        left.right = node;
+        node.left = change;
 
         //new heights
-        node.height=Math.max(height(node.left),height(node.right));
-        left.height=Math.max(height(left.left),height(left.right));
+        node.height = Math.max(height(node.left), height(node.right));
+        left.height = Math.max(height(left.left), height(left.right));
 
         return left;
     }
-    private  Node leftRotate(Node node){
-        Node right=node.right;
-        Node change=right.left;
 
-        right.left=node;
-        node.right=change;
+    private Node leftRotate(Node node) {
+        Node right = node.right;
+        Node change = right.left;
 
-        node.height=Math.max(height(node.right),height(node.left));
-        right.height=Math.max(height(right.right),height(right.left));
+        right.left = node;
+        node.right = change;
+
+        node.height = Math.max(height(node.right), height(node.left));
+        right.height = Math.max(height(right.right), height(right.left));
 
         return right;
     }
@@ -67,7 +74,7 @@ public class AVLTree {
         else
             return node;
 
-        node.height = 1+Math.max((height(node.left)),height(node.right));
+        node.height = 1 + Math.max((height(node.left)), height(node.right));
 
         int balance = getBalance(node);
 
@@ -92,3 +99,4 @@ public class AVLTree {
 
         return node;
     }
+}

@@ -1,6 +1,6 @@
 package server.Trees;
 
-public class BST {
+public class BSTree {
     Node root;
     public void insert(int key){
         this.root=inserting(this.root,key);
