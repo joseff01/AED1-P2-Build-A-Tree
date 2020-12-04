@@ -20,29 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f45f8a36-81cb-4664-aa55-572c2cb27d62" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/dictionaries/ignae.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../python/.idea/python.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/AED1-P2-Build-A-Tree.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/AED1-P2-Build-A-Tree.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/server/ChallengeSelectionAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/server/ChallengeSelectionAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/server/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/server/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/server/Messages/AVLMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/server/Messages/AVLMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/server/Messages/AVLToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/server/Messages/AVLToken.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/server/Messages/BMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/server/Messages/BMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/server/Messages/BSTMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/server/Messages/BSTMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/server/Messages/BSTToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/server/Messages/BSTToken.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/server/Messages/BToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/server/Messages/BToken.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/server/Messages/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/server/Messages/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/server/Messages/SplayMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/server/Messages/SplayMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/server/Messages/SplayToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/server/Messages/SplayToken.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/server/Trees/AVLTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/server/Trees/AVLTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/server/Trees/BSTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/server/Trees/BSTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/server/Trees/BTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/server/Trees/BTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/server/Trees/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/server/Trees/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/server/Trees/Page.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/server/Trees/Page.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../python/client/MainMenu/MainMenu.py" beforeDir="false" afterPath="$PROJECT_DIR$/../python/client/MainMenu/Menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../python/client/MainMenu/Menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/../python/client/MainMenu/Menu.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +106,7 @@
       <workItem from="1606851983843" duration="1496000" />
       <workItem from="1607030911865" duration="184000" />
       <workItem from="1607047176863" duration="37000" />
-      <workItem from="1607047256183" duration="1324000" />
+      <workItem from="1607047256183" duration="2019000" />
     </task>
     <servers />
   </component>
@@ -150,29 +130,29 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="353" y="345" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1606715883467" />
-    <state width="1493" height="223" key="GridCell.Tab.0.bottom" timestamp="1607047331420">
+    <state width="1493" height="223" key="GridCell.Tab.0.bottom" timestamp="1607061846854">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607039388257" />
-    <state width="1493" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1607047331420" />
+    <state width="1493" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1607061846854" />
     <state width="1024" height="265" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1606716023764" />
-    <state width="1493" height="223" key="GridCell.Tab.0.center" timestamp="1607047331420">
+    <state width="1493" height="223" key="GridCell.Tab.0.center" timestamp="1607061846854">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607039388256" />
-    <state width="1493" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1607047331420" />
+    <state width="1493" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1607061846854" />
     <state width="1024" height="265" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1606716023764" />
-    <state width="1493" height="223" key="GridCell.Tab.0.left" timestamp="1607047331420">
+    <state width="1493" height="223" key="GridCell.Tab.0.left" timestamp="1607061846853">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607039388256" />
-    <state width="1493" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1607047331420" />
+    <state width="1493" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1607061846853" />
     <state width="1024" height="265" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1606716023764" />
-    <state width="1493" height="223" key="GridCell.Tab.0.right" timestamp="1607047331420">
+    <state width="1493" height="223" key="GridCell.Tab.0.right" timestamp="1607061846854">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607039388257" />
-    <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1607047331420" />
+    <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1607061846854" />
     <state width="1024" height="265" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1606716023764" />
   </component>
 </project>

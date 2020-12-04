@@ -12,148 +12,9 @@ class Menu:
     def __init__(self):
 
         self.screen = pygame.display.set_mode((1200, 674))
-        self.clock = pygame.time.Clock
+        self.clock = pygame.time.Clock()
 
-        IpString = ""
-        SocketString = ""
-        IpRect = pygame.Rect(550, 200, 400, 50)
-        SocketRect = pygame.Rect(550, 300, 400, 50)
-        color = pygame.Color("white")
-        copperplateFont = pygame.font.SysFont("copperplate gothic", 32)
-        IpActive = False
-        SocketActive = False
-
-        run = True
-        setServerSettingFlag = False
-        frame = 0
-
-        screen = self.screen
-
-        pygame.display.set_caption("Smash Bros")
-
-        background_image = [pygame.image.load("Imgs\\Bg1.png").convert(), pygame.image.load("Imgs\\Bg2.png").convert(),
-                            pygame.image.load("Imgs\\Bg3.png").convert(), pygame.image.load("Imgs\\Bg4.png").convert(),
-                            pygame.image.load("Imgs\\Bg5.png").convert(), pygame.image.load("Imgs\\Bg6.png").convert(),
-                            pygame.image.load("Imgs\\Bg7.png").convert(), pygame.image.load("Imgs\\Bg8.png").convert()]
-
-        rec = pygame.Rect(540, 306, 170, 100)
-        rec1 = pygame.Rect(300, 400, 183, 80)
-        rec2 = pygame.Rect(525, 400, 183, 80)
-        rec3 = pygame.Rect(750, 400, 183, 80)
-
-        choose = False
-        num = 0
-        click = False
-
-        s = None
-
-        while run:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    run = False
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    sleep(0.1)
-                    click = True
-                    if IpRect.collidepoint(event.pos):
-                        IpActive = True
-                        SocketActive = False
-                    elif SocketRect.collidepoint(event.pos):
-                        IpActive = False
-                        SocketActive = True
-                    else:
-                        IpActive = False
-                        SocketActive = False
-                if event.type == pygame.MOUSEBUTTONUP:
-                    click = False
-                if (event.type == pygame.KEYDOWN):
-                    if event.key == pygame.K_RETURN:
-                        if (IpString == "127.0.0.1" or IpString.upper() == "LOCALHOST"):
-                            try:
-                                s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                                s.connect(("127.0.0.1", int(SocketString)))
-                                sleep(0.5)
-                                s.send("Start Server Connection\n".encode())
-                                run = False
-                                print(num)
-                                gameplay(screen, s, num)
-                            except:
-                                print("Could not connect to Server, try another socket or IP")
-
-                    if IpActive:
-                        if event.key == pygame.K_BACKSPACE:
-                            IpString = IpString[:-1]
-                        elif len(IpString) < 18:
-                            IpString += event.unicode
-                    elif SocketActive:
-                        if event.key == pygame.K_BACKSPACE:
-                            SocketString = SocketString[:-1]
-                        elif len(SocketString) < 5:
-                            SocketString += event.unicode
-
-            screen.blit(background_image[frame], [0, 0])
-
-            if not setServerSettingFlag:
-                screen.blit(pygame.image.load("Imgs\\Logo.png"), [290, -20])
-
-            frame += 1
-
-            if frame >= 8:
-                frame = 0
-
-            if not setServerSettingFlag:
-                if rec.collidepoint(pygame.mouse.get_pos()) and click == True:
-                    choose = True
-                elif rec.collidepoint(pygame.mouse.get_pos()):
-                    screen.blit(pygame.image.load("Imgs\\playButtonOn.png"), [510, 305])
-                else:
-                    screen.blit(pygame.image.load("Imgs\\playButton.png"), [510, 305])
-
-            else:
-                screen.blit(pygame.image.load("Imgs\\beforeImage2.png"), [0, 0])
-                pygame.draw.rect(screen, color, IpRect)
-                pygame.draw.rect(screen, color, SocketRect)
-                IpLabelText = copperplateFont.render("Server Ip:", True, (0, 0, 0))
-                SocketLabelText = copperplateFont.render("Server Socket:", True, (0, 0, 0))
-                IpText = copperplateFont.render(IpString, True, (0, 0, 0))
-                SocketText = copperplateFont.render(SocketString, True, (0, 0, 0))
-                screen.blit(IpText, (IpRect.x + 5, IpRect.y + 5))
-                screen.blit(SocketText, (SocketRect.x + 5, SocketRect.y + 5))
-                screen.blit(IpLabelText, (IpRect.x - 190, IpRect.y + 10))
-                screen.blit(SocketLabelText, (SocketRect.x - 290, SocketRect.y + 10))
-
-            if choose:
-                screen.blit(pygame.image.load("Imgs\\beforeImage.png"), [0, 0])
-                if rec1.collidepoint(pygame.mouse.get_pos()) and click == True:
-                    num = 2
-                    setServerSettingFlag = True
-                    choose = False
-                elif rec2.collidepoint(pygame.mouse.get_pos()) and click == True:
-                    num = 3
-                    setServerSettingFlag = True
-                    choose = False
-                elif rec3.collidepoint(pygame.mouse.get_pos()) and click == True:
-                    num = 4
-                    setServerSettingFlag = True
-                    choose = False
-                elif rec1.collidepoint(pygame.mouse.get_pos()):
-                    screen.blit(pygame.image.load("Imgs\\twoPlayersChoose.png"), [300, 400])
-                    screen.blit(pygame.image.load("Imgs\\threePlayers.png"), [525, 400])
-                    screen.blit(pygame.image.load("Imgs\\fourPlayers.png"), [750, 400])
-                elif rec2.collidepoint(pygame.mouse.get_pos()):
-                    screen.blit(pygame.image.load("Imgs\\threePlayersChoose.png"), [525, 400])
-                    screen.blit(pygame.image.load("Imgs\\twoPlayers.png"), [300, 400])
-                    screen.blit(pygame.image.load("Imgs\\fourPlayers.png"), [750, 400])
-                elif rec3.collidepoint(pygame.mouse.get_pos()):
-                    screen.blit(pygame.image.load("Imgs\\fourPlayersChoose.png"), [750, 400])
-                    screen.blit(pygame.image.load("Imgs\\threePlayers.png"), [525, 400])
-                    screen.blit(pygame.image.load("Imgs\\twoPlayers.png"), [300, 400])
-                else:
-                    screen.blit(pygame.image.load("Imgs\\twoPlayers.png"), [300, 400])
-                    screen.blit(pygame.image.load("Imgs\\threePlayers.png"), [525, 400])
-                    screen.blit(pygame.image.load("Imgs\\fourPlayers.png"), [750, 400])
-
-            sleep(0.1)
-            pygame.display.update()
+        self.main_menu()
 
     def connect_menu(self, playerNum):
         running = True
@@ -183,7 +44,7 @@ class Menu:
                     running = False
                     pygame.quit()
                     sys.exit()
-                elif event.type == KEYDOWN and event.key == K_ESCAPE:
+                elif event.type == KEYDOWN:
                     if event.key == K_ESCAPE:
                         running = False
 
@@ -203,11 +64,11 @@ class Menu:
                             try:
                                 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                                 s.connect(("127.0.0.1", int(portString)))
-                                # sleep(0.5) why?
                                 s.send("Start Server Connection\n".encode())
                                 run = False
                                 print(playerNum)
                                 gameplay(self.screen, s, playerNum)
+                                running = False
                             except:
                                 print("Could not connect to Server, try another socket or IP")
                         else:
@@ -230,7 +91,7 @@ class Menu:
                 self.draw_text(portString, copperplateFont, BLACK, self.screen, portBox.x + 5, portBox.y + 5)
 
                 pygame.display.flip()
-                self.clock.tick(30)
+                self.clock.tick(60)
 
     def choose_menu(self):
         running = True
@@ -239,12 +100,12 @@ class Menu:
         self.screen.blit(backgroundImg, [0, 0])
 
         # elemento 0 = apagado, 1 = encendido (Escogido)
-        twoButtonImg = [pygame.image.load("Imgs\\twoPlayers.png").convert(),
-                        pygame.image.load("Imgs\\twoPlayersChoose.png").convert()]
-        threeButtonImg = [pygame.image.load("Imgs\\threePlayers.png").convert(),
-                          pygame.image.load("Imgs\\threePlayersChoose.png").convert()]
-        fourButtonImg = [pygame.image.load("Imgs\\fourPlayers.png").convert(),
-                         pygame.image.load("Imgs\\fourPlayersChoose.png").convert()]
+        twoButtonImg = [pygame.image.load("Imgs\\twoPlayers.png").convert_alpha(),
+                        pygame.image.load("Imgs\\twoPlayersChoose.png").convert_alpha()]
+        threeButtonImg = [pygame.image.load("Imgs\\threePlayers.png").convert_alpha(),
+                          pygame.image.load("Imgs\\threePlayersChoose.png").convert_alpha()]
+        fourButtonImg = [pygame.image.load("Imgs\\fourPlayers.png").convert_alpha(),
+                         pygame.image.load("Imgs\\fourPlayersChoose.png").convert_alpha()]
 
         twoButton = pygame.Rect(300, 400, 183, 80)
         threeButton = pygame.Rect(525, 400, 183, 80)
@@ -290,7 +151,7 @@ class Menu:
                 self.screen.blit(fourButtonImg[1 if fourButtonHover else 0], [750, 400])
 
                 pygame.display.flip()
-                self.clock.tick(30)
+                self.clock.tick(14)
 
     def main_menu(self):
         running = True
@@ -298,9 +159,9 @@ class Menu:
                          pygame.image.load("Imgs\\Bg3.png").convert(), pygame.image.load("Imgs\\Bg4.png").convert(),
                          pygame.image.load("Imgs\\Bg5.png").convert(), pygame.image.load("Imgs\\Bg6.png").convert(),
                          pygame.image.load("Imgs\\Bg7.png").convert(), pygame.image.load("Imgs\\Bg8.png").convert()]
-        logoImg = pygame.image.load("Imgs\\Logo.png").convert()
-        playButtonImg = pygame.image.load("Imgs\\playButton.png").convert()
-        playButtonOnImg = pygame.image.load("Imgs\\playButtonOn.png").convert()
+        logoImg = pygame.image.load("Imgs\\Logo.png").convert_alpha()
+        playButtonImg = pygame.image.load("Imgs\\playButton.png").convert_alpha()
+        playButtonOnImg = pygame.image.load("Imgs\\playButtonOn.png").convert_alpha()
 
         playButton = pygame.Rect(540, 306, 170, 100)
 
@@ -325,7 +186,7 @@ class Menu:
                 if click:
                     self.choose_menu()
 
-            bgFrame = (0 if bgFrame >= 8 else bgFrame + 1)
+            bgFrame = (0 if bgFrame >= 7 else bgFrame + 1)
 
             if running:
                 self.screen.blit(backgroundImg[bgFrame], [0, 0])
@@ -333,7 +194,7 @@ class Menu:
                 self.screen.blit(playButtonOnImg if playButtonHover else playButtonImg, [510, 305])
 
                 pygame.display.flip()
-                self.clock.tick(30)
+                self.clock.tick(14)
 
     def draw_text(self, text, font, color, surface, x, y):
         """
