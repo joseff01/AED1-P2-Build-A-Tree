@@ -1,6 +1,6 @@
 from time import sleep
 
-from python.client.GameplayMenu.GamePlayMenu import gameplay
+from python.client.Gameplay.GamePlay import gameplay
 import pygame, socket, sys
 from pygame.locals import *
 

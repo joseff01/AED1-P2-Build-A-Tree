@@ -21,10 +21,51 @@
   <component name="ChangeListManager">
     <list default="true" id="5189dbc9-8f18-4343-af4e-fc1ba480cb30" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/AED1-P2-Build-A-Tree.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AED1-P2-Build-A-Tree.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/java/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/MainMenu/Menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/GameplayMenu/GamePlayMenu.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Gameplay/GamePlay.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/GameplayMenu/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Gameplay/Player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Bg1.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Bg1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Bg2.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Bg2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Bg3.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Bg3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Bg4.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Bg4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Bg5.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Bg5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Bg6.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Bg6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Bg7.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Bg7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Bg8.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Bg8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame0.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame1.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame10.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame11.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame11.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame12.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame12.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame13.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame13.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame14.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame14.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame15.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame15.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame16.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame17.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame17.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame18.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame18.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame19.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame19.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame2.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame3.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame4.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame5.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame6.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame7.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame8.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame9.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/beforeImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/beforeImage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/beforeImage2.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/beforeImage2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/fourPlayers.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/fourPlayers.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/fourPlayersChoose.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/fourPlayersChoose.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/onePlayer.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/onePlayer.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/playButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/playButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/playButtonOn.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/playButtonOn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/threePlayers.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/threePlayers.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/threePlayersChoose.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/threePlayersChoose.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/twoPlayers.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/twoPlayers.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/twoPlayersChoose.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/twoPlayersChoose.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Menu.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +113,7 @@
       <recent name="C:\Users\ignae\PycharmProjects\AED1-P2-Build-A-Tree\python" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.MainMenu">
+  <component name="RunManager" selected="Python.GamePlayMenu">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -84,7 +125,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GamePlayMenu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="GamePlay" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AED1-P2-Build-A-Tree" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -97,7 +138,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python/client/GameplayMenu/GamePlayMenu.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\ignae\PycharmProjects\AED1-P2-Build-A-Tree\python\client\GameplayMenu\GamePlay.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -130,7 +171,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.MainMenu" />
         <item itemvalue="Python.GamePlayMenu" />
       </list>
     </recent_temporary>
@@ -148,7 +188,10 @@
       <workItem from="1606715886842" duration="9000" />
       <workItem from="1606744626156" duration="327000" />
       <workItem from="1607046615227" duration="555000" />
-      <workItem from="1607047239390" duration="19303000" />
+      <workItem from="1607047239390" duration="19494000" />
+      <workItem from="1607303018813" duration="1276000" />
+      <workItem from="1607462956630" duration="108000" />
+      <workItem from="1607463108066" duration="892000" />
     </task>
     <servers />
   </component>
@@ -165,6 +208,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606713563074">
@@ -176,6 +220,10 @@
     </state>
     <state x="468" y="189" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1606744989043" />
     <state x="526" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1606713416031" />
+    <state x="449" y="168" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1607464668127">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="449" y="168" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.864@0.0.1536.864" timestamp="1607464668127" />
     <state x="330" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1607054776023">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -184,35 +232,39 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1606774210379" />
+    <state x="93" y="93" width="1350" height="678" key="DiffContextDialog" timestamp="1607464954562">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="93" y="93" width="1350" height="678" key="DiffContextDialog/0.0.1536.864@0.0.1536.864" timestamp="1607464954562" />
     <state x="549" y="175" key="FileChooserDialogImpl" timestamp="1607048236737">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606713794313" />
     <state x="549" y="175" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1607048236737" />
     <state x="732" y="225" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1606715893786" />
-    <state width="1492" height="273" key="GridCell.Tab.0.bottom" timestamp="1607068233165">
+    <state width="1493" height="273" key="GridCell.Tab.0.bottom" timestamp="1607068535525">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1515" height="226" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607039382334" />
-    <state width="1492" height="273" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1607068233165" />
+    <state width="1493" height="273" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1607068535525" />
     <state width="1142" height="150" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1606716917492" />
-    <state width="1492" height="273" key="GridCell.Tab.0.center" timestamp="1607068233165">
+    <state width="1493" height="273" key="GridCell.Tab.0.center" timestamp="1607068535525">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1515" height="226" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607039382333" />
-    <state width="1492" height="273" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1607068233165" />
+    <state width="1493" height="273" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1607068535525" />
     <state width="1142" height="150" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1606716917492" />
-    <state width="1492" height="273" key="GridCell.Tab.0.left" timestamp="1607068233165">
+    <state width="1493" height="273" key="GridCell.Tab.0.left" timestamp="1607068535524">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1515" height="226" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607039382333" />
-    <state width="1492" height="273" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1607068233165" />
+    <state width="1493" height="273" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1607068535524" />
     <state width="1142" height="150" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1606716917492" />
-    <state width="1492" height="273" key="GridCell.Tab.0.right" timestamp="1607068233165">
+    <state width="1493" height="273" key="GridCell.Tab.0.right" timestamp="1607068535525">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1515" height="226" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607039382333" />
-    <state width="1492" height="273" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1607068233165" />
+    <state width="1493" height="273" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1607068535525" />
     <state width="1142" height="150" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1606716917492" />
     <state width="1515" height="261" key="GridCell.Tab.1.bottom" timestamp="1606977378906">
       <screen x="0" y="0" width="1536" height="824" />
@@ -241,6 +293,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AED1_P2_Build_A_Tree$GamePlayMenu.coverage" NAME="GamePlayMenu Coverage Results" MODIFIED="1607046760605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python/client/GameplayMenu" />
-    <SUITE FILE_PATH="coverage/AED1_P2_Build_A_Tree$MainMenu.coverage" NAME="Menu Coverage Results" MODIFIED="1607068204139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python/client/MainMenu" />
+    <SUITE FILE_PATH="coverage/AED1_P2_Build_A_Tree$MainMenu.coverage" NAME="Menu Coverage Results" MODIFIED="1607068372719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python/client/MainMenu" />
   </component>
 </project>
