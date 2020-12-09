@@ -4,9 +4,11 @@ public class BSTToken extends Message{
 
     int number;
 
-    public BSTToken(int number){
+    int receiver;
+    public BSTToken(int number, int receiver){
 
         this.number = number;
+        this.receiver = receiver;
 
     }
 
@@ -16,6 +18,14 @@ public class BSTToken extends Message{
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    public int getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(int receiver) {
+        this.receiver = receiver;
     }
 
 }

@@ -27,6 +27,7 @@ class gameplay:
                                  pygame.image.load("Imgs\\GamePlay\\bgGame17.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame18.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame19.png").convert()]
+        self.currentChallenge = ""
         self.num = num
         self.socket = s
         self.screen = screen

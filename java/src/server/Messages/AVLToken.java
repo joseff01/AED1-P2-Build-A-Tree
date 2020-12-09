@@ -6,9 +6,12 @@ public class AVLToken extends Message{
 
     int number;
 
-    public AVLToken(int number){
+    int receiver;
+
+    public AVLToken(int number, int receiver){
 
         this.number = number;
+        this.receiver = receiver;
 
     }
 
@@ -20,5 +23,12 @@ public class AVLToken extends Message{
         this.number = number;
     }
 
+    public int getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(int receiver) {
+        this.receiver = receiver;
+    }
 
 }

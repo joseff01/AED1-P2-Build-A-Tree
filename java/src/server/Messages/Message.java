@@ -15,6 +15,8 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = BToken.class, name = "BToken"),
         @JsonSubTypes.Type(value = BSTToken.class, name = "BSTToken"),
         @JsonSubTypes.Type(value = SplayToken.class, name = "SplayToken"),
+        @JsonSubTypes.Type(value = TimerMessage.class, name = "TimerMessage"),
+
 })
 
 public abstract class Message {}

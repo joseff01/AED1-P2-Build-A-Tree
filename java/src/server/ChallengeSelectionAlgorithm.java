@@ -10,6 +10,8 @@ import java.util.Random;
 
 public class ChallengeSelectionAlgorithm{
 
+    Timer timer;
+
     BufferedReader in;
     PrintWriter out;
 
@@ -24,10 +26,13 @@ public class ChallengeSelectionAlgorithm{
         this.in = in;
         this.out = out;
 
-        SelectChallenge();
+        timer = new Timer(in,out, this);
+
+        selectChallenge();
+        sendToken();
     }
 
-    private void SelectChallenge(){
+    public void selectChallenge(){
         int challengeType = random.nextInt(4);
 
         Message message;
@@ -56,7 +61,6 @@ public class ChallengeSelectionAlgorithm{
         System.out.println("sent: " + messageJSON);
         out.println(messageJSON);
 
-        sendToken();
     }
 
     public void sendToken(){
@@ -69,16 +73,16 @@ public class ChallengeSelectionAlgorithm{
 
         if (tokenType == 0){
             //Token BTS (Rhombus)
-            message = new BSTToken(randomNumber);
+            message = new BSTToken(randomNumber,0);
         } else if (tokenType == 1){
             //Token Type B (Square)
-            message = new BToken(randomNumber);
+            message = new BToken(randomNumber,0);
         } else if (tokenType == 2){
             //Token AVL (Circle)
-            message = new AVLToken(randomNumber);
+            message = new AVLToken(randomNumber,0);
         } else {
             //Token Splay (Triangle)
-            message = new SplayToken(randomNumber);
+            message = new SplayToken(randomNumber,0);
         }
 
         String messageJSON = null;
@@ -100,4 +104,5 @@ public class ChallengeSelectionAlgorithm{
 
         sendToken();
     }
+
 }
