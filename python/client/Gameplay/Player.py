@@ -33,7 +33,8 @@ class player(object):
             self.rect.x += self.speed_x
 
         # revisar si pegó con la tierra
-        if self.rect.colliderect(land) and self.rect.bottom > land.top+50: # ///// Aquí el land.top+n lo tiene que ajustar para que sea como el piso máximo de los maecitos
+        if self.rect.colliderect(
+                land) and self.rect.bottom > land.top + 50:  # ///// Aquí el land.top+n lo tiene que ajustar para que sea como el piso máximo de los maecitos
             if self.left:
                 self.rect.left = land.right
             elif self.right:
@@ -54,7 +55,7 @@ class player(object):
                         self.falling = False
 
             # Manejar velocidad vertical
-            if self.falling or self.rising: # lo vuelvo a revisar porque pudo haber parado de estar falling al caer en una plataforma
+            if self.falling or self.rising:  # lo vuelvo a revisar porque pudo haber parado de estar falling al caer en una plataforma
                 self.speed_y += 1  # /////Aquí se cambia la aceleración vertical del jugador//////
                 if self.speed_y > 20:
                     self.speed_y = 20  # /////Aquí se cambia la velocidad máxima de caída/////
@@ -64,9 +65,9 @@ class player(object):
 
         # si se queda sin plataforma por debajo
         if self.falling == False and self.rising == False:
-            self.falling=True
+            self.falling = True
             tryoutRect = self.rect.copy()
-            tryoutRect.y+=1
+            tryoutRect.y += 1
             for platform in platformsList:
                 # si choca con una plataforma
                 if tryoutRect.colliderect(platform):

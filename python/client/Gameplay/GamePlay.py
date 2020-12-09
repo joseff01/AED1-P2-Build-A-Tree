@@ -31,10 +31,10 @@ class gameplay:
         self.socket = s
         self.screen = screen
         self.clock = pygame.time.Clock()
-        self.game()
-
         receiveMessagesThread = threading.Thread(target=self.receiveMessage)
         receiveMessagesThread.start()
+
+        self.game()
 
     def game(self):
         from python.client.Gameplay.Player import player
@@ -140,6 +140,10 @@ class gameplay:
             frame = 0
 
     def receiveMessage(self):
+        import json
         while self.running:
             messageJSON = self.socket.recv(1024)
-            print(messageJSON)
+            #parse string
+            stringJSON = str(messageJSON)[2:-5]
+            dicJSON = json.loads(stringJSON)
+            print(dicJSON)

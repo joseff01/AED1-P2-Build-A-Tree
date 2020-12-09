@@ -65,8 +65,6 @@ class Menu:
                                 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                                 s.connect(("127.0.0.1", int(portString)))
                                 s.send("Start Server Connection\n".encode())
-                                print(playerNum)
-                                print("hello")
                                 gameplay(self.screen, s, playerNum)
                                 running = False
                             except socket.error:
