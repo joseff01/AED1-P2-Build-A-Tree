@@ -73,16 +73,16 @@ public class ChallengeSelectionAlgorithm{
 
         if (tokenType == 0){
             //Token BTS (Rhombus)
-            message = new BSTToken(randomNumber);
+            message = new BSTToken(randomNumber,0);
         } else if (tokenType == 1){
             //Token Type B (Square)
-            message = new BToken(randomNumber);
+            message = new BToken(randomNumber,0);
         } else if (tokenType == 2){
             //Token AVL (Circle)
-            message = new AVLToken(randomNumber);
+            message = new AVLToken(randomNumber,0);
         } else {
             //Token Splay (Triangle)
-            message = new SplayToken(randomNumber);
+            message = new SplayToken(randomNumber,0);
         }
 
         String messageJSON = null;
