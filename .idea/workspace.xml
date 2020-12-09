@@ -21,8 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5189dbc9-8f18-4343-af4e-fc1ba480cb30" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/java/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/client/Gameplay/GamePlay.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Gameplay/GamePlay.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/client/Gameplay/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Gameplay/Player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/Menu/Menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Menu.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +72,7 @@
       <recent name="C:\Users\ignae\PycharmProjects\AED1-P2-Build-A-Tree\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.GamePlay">
+  <component name="RunManager" selected="Python.Menu">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -95,7 +97,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\ignae\PycharmProjects\AED1-P2-Build-A-Tree\python\client\GameplayMenu\GamePlay.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python/client/Gameplay/GamePlay.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -112,12 +114,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python/client/MainMenu" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python/client/Menu" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\ignae\PycharmProjects\AED1-P2-Build-A-Tree\python\client\MainMenu\Menu.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python/client/Menu/Menu.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -126,6 +128,16 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.GamePlay" />
+      <item itemvalue="Python.Menu" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Menu" />
+        <item itemvalue="Python.GamePlay" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -163,10 +175,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="67" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606713563074">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="354" y="58" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607486275527">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="223" y="67" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1606713563074" />
+    <state x="354" y="58" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1607486275527" />
     <state x="468" y="189" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606744989043">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -194,29 +207,29 @@
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606713794313" />
     <state x="549" y="175" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1607048236737" />
     <state x="732" y="225" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1606715893786" />
-    <state width="1493" height="273" key="GridCell.Tab.0.bottom" timestamp="1607068535525">
+    <state width="1493" height="113" key="GridCell.Tab.0.bottom" timestamp="1607488125782">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1515" height="226" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607039382334" />
-    <state width="1493" height="273" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1607068535525" />
+    <state width="1493" height="113" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1607488125782" />
     <state width="1142" height="150" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1606716917492" />
-    <state width="1493" height="273" key="GridCell.Tab.0.center" timestamp="1607068535525">
+    <state width="1493" height="113" key="GridCell.Tab.0.center" timestamp="1607488125782">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1515" height="226" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607039382333" />
-    <state width="1493" height="273" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1607068535525" />
+    <state width="1493" height="113" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1607488125782" />
     <state width="1142" height="150" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1606716917492" />
-    <state width="1493" height="273" key="GridCell.Tab.0.left" timestamp="1607068535524">
+    <state width="1493" height="113" key="GridCell.Tab.0.left" timestamp="1607488125781">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1515" height="226" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607039382333" />
-    <state width="1493" height="273" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1607068535524" />
+    <state width="1493" height="113" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1607488125781" />
     <state width="1142" height="150" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1606716917492" />
-    <state width="1493" height="273" key="GridCell.Tab.0.right" timestamp="1607068535525">
+    <state width="1493" height="113" key="GridCell.Tab.0.right" timestamp="1607488125782">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1515" height="226" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607039382333" />
-    <state width="1493" height="273" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1607068535525" />
+    <state width="1493" height="113" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1607488125782" />
     <state width="1142" height="150" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1606716917492" />
     <state width="1515" height="261" key="GridCell.Tab.1.bottom" timestamp="1606977378906">
       <screen x="0" y="0" width="1536" height="824" />
@@ -249,6 +262,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AED1_P2_Build_A_Tree$GamePlayMenu.coverage" NAME="GamePlayMenu Coverage Results" MODIFIED="1607046760605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python/client/GameplayMenu" />
+    <SUITE FILE_PATH="coverage/AED1_P2_Build_A_Tree$Menu__1_.coverage" NAME="Menu (1) Coverage Results" MODIFIED="1607483858034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python/client/Menu" />
     <SUITE FILE_PATH="coverage/AED1_P2_Build_A_Tree$MainMenu.coverage" NAME="Menu Coverage Results" MODIFIED="1607068372719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python/client/MainMenu" />
+    <SUITE FILE_PATH="coverage/AED1_P2_Build_A_Tree$Menu.coverage" NAME="Menu Coverage Results" MODIFIED="1607488125770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python/client/Menu" />
   </component>
 </project>
