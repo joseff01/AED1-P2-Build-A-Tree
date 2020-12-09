@@ -3,78 +3,53 @@ import pygame
 
 class player(object):
     def __init__(self, x, y, width, height):
-        self.x = x
-        self.y = y
-        self.width = width
-        self.height = height
+        self.rect = pygame.Rect(x, y, 50,
+                                50)  # la idea es eventualmente cambiar esto con image.get_rect() cuando hayan sprites, por eso las llamadas en #position
 
-        # otras caracteristicas
-        self.vel = 5
-        self.isJump = False
-        self.jumpCount = 10
+        # position
+        self.rect.x = x
+        self.rect.y = y
+
+        # movement
+        self.speed_x = 5  # esta es constante
+        self.speed_y = 0  # esta varía
         self.left = False
         self.right = False
-        self.walkCount = 0
-        self.colFrames = 0
-        self.pressed = False
-        self.cae = False
+        self.rising = False
+        self.falling = False
 
-    def move(self, move):
+    def move(self, left, right):
         land = pygame.Rect(283, 461, 635, 213)
         leftCroc = pygame.Rect(300, 373, 105, 20)
-        leftStand = pygame.Rect(485, 300, 76, 5)
-        rightStand = pygame.Rect(639, 300, 76, 5)
+        leftStand = pygame.Rect(485, 300, 76, 10)
+        rightStand = pygame.Rect(639, 300, 76, 10)
         rightBirb = pygame.Rect(795, 373, 105, 20)
-        recPlayer = pygame.Rect(self.x, self.y, 50, 50)
+        platformsList=[leftCroc,rightBirb,leftStand,rightStand]
 
-        if move == 3:
-            if self.jumpCount <= 4 and ((recPlayer.colliderect(leftCroc)) or (recPlayer.colliderect(rightBirb )) or (recPlayer.colliderect(leftStand )) or (recPlayer.colliderect(rightStand))):
-                self.isJump = False
-                self.pressed = False
-                self.jumpCount = 10
-            elif self.jumpCount >= -10:
-                neg = +1
-                if self.jumpCount < 0:
-                    neg = 1
-                self.y -= (self.jumpCount * 2) * neg
-                self.jumpCount -= 1
+        if left:
+            self.rect -= self.speed_x
+        if right:
+            self.rect += self.speed_x
 
-            elif not (recPlayer.colliderect(land) or ((recPlayer.colliderect(leftCroc)) or (recPlayer.colliderect(rightBirb )) or (recPlayer.colliderect(leftStand)) or (recPlayer.colliderect(rightStand)))):
-                self.y+=10
-            else:
-                self.isJump = False
-                self.pressed = False
-                self.jumpCount = 10
+        if self.rect.colliderect(land):
+            if left:
+                self.rect.right = land.left
+            elif right:
+                self.rect.left = land.right
 
-        elif move == 0:
-            recPlayer2 = pygame.Rect(self.x, self.y, 50, 50)
-            if not (recPlayer2.colliderect(land) or ((recPlayer.colliderect(leftCroc)) or (recPlayer.colliderect(rightBirb )) or (recPlayer.colliderect(leftStand )) or (recPlayer.colliderect(rightStand)))):
-                self.y += 10
-            else:
-                self.cae = False
+        insidePlatform = self.rect.collidelist(platformsList)
+        self.rect += self.speed_y
 
-        else:
-            if move == 1:
-                self.x += 10
-                recPlayer2 = pygame.Rect(self.x, self.y, 50, 50)
-                if not (recPlayer2.colliderect(land) or ((recPlayer.colliderect(leftCroc)) or (recPlayer.colliderect(rightBirb )) or (recPlayer.colliderect(leftStand )) or (recPlayer.colliderect(rightStand)))) and self.isJump == False:
-                    self.cae = True
-            if move == 2:
-                self.x -= 10
-                recPlayer2 = pygame.Rect(self.x, self.y, 50, 50)
-                if not (recPlayer2.colliderect(land) or ((recPlayer.colliderect(leftCroc)) or (recPlayer.colliderect(rightBirb )) or (recPlayer.colliderect(leftStand ))or (recPlayer.colliderect(rightStand)))) and self.isJump == False:
-                    self.cae = True
-
+    def jump(self):
+        return
 
     def colision(self, who):
 
         while who.colFrames <= 9:
-            if self.x< who.x:
+            if self.x < who.x:
                 who.move(1)
             else:
                 who.move(2)
-            who.colFrames +=1
+            who.colFrames += 1
 
         who.colFrames = 0
-
-

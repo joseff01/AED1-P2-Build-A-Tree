@@ -20,52 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5189dbc9-8f18-4343-af4e-fc1ba480cb30" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/java/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/GameplayMenu/GamePlayMenu.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Gameplay/GamePlay.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/GameplayMenu/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Gameplay/Player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Bg1.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Bg1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Bg2.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Bg2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Bg3.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Bg3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Bg4.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Bg4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Bg5.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Bg5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Bg6.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Bg6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Bg7.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Bg7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Bg8.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Bg8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame0.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame1.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame10.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame11.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame11.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame12.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame12.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame13.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame13.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame14.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame14.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame15.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame15.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame16.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame16.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame17.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame17.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame18.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame18.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame19.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame19.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame2.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame3.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame4.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame5.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame6.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame7.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame8.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/GamePlay/bgGame9.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/GamePlay/bgGame9.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/Logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/Logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/beforeImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/beforeImage.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/beforeImage2.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/beforeImage2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/fourPlayers.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/fourPlayers.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/fourPlayersChoose.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/fourPlayersChoose.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/onePlayer.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/onePlayer.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/playButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/playButton.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/playButtonOn.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/playButtonOn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/threePlayers.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/threePlayers.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/threePlayersChoose.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/threePlayersChoose.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/twoPlayers.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/twoPlayers.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Imgs/twoPlayersChoose.png" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Imgs/twoPlayersChoose.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/client/MainMenu/Menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Menu/Menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/Gameplay/GamePlay.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Gameplay/GamePlay.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/client/Gameplay/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/client/Gameplay/Player.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,19 +58,19 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\ignae\PycharmProjects\AED1-P2-Build-A-Tree\java" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ignae\PycharmProjects\AED1-P2-Build-A-Tree" />
       <recent name="C:\Users\ignae\PycharmProjects\AED1-P2-Build-A-Tree\python" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ignae\PycharmProjects\AED1-P2-Build-A-Tree\java" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.GamePlayMenu">
+  <component name="RunManager" selected="Python.GamePlay">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -169,11 +126,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.GamePlayMenu" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -191,7 +143,7 @@
       <workItem from="1607047239390" duration="19494000" />
       <workItem from="1607303018813" duration="1276000" />
       <workItem from="1607462956630" duration="108000" />
-      <workItem from="1607463108066" duration="892000" />
+      <workItem from="1607463108066" duration="11906000" />
     </task>
     <servers />
   </component>
@@ -282,14 +234,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1515" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1606977378906" />
-    <state x="555" y="103" key="SettingsEditor" timestamp="1607053633914">
+    <state x="555" y="103" key="SettingsEditor" timestamp="1607465479029">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="555" y="103" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1607053633914" />
-    <state x="611" y="217" key="refactoring.ChangeSignatureDialog" timestamp="1607064377201">
+    <state x="555" y="103" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1607465479029" />
+    <state x="586" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607480214930">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="611" y="217" key="refactoring.ChangeSignatureDialog/0.0.1536.864@0.0.1536.864" timestamp="1607064377201" />
+    <state x="586" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1607480214930" />
+    <state x="611" y="217" key="refactoring.ChangeSignatureDialog" timestamp="1607467870045">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="611" y="217" key="refactoring.ChangeSignatureDialog/0.0.1536.864@0.0.1536.864" timestamp="1607467870045" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AED1_P2_Build_A_Tree$GamePlayMenu.coverage" NAME="GamePlayMenu Coverage Results" MODIFIED="1607046760605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python/client/GameplayMenu" />
