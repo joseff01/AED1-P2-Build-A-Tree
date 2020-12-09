@@ -18,7 +18,6 @@ public class BTree {
     public void reset(){
         this.root=null;
     }
-
     public int getHeight(){
         return this.height;
     }
@@ -45,7 +44,6 @@ public class BTree {
         }
         return page;
     }
-
     private void  check(Page page) {
         //llegó a su capacidad
         if (page.keys.size() == M) {
