@@ -1,6 +1,6 @@
 package server.Messages;
 
-public class TimerMessage {
+public class TimerMessage extends Message{
 
     int timerNumber;
 

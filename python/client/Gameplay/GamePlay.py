@@ -31,6 +31,9 @@ class gameplay:
                                  pygame.image.load("Imgs\\GamePlay\\bgGame17.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame18.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame19.png").convert()]
+
+        self.challengeTimer = None
+        self.gameTimer = None
         self.currentChallenge = None
         self.num = num
         self.socket = s
@@ -56,22 +59,41 @@ class gameplay:
                 self.playersList.append(player4)
 
         challengeRect = pygame.Rect(350, 630, 500, 30)
-        copperplateFont = pygame.font.SysFont("Century Gothic", 24)
+        gameTimerRect = pygame.Rect(425, 570, 50, 30)
+        challengeTimerRect = pygame.Rect(540, 600, 30, 30)
+        Font = pygame.font.SysFont("Century Gothic", 24)
 
         while self.running:
             self.setBackground()
 
             pygame.draw.rect(self.screen, (255, 255, 255), challengeRect)
+            pygame.draw.rect(self.screen, (255, 255, 255), gameTimerRect)
+            pygame.draw.rect(self.screen, (255, 255, 255), challengeTimerRect)
             if self.currentChallenge is not None:
                 if self.currentChallenge["@type"] == "BMessage":
-                    self.draw_text("Build a B Tree of order " + str(self.currentChallenge["order"]) + " with " + str(self.currentChallenge["level"]) + " levels", copperplateFont, (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
+                    self.draw_text("Build a B Tree of order " + str(self.currentChallenge["order"])
+                                   + " with " + str(self.currentChallenge["level"]) + " levels", Font,
+                                   (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
                 if self.currentChallenge["@type"] == "AVLMessage":
-                    self.draw_text("Build an AVL Tree with " + str(self.currentChallenge["elementAmount"]) + " elements", copperplateFont, (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
+                    self.draw_text("Build an AVL Tree with " + str(self.currentChallenge["elementAmount"])
+                                   + " elements", Font, (0, 0, 0), self.screen, challengeRect.x,
+                                   challengeRect.y)
                 if self.currentChallenge["@type"] == "BSTMessage":
-                    self.draw_text("Build a BST Tree of depth " + str(self.currentChallenge["height"]), copperplateFont, (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
+                    self.draw_text("Build a BST Tree of depth " + str(self.currentChallenge["height"]),
+                                   Font, (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
                 if self.currentChallenge["@type"] == "SplayMessage":
-                    self.draw_text("Build a Splay Tree with " + str(self.currentChallenge["elementAmount"]) + " elements", copperplateFont, (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
-
+                    self.draw_text("Build a Splay Tree with " + str(self.currentChallenge["elementAmount"])
+                                   + " elements", Font, (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
+            if self.challengeTimer is not None:
+                self.draw_text(str(self.challengeTimer["timerNumber"]), Font, (0, 0, 0), self.screen, challengeTimerRect.x, challengeTimerRect.y)
+            else:
+                self.draw_text("60", Font, (0, 0, 0), self.screen, challengeTimerRect.x, challengeTimerRect.y)
+            if self.gameTimer is not None:
+                self.draw_text(str(self.gameTimer["timerNumber"]), Font, (0, 0, 0), self.screen, gameTimerRect.x, gameTimerRect.y)
+            else:
+                self.draw_text("600", Font, (0, 0, 0), self.screen, gameTimerRect.x, gameTimerRect.y)
+            self.draw_text("Timer:", Font, (255, 255, 255), self.screen, gameTimerRect.x - 75, gameTimerRect.y)
+            self.draw_text("Challenge Left:", Font, (255, 255, 255), self.screen, challengeTimerRect.x - 190, challengeTimerRect.y)
             player1.pressed = False
             player2.pressed = False
             if self.num > 2:
@@ -178,8 +200,15 @@ class gameplay:
             if dicJSON['@type'] in {"BMessage", "AVLMessage", "BSTMessage", "SplayMessage"}:
                 self.currentChallenge = dicJSON
                 continue
-            #else:
-                #show timer WIP
+            if dicJSON['@type'] == "TimerMessage":
+                if dicJSON["timerType"] == "game":
+                    self.gameTimer = dicJSON
+                    continue
+                if dicJSON["timerType"] == "challenge":
+                    self.challengeTimer = dicJSON
+                    continue
+
+
 
     def draw_text(self, text, font, color, surface, x, y):
         """
