@@ -130,26 +130,31 @@ class gameplay:
 
     def setChallenge(self, challengeRect, challengeTimerRect):
         Font = self.Font
+        BLACK = (0, 0, 0)
+        BLUE = (32, 28, 176)
+        RED = (171, 10, 10)
+        GREEN = (1, 135, 6)
+        YELLOW = (235, 192, 52)
         if self.currentChallenge is not None:
             if self.currentChallenge["@type"] == "BMessage":
                 self.draw_text("Build a B Tree of order " + str(self.currentChallenge["order"])
                                + " with " + str(self.currentChallenge["level"]) + " levels", Font,
-                               (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
+                               YELLOW, self.screen, challengeRect.x, challengeRect.y)
             if self.currentChallenge["@type"] == "AVLMessage":
                 self.draw_text("Build an AVL Tree with " + str(self.currentChallenge["elementAmount"])
-                               + " elements", Font, (0, 0, 0), self.screen, challengeRect.x,
+                               + " elements", Font, BLUE, self.screen, challengeRect.x,
                                challengeRect.y)
             if self.currentChallenge["@type"] == "BSTMessage":
                 self.draw_text("Build a BST Tree of depth " + str(self.currentChallenge["height"]),
-                               Font, (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
+                               Font, RED, self.screen, challengeRect.x, challengeRect.y)
             if self.currentChallenge["@type"] == "SplayMessage":
                 self.draw_text("Build a Splay Tree with " + str(self.currentChallenge["elementAmount"])
-                               + " elements", Font, (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
+                               + " elements", Font, GREEN, self.screen, challengeRect.x, challengeRect.y)
             if self.challengeTimer is not None:
-                self.draw_text(str(self.challengeTimer["timerNumber"]), Font, (0, 0, 0), self.screen,
+                self.draw_text(str(self.challengeTimer["timerNumber"]), Font, BLACK, self.screen,
                                challengeTimerRect.x, challengeTimerRect.y)
             else:
-                self.draw_text("60", Font, (0, 0, 0), self.screen, challengeTimerRect.x, challengeTimerRect.y)
+                self.draw_text("60", Font, BLACK, self.screen, challengeTimerRect.x, challengeTimerRect.y)
 
     def setTimer(self, gameTimerRect):
         Font = self.Font
