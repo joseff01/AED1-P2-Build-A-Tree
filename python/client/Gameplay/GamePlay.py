@@ -32,6 +32,7 @@ class gameplay:
                                  pygame.image.load("Imgs\\GamePlay\\bgGame18.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame19.png").convert()]
         Node.Font = pygame.font.SysFont("Century Gothic", 20)  # Set font for nodes
+        self.Font = pygame.font.SysFont("Century Gothic", 24)  # Set font of everything else
 
         self.challengeTimer = None
         self.gameTimer = None
@@ -62,39 +63,8 @@ class gameplay:
         challengeRect = pygame.Rect(350, 630, 500, 30)
         gameTimerRect = pygame.Rect(425, 570, 50, 30)
         challengeTimerRect = pygame.Rect(540, 600, 30, 30)
-        Font = pygame.font.SysFont("Century Gothic", 24)
 
         while self.running:
-            self.setBackground()
-
-            pygame.draw.rect(self.screen, (255, 255, 255), challengeRect)
-            pygame.draw.rect(self.screen, (255, 255, 255), gameTimerRect)
-            pygame.draw.rect(self.screen, (255, 255, 255), challengeTimerRect)
-            if self.currentChallenge is not None:
-                if self.currentChallenge["@type"] == "BMessage":
-                    self.draw_text("Build a B Tree of order " + str(self.currentChallenge["order"])
-                                   + " with " + str(self.currentChallenge["level"]) + " levels", Font,
-                                   (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
-                if self.currentChallenge["@type"] == "AVLMessage":
-                    self.draw_text("Build an AVL Tree with " + str(self.currentChallenge["elementAmount"])
-                                   + " elements", Font, (0, 0, 0), self.screen, challengeRect.x,
-                                   challengeRect.y)
-                if self.currentChallenge["@type"] == "BSTMessage":
-                    self.draw_text("Build a BST Tree of depth " + str(self.currentChallenge["height"]),
-                                   Font, (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
-                if self.currentChallenge["@type"] == "SplayMessage":
-                    self.draw_text("Build a Splay Tree with " + str(self.currentChallenge["elementAmount"])
-                                   + " elements", Font, (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
-            if self.challengeTimer is not None:
-                self.draw_text(str(self.challengeTimer["timerNumber"]), Font, (0, 0, 0), self.screen,challengeTimerRect.x, challengeTimerRect.y)
-            else:
-                self.draw_text("60", Font, (0, 0, 0), self.screen, challengeTimerRect.x, challengeTimerRect.y)
-            if self.gameTimer is not None:
-                self.draw_text(str(self.gameTimer["timerNumber"]), Font, (0, 0, 0), self.screen, gameTimerRect.x,gameTimerRect.y)
-            else:
-                self.draw_text("600", Font, (0, 0, 0), self.screen, gameTimerRect.x, gameTimerRect.y)
-            self.draw_text("Timer:", Font, (255, 255, 255), self.screen, gameTimerRect.x - 75, gameTimerRect.y)
-            self.draw_text("Challenge Left:", Font, (255, 255, 255), self.screen, challengeTimerRect.x - 190,challengeTimerRect.y)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -128,6 +98,7 @@ class gameplay:
             for p in self.playersList:
                 p.move(self.playersList)
 
+            # manejo de nodos
             for n in self.nodesList:
                 n.fall(self.nodesList)
                 if n.check_catch(self.playersList):
@@ -135,13 +106,63 @@ class gameplay:
                     n.send(self.socket)
 
             if self.running:
+                # pintar fondo
+                self.setBackground()
+                # pintar jugadores
                 for player in self.playersList:
                     pygame.draw.rect(self.screen, (150, 0, 0), player.rect)
+                # pintar nodos
                 for n in self.nodesList:
                     n.draw(self.screen)
+                # pintar rects para info de challenges y timer
+                pygame.draw.rect(self.screen, (255, 255, 255), challengeRect)
+                pygame.draw.rect(self.screen, (255, 255, 255), gameTimerRect)
+                pygame.draw.rect(self.screen, (255, 255, 255), challengeTimerRect)
+                # info de challenges y timer
+                self.setChallenge(challengeRect, challengeTimerRect)
+                self.setTimer(gameTimerRect)
+                self.draw_text("Timer:", self.Font, (255, 255, 255), self.screen, gameTimerRect.x - 75, gameTimerRect.y)
+                self.draw_text("Challenge Left:", self.Font, (255, 255, 255), self.screen, challengeTimerRect.x - 190,
+                               challengeTimerRect.y)
 
                 pygame.display.flip()
                 self.clock.tick(30)  # Aquí se controlan los FPS
+
+    def setChallenge(self, challengeRect, challengeTimerRect):
+        Font = self.Font
+        BLACK = (0, 0, 0)
+        BLUE = (32, 28, 176)
+        RED = (171, 10, 10)
+        GREEN = (1, 135, 6)
+        YELLOW = (235, 192, 52)
+        if self.currentChallenge is not None:
+            if self.currentChallenge["@type"] == "BMessage":
+                self.draw_text("Build a B Tree of order " + str(self.currentChallenge["order"])
+                               + " with " + str(self.currentChallenge["level"]) + " levels", Font,
+                               YELLOW, self.screen, challengeRect.x, challengeRect.y)
+            if self.currentChallenge["@type"] == "AVLMessage":
+                self.draw_text("Build an AVL Tree with " + str(self.currentChallenge["elementAmount"])
+                               + " elements", Font, BLUE, self.screen, challengeRect.x,
+                               challengeRect.y)
+            if self.currentChallenge["@type"] == "BSTMessage":
+                self.draw_text("Build a BST Tree of depth " + str(self.currentChallenge["height"]),
+                               Font, RED, self.screen, challengeRect.x, challengeRect.y)
+            if self.currentChallenge["@type"] == "SplayMessage":
+                self.draw_text("Build a Splay Tree with " + str(self.currentChallenge["elementAmount"])
+                               + " elements", Font, GREEN, self.screen, challengeRect.x, challengeRect.y)
+            if self.challengeTimer is not None:
+                self.draw_text(str(self.challengeTimer["timerNumber"]), Font, BLACK, self.screen,
+                               challengeTimerRect.x, challengeTimerRect.y)
+            else:
+                self.draw_text("60", Font, BLACK, self.screen, challengeTimerRect.x, challengeTimerRect.y)
+
+    def setTimer(self, gameTimerRect):
+        Font = self.Font
+        if self.gameTimer is not None:
+            self.draw_text(str(self.gameTimer["timerNumber"]), Font, (0, 0, 0), self.screen, gameTimerRect.x,
+                           gameTimerRect.y)
+        else:
+            self.draw_text("600", Font, (0, 0, 0), self.screen, gameTimerRect.x, gameTimerRect.y)
 
     def setBackground(self):
         global frame, count
