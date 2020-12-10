@@ -31,7 +31,7 @@ class gameplay:
                                  pygame.image.load("Imgs\\GamePlay\\bgGame17.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame18.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame19.png").convert()]
-        self.currentChallenge = ""
+        self.currentChallenge = None
         self.num = num
         self.socket = s
         self.screen = screen
@@ -56,11 +56,21 @@ class gameplay:
                 self.playersList.append(player4)
 
         challengeRect = pygame.Rect(350, 630, 500, 30)
+        copperplateFont = pygame.font.SysFont("Century Gothic", 24)
 
         while self.running:
             self.setBackground()
 
             pygame.draw.rect(self.screen, (255, 255, 255), challengeRect)
+            if self.currentChallenge is not None:
+                if self.currentChallenge["@type"] == "BMessage":
+                    self.draw_text("Build a B Tree of order " + str(self.currentChallenge["order"]) + " with " + str(self.currentChallenge["level"]) + " levels", copperplateFont, (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
+                if self.currentChallenge["@type"] == "AVLMessage":
+                    self.draw_text("Build an AVL Tree with " + str(self.currentChallenge["elementAmount"]) + " elements", copperplateFont, (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
+                if self.currentChallenge["@type"] == "BSTMessage":
+                    self.draw_text("Build a BST Tree of depth " + str(self.currentChallenge["height"]), copperplateFont, (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
+                if self.currentChallenge["@type"] == "SplayMessage":
+                    self.draw_text("Build a Splay Tree with " + str(self.currentChallenge["elementAmount"]) + " elements", copperplateFont, (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
 
             player1.pressed = False
             player2.pressed = False
@@ -163,4 +173,20 @@ class gameplay:
             # print(stringJSON)
             dicJSON = json.loads(stringJSON)
             print(dicJSON)
+            if dicJSON['@type'] in {"BMessage", "AVLMessage", "BSTMessage", "SplayMessage"}:
+                self.currentChallenge = dicJSON
+                continue
             self.nodesList.append(Node((dicJSON['@type'], dicJSON['number'])))
+
+    def draw_text(self, text, font, color, surface, x, y):
+        """
+        Parameters: text, font, color, surface, x, y
+
+        Return: None
+
+        Restrictions1: text must be string, font must be pygame font object
+        """
+        if text == "":
+            return
+        text = font.render(text, 1, color)
+        surface.blit(text, (x, y))
