@@ -31,6 +31,7 @@ class gameplay:
                                  pygame.image.load("Imgs\\GamePlay\\bgGame17.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame18.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame19.png").convert()]
+        Node.Font = pygame.font.SysFont("Century Gothic", 20)  # Set font for nodes
 
         self.challengeTimer = None
         self.gameTimer = None
@@ -97,12 +98,6 @@ class gameplay:
             self.draw_text("Timer:", Font, (255, 255, 255), self.screen, gameTimerRect.x - 75, gameTimerRect.y)
             self.draw_text("Challenge Left:", Font, (255, 255, 255), self.screen, challengeTimerRect.x - 190,
                            challengeTimerRect.y)
-            player1.pressed = False
-            player2.pressed = False
-            if self.num > 2:
-                player3.pressed = False
-                if self.num > 3:
-                    player4.pressed = False
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
