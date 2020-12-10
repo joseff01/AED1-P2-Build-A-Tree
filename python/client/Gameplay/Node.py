@@ -1,5 +1,4 @@
 import random
-
 import pygame
 
 
@@ -13,9 +12,21 @@ class Node:
         self.type = node_type
         self.number = number
         self.receiver = 0
+        self.speed_y = 10
 
     def fall(self):
-        return
+        land = pygame.Rect(283, 461, 635, 213)
+        leftCroc = pygame.Rect(300, 373, 105, 20)
+        leftStand = pygame.Rect(485, 300, 76, 10)
+        rightStand = pygame.Rect(639, 300, 76, 10)
+        rightBirb = pygame.Rect(795, 373, 105, 20)
+        platformsList = [land, leftCroc, rightBirb, leftStand, rightStand]
+
+        self.rect.y += self.speed_y
+
+        # si toca plataforma
+        if self.rect.collidelist(platformsList) != -1:
+            self.delete()
 
     def draw(self, surface):
         width = 1
@@ -45,6 +56,9 @@ class Node:
             trianglePoints = [self.rect.midtop, self.rect.bottomleft, self.rect.bottomright]
             self.rect = pygame.draw.polygon(surface, GREEN, trianglePoints)
             self.rect = pygame.draw.polygon(surface, GREEN, trianglePoints, width)
+
+    def delete(self):
+        pass
 
 
 def draw_text(text, font, color, surface, x, y):

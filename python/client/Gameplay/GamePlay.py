@@ -44,15 +44,15 @@ class gameplay:
 
     def game(self):
 
-        player1 = player(475, 415, 50, 50)
-        player2 = player(1000, 415, 50, 50)
+        player1 = Player(475, 415, 50, 50)
+        player2 = Player(1000, 415, 50, 50)
         self.playersList.extend((player1, player2))
 
         if self.num > 2:
-            player3 = player(646, 250, 50, 50)
+            player3 = Player(646, 250, 50, 50)
             self.playersList.append(player3)
             if self.num > 3:
-                player4 = player(800, 257, 50, 50)
+                player4 = Player(800, 257, 50, 50)
                 self.playersList.append(player4)
 
         challengeRect = pygame.Rect(350, 630, 500, 30)
@@ -99,22 +99,12 @@ class gameplay:
                         pNum += 1
 
             # movimiento
-<<<<<<< HEAD
-            for p in playersList:
-                p.move(playersList)
-
-
-            if self.running:
-                for player in playersList:
-                    pygame.draw.rect(self.screen, (150, 0, 0), player.rect)
-=======
             for p in self.playersList:
-                p.move()
+                p.move(self.playersList)
 
             if self.running:
                 for player in self.playersList:
-                    pygame.draw.rect(self.screen, (100, 0, 0), player.rect)
->>>>>>> f8542a8... Terminado de agregar el Node.draw method
+                    pygame.draw.rect(self.screen, (150, 0, 0), player.rect)
 
                 pygame.display.flip()
                 self.clock.tick(30)  # Aquí se controlan los FPS
@@ -154,13 +144,13 @@ class gameplay:
         global frame, count
         if frame >= 19:
             frame = 0
-        elif count ==2:
+        elif count == 2:
             frame += 1
             count = 0
         else:
             count += 1
-        self.screen.blit(self.background_image[frame], [150, 0]),self.screen.blit(self.background_image[frame], [150, 0])
-
+        self.screen.blit(self.background_image[frame], [150, 0]), self.screen.blit(self.background_image[frame],
+                                                                                   [150, 0])
 
     def receiveMessage(self):
         import json
