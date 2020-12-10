@@ -133,6 +133,9 @@ class gameplay:
 
             for n in self.nodesList:
                 n.fall(self.nodesList)
+                if n.check_catch(self.playersList):
+                    n.delete(self.nodesList)
+                    n.send(self.socket)
 
             if self.running:
                 for player in self.playersList:
