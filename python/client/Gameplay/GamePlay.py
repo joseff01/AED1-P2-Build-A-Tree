@@ -85,15 +85,18 @@ class gameplay:
                     self.draw_text("Build a Splay Tree with " + str(self.currentChallenge["elementAmount"])
                                    + " elements", Font, (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
             if self.challengeTimer is not None:
-                self.draw_text(str(self.challengeTimer["timerNumber"]), Font, (0, 0, 0), self.screen, challengeTimerRect.x, challengeTimerRect.y)
+                self.draw_text(str(self.challengeTimer["timerNumber"]), Font, (0, 0, 0), self.screen,
+                               challengeTimerRect.x, challengeTimerRect.y)
             else:
                 self.draw_text("60", Font, (0, 0, 0), self.screen, challengeTimerRect.x, challengeTimerRect.y)
             if self.gameTimer is not None:
-                self.draw_text(str(self.gameTimer["timerNumber"]), Font, (0, 0, 0), self.screen, gameTimerRect.x, gameTimerRect.y)
+                self.draw_text(str(self.gameTimer["timerNumber"]), Font, (0, 0, 0), self.screen, gameTimerRect.x,
+                               gameTimerRect.y)
             else:
                 self.draw_text("600", Font, (0, 0, 0), self.screen, gameTimerRect.x, gameTimerRect.y)
             self.draw_text("Timer:", Font, (255, 255, 255), self.screen, gameTimerRect.x - 75, gameTimerRect.y)
-            self.draw_text("Challenge Left:", Font, (255, 255, 255), self.screen, challengeTimerRect.x - 190, challengeTimerRect.y)
+            self.draw_text("Challenge Left:", Font, (255, 255, 255), self.screen, challengeTimerRect.x - 190,
+                           challengeTimerRect.y)
             player1.pressed = False
             player2.pressed = False
             if self.num > 2:
@@ -133,10 +136,14 @@ class gameplay:
             for p in self.playersList:
                 p.move(self.playersList)
 
+            for n in self.nodesList:
+                n.fall(self.nodesList)
 
             if self.running:
                 for player in self.playersList:
                     pygame.draw.rect(self.screen, (150, 0, 0), player.rect)
+                for n in self.nodesList:
+                    n.draw(self.screen)
 
                 pygame.display.flip()
                 self.clock.tick(30)  # Aquí se controlan los FPS
@@ -163,10 +170,10 @@ class gameplay:
             # print(stringJSON)
             dicJSON = json.loads(stringJSON)
             print(dicJSON)
-            if dicJSON['@type'][-5:] == "token":
-                self.nodesList.append(Node((dicJSON['@type'], dicJSON['number'])))
+            if dicJSON['@type'][-5:] == "Token":
+                self.nodesList.append(Node(dicJSON['@type'], dicJSON['number']))
                 continue
-            if dicJSON['@type'] in {"BMessage", "AVLMessage", "BSTMessage", "SplayMessage"}:
+            if dicJSON['@type'][-7:] == "Message":
                 self.currentChallenge = dicJSON
                 continue
             if dicJSON['@type'] == "TimerMessage":
@@ -176,8 +183,6 @@ class gameplay:
                 if dicJSON["timerType"] == "challenge":
                     self.challengeTimer = dicJSON
                     continue
-
-
 
     def draw_text(self, text, font, color, surface, x, y):
         """

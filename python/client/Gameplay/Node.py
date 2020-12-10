@@ -6,7 +6,7 @@ class Node:
     def __init__(self, node_type, number):
         x = random.randint(30, 1200 - 30)
 
-        self.rect = pygame.Rect(x, 0, 20, 20)
+        self.rect = pygame.Rect(x, 0, 30, 30)
 
         self.type = node_type
         self.number = number
@@ -24,7 +24,7 @@ class Node:
         self.rect.y += self.speed_y
 
         # si toca plataforma
-        if self.rect.collidelist(platformsList) != -1:
+        if self.rect.collidelist(platformsList) != -1 or self.rect.y > 674:
             self.delete(nodesList)
 
     def draw(self, surface):
@@ -41,7 +41,7 @@ class Node:
             x = self.rect.x
             y = self.rect.y
             hexagonPoints = [(x + self.rect.width / 3, y), (x + 2 * self.rect.width / 3, y),  # Puntos arriba
-                             (self.rect.right, + self.rect.height / 3), (self.rect.right, y + 2 * self.rect.height / 3),
+                             (self.rect.right, y + self.rect.height / 3), (self.rect.right, y + 2 * self.rect.height / 3),
                              # Puntos derecha
                              (x + 2 * self.rect.width / 3, self.rect.bottom),
                              (x + self.rect.width / 3, self.rect.bottom),  # Puntos abajo
@@ -49,8 +49,8 @@ class Node:
             pygame.draw.polygon(surface, BLUE, hexagonPoints)
             pygame.draw.polygon(surface, WHITE, hexagonPoints, borderWidth)
         elif self.type == "BToken":  # yellow circle
-            pygame.draw.circle(surface, YELLOW, self.rect.center, self.rect.width/2)
-            pygame.draw.circle(surface, WHITE, self.rect.center, self.rect.width/2, borderWidth)
+            pygame.draw.circle(surface, YELLOW, self.rect.center, self.rect.width / 2)
+            pygame.draw.circle(surface, WHITE, self.rect.center, self.rect.width / 2, borderWidth)
         elif self.type == "SplayToken":  # green tringle
             trianglePoints = [self.rect.midtop, self.rect.bottomleft, self.rect.bottomright]
             pygame.draw.polygon(surface, GREEN, trianglePoints)
