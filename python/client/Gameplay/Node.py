@@ -1,3 +1,4 @@
+import json
 import random
 import pygame
 
@@ -29,6 +30,15 @@ class Node:
         if self.rect.collidelist(platformsList) != -1 or self.rect.y > 674:
             self.delete(nodesList)
 
+    def check_catch(self, playersList):
+        pNum = 1
+        for player in playersList:
+            if self.rect.colliderect(player.rect):
+                self.receiver = pNum
+                return True
+            pNum += 1
+        return False
+
     def draw(self, surface):
         borderWidth = 2
         WHITE = (255, 255, 255)
@@ -38,7 +48,7 @@ class Node:
         YELLOW = (235, 192, 52)
         x = self.rect.x
         y = self.rect.y
-        numberText = self.Font.render(str(self.number) if self.number >= 10 else "0"+str(self.number), 1, WHITE)
+        numberText = self.Font.render(str(self.number) if self.number >= 10 else "0" + str(self.number), 1, WHITE)
         if self.type == "BSTToken":  # red square
             pygame.draw.rect(surface, RED, self.rect)
             pygame.draw.rect(surface, WHITE, self.rect, borderWidth)
@@ -64,6 +74,12 @@ class Node:
             pygame.draw.polygon(surface, WHITE, trianglePoints, borderWidth)
             surface.blit(numberText, (x + self.rect.width / 4, y + 3 * self.rect.height / 8))
 
-
     def delete(self, nodesList):
-        nodesList.remove(self)
+        if self in nodesList:
+            nodesList.remove(self)
+
+    def send(self, socket):
+        objectDict = {'@type': self.type, 'number': self.number, 'receiver': self.receiver}
+        objectJSON = bytes(json.dumps(objectDict), encoding="utf-8")
+        socket.sendall(objectJSON)
+        return
