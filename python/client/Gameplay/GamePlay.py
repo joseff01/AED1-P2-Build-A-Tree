@@ -108,6 +108,8 @@ class gameplay:
             if self.running:
                 # pintar fondo
                 self.setBackground()
+                # pintar sidebar
+                self.setTreeSidebar()
                 # pintar jugadores
                 for player in self.playersList:
                     pygame.draw.rect(self.screen, (150, 0, 0), player.rect)
@@ -127,6 +129,17 @@ class gameplay:
 
                 pygame.display.flip()
                 self.clock.tick(30)  # Aquí se controlan los FPS
+
+    def setTreeSidebar(self):
+        WHITE = (255, 255, 255)
+        BLACK = (0, 0, 0)
+        LIGHTYELLOW = (242, 212, 143)
+        pygame.draw.rect(self.screen, LIGHTYELLOW, (1200, 0, 300, 674))
+        pygame.draw.rect(self.screen, BLACK, (1200, 0, 300, 674), 4)
+        for n in range(4):  # 1-3
+            pygame.draw.line(self.screen, BLACK, (1200, n * 674 / 4), (1500, n * 674 / 4), 4)
+        for n in range(self.num):
+            self.draw_text("Jugador " + str(n + 1), self.Font, BLACK, self.screen, 1210, 2 + n * 674 / 4)
 
     def setChallenge(self, challengeRect, challengeTimerRect):
         Font = self.Font
