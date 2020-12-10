@@ -86,18 +86,15 @@ class gameplay:
                     self.draw_text("Build a Splay Tree with " + str(self.currentChallenge["elementAmount"])
                                    + " elements", Font, (0, 0, 0), self.screen, challengeRect.x, challengeRect.y)
             if self.challengeTimer is not None:
-                self.draw_text(str(self.challengeTimer["timerNumber"]), Font, (0, 0, 0), self.screen,
-                               challengeTimerRect.x, challengeTimerRect.y)
+                self.draw_text(str(self.challengeTimer["timerNumber"]), Font, (0, 0, 0), self.screen,challengeTimerRect.x, challengeTimerRect.y)
             else:
                 self.draw_text("60", Font, (0, 0, 0), self.screen, challengeTimerRect.x, challengeTimerRect.y)
             if self.gameTimer is not None:
-                self.draw_text(str(self.gameTimer["timerNumber"]), Font, (0, 0, 0), self.screen, gameTimerRect.x,
-                               gameTimerRect.y)
+                self.draw_text(str(self.gameTimer["timerNumber"]), Font, (0, 0, 0), self.screen, gameTimerRect.x,gameTimerRect.y)
             else:
                 self.draw_text("600", Font, (0, 0, 0), self.screen, gameTimerRect.x, gameTimerRect.y)
             self.draw_text("Timer:", Font, (255, 255, 255), self.screen, gameTimerRect.x - 75, gameTimerRect.y)
-            self.draw_text("Challenge Left:", Font, (255, 255, 255), self.screen, challengeTimerRect.x - 190,
-                           challengeTimerRect.y)
+            self.draw_text("Challenge Left:", Font, (255, 255, 255), self.screen, challengeTimerRect.x - 190,challengeTimerRect.y)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -169,15 +166,16 @@ class gameplay:
                 self.nodesList.append(Node(dicJSON['@type'], dicJSON['number']))
                 continue
             if dicJSON['@type'][-7:] == "Message":
+                if dicJSON['@type'] == "TimerMessage":
+                    if dicJSON["timerType"] == "game":
+                        self.gameTimer = dicJSON
+                        continue
+                    if dicJSON["timerType"] == "challenge":
+                        self.challengeTimer = dicJSON
+                        print("!!!!!!!!!!!!!!!!!!")
+                        continue
                 self.currentChallenge = dicJSON
                 continue
-            if dicJSON['@type'] == "TimerMessage":
-                if dicJSON["timerType"] == "game":
-                    self.gameTimer = dicJSON
-                    continue
-                if dicJSON["timerType"] == "challenge":
-                    self.challengeTimer = dicJSON
-                    continue
 
     def draw_text(self, text, font, color, surface, x, y):
         """
