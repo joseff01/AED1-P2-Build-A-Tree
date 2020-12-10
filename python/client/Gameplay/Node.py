@@ -4,10 +4,9 @@ import pygame
 
 class Node:
     def __init__(self, node_type, number):
-        self.x = random.randint(30, 1200 - 30)
-        self.y = 0
+        x = random.randint(30, 1200 - 30)
 
-        self.rect = pygame.Rect(self.x, self.y, 20, 20)
+        self.rect = pygame.Rect(x, 0, 20, 20)
 
         self.type = node_type
         self.number = number
@@ -29,7 +28,7 @@ class Node:
             self.delete()
 
     def draw(self, surface):
-        width = 1
+        borderWidth = 2
         WHITE = (255, 255, 255)
         BLUE = (32, 28, 176)
         RED = (171, 10, 10)
@@ -37,25 +36,25 @@ class Node:
         YELLOW = (235, 192, 52)
         if self.type == "BSTToken":  # red square
             pygame.draw.rect(surface, RED, self.rect)
-            pygame.draw.rect(surface, WHITE, self.rect, width)
+            pygame.draw.rect(surface, WHITE, self.rect, borderWidth)
         elif self.type == "AVLToken":  # blue hexagon
-            hexagonPoints = [(self.x + self.rect.width / 3, self.y), (self.x + 2 * self.rect.width / 3, self.y),
-                             # Puntos arriba
-                             (self.rect.right, self.y + self.rect.height / 3),
-                             (self.rect.right, self.y + 2 * self.rect.height / 3),  # Puntos derecha
-                             (self.x + 2 * self.rect.width / 3, self.rect.bottom),
-                             (self.x + self.rect.width / 3, self.rect.bottom),  # Puntos abajo
-                             (self.x, self.y + 2 * self.rect.height / 3),
-                             (self.x, self.y + self.rect.height / 3)]  # Puntos izquierda
+            x = self.rect.x
+            y = self.rect.y
+            hexagonPoints = [(x + self.rect.width / 3, y), (x + 2 * self.rect.width / 3, y),  # Puntos arriba
+                             (self.rect.right, + self.rect.height / 3), (self.rect.right, y + 2 * self.rect.height / 3),
+                             # Puntos derecha
+                             (x + 2 * self.rect.width / 3, self.rect.bottom),
+                             (x + self.rect.width / 3, self.rect.bottom),  # Puntos abajo
+                             (x, y + 2 * self.rect.height / 3), (x, y + self.rect.height / 3)]  # Puntos izquierda
             pygame.draw.polygon(surface, BLUE, hexagonPoints)
-            pygame.draw.polygon(surface, BLUE, hexagonPoints, width)
+            pygame.draw.polygon(surface, WHITE, hexagonPoints, borderWidth)
         elif self.type == "BToken":  # yellow circle
-            pygame.draw.circle(surface, YELLOW, self.rect.center, 20)
-            pygame.draw.circle(surface, YELLOW, self.rect.center, 20, width)
+            pygame.draw.circle(surface, YELLOW, self.rect.center, self.rect.width/2)
+            pygame.draw.circle(surface, WHITE, self.rect.center, self.rect.width/2, borderWidth)
         elif self.type == "SplayToken":  # green tringle
             trianglePoints = [self.rect.midtop, self.rect.bottomleft, self.rect.bottomright]
-            self.rect = pygame.draw.polygon(surface, GREEN, trianglePoints)
-            self.rect = pygame.draw.polygon(surface, GREEN, trianglePoints, width)
+            pygame.draw.polygon(surface, GREEN, trianglePoints)
+            pygame.draw.polygon(surface, WHITE, trianglePoints, borderWidth)
 
     def delete(self):
         pass
