@@ -2,6 +2,7 @@ import pygame, threading
 from pygame.locals import *
 
 frame = 0
+count = 0
 
 
 class gameplay:
@@ -42,15 +43,15 @@ class gameplay:
         from python.client.Gameplay.Player import player
         playersList = []
 
-        player1 = player(325, 415, 50, 50)
-        player2 = player(850, 415, 50, 50)
+        player1 = player(475, 415, 50, 50)
+        player2 = player(1000, 415, 50, 50)
         playersList.extend((player1, player2))
         challengeRect = pygame.Rect(350, 630, 500, 30)
         if self.num > 2:
-            player3 = player(496, 250, 50, 50)
+            player3 = player(646, 250, 50, 50)
             playersList.append(player3)
             if self.num > 3:
-                player4 = player(650, 257, 50, 50)
+                player4 = player(800, 257, 50, 50)
                 playersList.append(player4)
 
         while self.running:
@@ -98,11 +99,12 @@ class gameplay:
 
             # movimiento
             for p in playersList:
-                p.move()
+                p.move(playersList)
+
 
             if self.running:
                 for player in playersList:
-                    pygame.draw.rect(self.screen, (100, 0, 0), player.rect)
+                    pygame.draw.rect(self.screen, (150, 0, 0), player.rect)
 
                 pygame.display.flip()
                 self.clock.tick(30) # Aquí se controlan los FPS
@@ -139,11 +141,16 @@ class gameplay:
                     player3.colision(player4)
 
     def setBackground(self):
-        global frame
-        self.screen.blit(self.background_image[frame], [0, 0])
-        frame += 1
+        global frame, count
         if frame >= 19:
             frame = 0
+        elif count ==2:
+            frame += 1
+            count = 0
+        else:
+            count += 1
+        self.screen.blit(self.background_image[frame], [150, 0]),self.screen.blit(self.background_image[frame], [150, 0])
+
 
     def receiveMessage(self):
         import json
