@@ -1,8 +1,13 @@
 package server.Trees;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.ArrayList;
 
+@JsonIgnoreProperties(value = { "parent" })
+
 public class Page {
+
     ArrayList<Integer> keys=new ArrayList<Integer>();
     ArrayList<Page> Branches=new ArrayList<Page>();
     Page parent;
@@ -10,6 +15,7 @@ public class Page {
     public Page(){
         this.parent=null;
     }
+
     public int search(int key){
         //Variable de índice donde se debe colocar
         int accsess=this.keys.size();
@@ -26,6 +32,7 @@ public class Page {
         }
         return accsess;
     }
+
     public void insertbranch(Page page, int index){
         while(index!=this.Branches.size()+1){
             if(index == this.Branches.size()){
@@ -69,4 +76,13 @@ public class Page {
             }
         }
     }
+
+    public ArrayList<Integer> getKeys() {
+        return keys;
+    }
+
+    public ArrayList<Page> getBranches() {
+        return Branches;
+    }
+
 }

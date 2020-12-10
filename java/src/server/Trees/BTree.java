@@ -5,7 +5,7 @@ public class BTree {
     private Page root;
     private int M, height;
 
-    BTree(int order) {
+    public BTree(int order) {
         this.root = null;
         this.M = order;
         this.height = 0;
