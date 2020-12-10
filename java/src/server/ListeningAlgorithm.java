@@ -27,8 +27,9 @@ public class ListeningAlgorithm implements Runnable {
 
         while (!disconnectionFlag) {
             try {
+                System.out.println("!!!!!!!!!!!!!!!!!");
                 String messageJson = in.readLine();
-                System.out.println(messageJson);
+                System.out.println("received: " + messageJson);
             } catch (IOException e) {
                 e.printStackTrace();
                 disconnectionFlag = true;

@@ -1,6 +1,6 @@
 package server.Trees;
 
-public class BTree {
+public class BTree extends Tree{
 
     private Page root;
     private int M, height;

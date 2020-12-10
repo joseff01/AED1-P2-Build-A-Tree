@@ -80,6 +80,6 @@ class Node:
 
     def send(self, socket):
         objectDict = {'@type': self.type, 'number': self.number, 'receiver': self.receiver}
-        objectJSON = bytes(json.dumps(objectDict), encoding="utf-8")
-        socket.sendall(objectJSON)
+        objectJSON = json.dumps(objectDict)
+        socket.sendall((objectJSON + "\n").encode())
         return

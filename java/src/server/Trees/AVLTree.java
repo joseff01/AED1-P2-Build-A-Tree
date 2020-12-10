@@ -1,6 +1,6 @@
 package server.Trees;
 
-public class AVLTree {
+public class AVLTree extends Tree{
     Node root;
 
     public void insert(int key) {

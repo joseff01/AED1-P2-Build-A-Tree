@@ -175,7 +175,6 @@ class gameplay:
                         continue
                     if dicJSON["timerType"] == "challenge":
                         self.challengeTimer = dicJSON
-                        print("!!!!!!!!!!!!!!!!!!")
                         continue
                 self.currentChallenge = dicJSON
                 continue

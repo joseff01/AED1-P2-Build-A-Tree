@@ -3,6 +3,7 @@ package server;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import server.Messages.*;
+import server.Trees.*;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
@@ -22,6 +23,11 @@ public class ChallengeSelectionAlgorithm{
     boolean newChallengeFlag = false;
 
     ListeningAlgorithm listeningAlgorithm;
+
+    Tree player1Tree = null;
+    Tree player2Tree = null;
+    Tree player3Tree = null;
+    Tree player4Tree = null;
 
     public ChallengeSelectionAlgorithm(BufferedReader in, PrintWriter out){
 
@@ -44,16 +50,32 @@ public class ChallengeSelectionAlgorithm{
         if (challengeType == 0){
             //Challenge BST
             message = new BSTMessage();
+            player1Tree = new BSTree();
+            player2Tree = new BSTree();
+            player3Tree = new BSTree();
+            player4Tree = new BSTree();
         } else if (challengeType == 1){
             //Challenge Type B
             message = new BMessage();
-
+            int order = ((BMessage) message).getOrder();
+            player1Tree = new BTree(order);
+            player2Tree = new BTree(order);
+            player3Tree = new BTree(order);
+            player4Tree = new BTree(order);
         } else if (challengeType == 2){
             //Challenge AVL
             message = new AVLMessage();
+            player1Tree = new AVLTree();
+            player2Tree = new AVLTree();
+            player3Tree = new AVLTree();
+            player4Tree = new AVLTree();
         } else {
             //Challenge Splay
             message = new SplayMessage();
+            player1Tree = new SplayTree();
+            player2Tree = new SplayTree();
+            player3Tree = new SplayTree();
+            player4Tree = new SplayTree();
         }
 
         String messageJSON = null;

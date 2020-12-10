@@ -1,5 +1,9 @@
 package server;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import server.Trees.SplayTree;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -9,7 +13,23 @@ public class Main {
 
     public static void main(String[] args) {
 
+        /*
 
+        SplayTree bTree = new SplayTree();
+        bTree.insert(5);
+        bTree.insert(6);
+        bTree.insert(4);
+        bTree.insert(2);
+        bTree.insert(1);
+        bTree.insert(10);
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            System.out.println(objectMapper.writeValueAsString(bTree));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        */
 
         ServerSocket listenSocket = null;
 

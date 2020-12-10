@@ -1,6 +1,6 @@
 package server.Trees;
 
-public class SplayTree {
+public class SplayTree extends Tree{
     private Node root;
     private int size=0;
 
