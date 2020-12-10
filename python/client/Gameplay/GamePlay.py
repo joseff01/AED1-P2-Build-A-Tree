@@ -38,30 +38,29 @@ class gameplay:
         self.clock = pygame.time.Clock()
         receiveMessagesThread = threading.Thread(target=self.receiveMessage)
         receiveMessagesThread.start()
-
-
+        self.playersList = []
+        self.nodesList = []
         self.game()
 
     def game(self):
-        playersList = []
 
         player1 = player(475, 415, 50, 50)
         player2 = player(1000, 415, 50, 50)
-        playersList.extend((player1, player2))
-        challengeRect = pygame.Rect(350, 630, 500, 30)
+        self.playersList.extend((player1, player2))
+
         if self.num > 2:
             player3 = player(646, 250, 50, 50)
-            playersList.append(player3)
+            self.playersList.append(player3)
             if self.num > 3:
                 player4 = player(800, 257, 50, 50)
-                playersList.append(player4)
+                self.playersList.append(player4)
+
+        challengeRect = pygame.Rect(350, 630, 500, 30)
 
         while self.running:
             self.setBackground()
 
             pygame.draw.rect(self.screen, (255, 255, 255), challengeRect)
-
-            keys = pygame.key.get_pressed()
 
             player1.pressed = False
             player2.pressed = False
@@ -77,7 +76,7 @@ class gameplay:
                 # checking for keypresses
                 if event.type == pygame.KEYDOWN:
                     pNum = 0
-                    for p in playersList:
+                    for p in self.playersList:
                         keyL, keyR, keyUp = \
                             [(K_a, K_d, K_w), (K_f, K_h, K_t), (K_j, K_l, K_i), (K_LEFT, K_RIGHT, K_UP)][pNum]
                         if event.key == keyL:
@@ -90,7 +89,7 @@ class gameplay:
 
                 if event.type == pygame.KEYUP:
                     pNum = 0
-                    for p in playersList:
+                    for p in self.playersList:
                         keyL, keyR = \
                             [(K_a, K_d), (K_f, K_h), (K_j, K_l), (K_LEFT, K_RIGHT)][pNum]
                         if event.key == keyL:
@@ -100,6 +99,7 @@ class gameplay:
                         pNum += 1
 
             # movimiento
+<<<<<<< HEAD
             for p in playersList:
                 p.move(playersList)
 
@@ -107,6 +107,14 @@ class gameplay:
             if self.running:
                 for player in playersList:
                     pygame.draw.rect(self.screen, (150, 0, 0), player.rect)
+=======
+            for p in self.playersList:
+                p.move()
+
+            if self.running:
+                for player in self.playersList:
+                    pygame.draw.rect(self.screen, (100, 0, 0), player.rect)
+>>>>>>> f8542a8... Terminado de agregar el Node.draw method
 
                 pygame.display.flip()
                 self.clock.tick(30)  # Aquí se controlan los FPS
@@ -165,4 +173,4 @@ class gameplay:
             # print(stringJSON)
             dicJSON = json.loads(stringJSON)
             print(dicJSON)
-            Node((dicJSON['@type'], dicJSON['number']))
+            self.nodesList.append(Node((dicJSON['@type'], dicJSON['number'])))
