@@ -112,43 +112,13 @@ class gameplay:
             for p in self.playersList:
                 p.move(self.playersList)
 
+
             if self.running:
                 for player in self.playersList:
                     pygame.draw.rect(self.screen, (150, 0, 0), player.rect)
 
                 pygame.display.flip()
                 self.clock.tick(30)  # Aquí se controlan los FPS
-
-    def checkColision(self, recPlayer1, recPlayer2, recPlayer3, recPlayer4, player1, player2, player3, player4):
-
-        if recPlayer1.colliderect(recPlayer2) and (player1.pressed == True and player2.pressed == False):
-            player1.colision(player2)
-        elif recPlayer2.colliderect(recPlayer1) and (player2.pressed == True and player1.pressed == False):
-            player2.colision(player1)
-
-        if self.num == 3 or self.num == 4:
-            if recPlayer3.colliderect(recPlayer1) and (player3.pressed == True and player1.pressed == False):
-                player3.colision(player1)
-            elif recPlayer3.colliderect(recPlayer2) and (player3.pressed == True and player2.pressed == False):
-                player3.colision(player2)
-            elif recPlayer1.colliderect(recPlayer3) and (player1.pressed == True and player3.pressed == False):
-                player1.colision(player3)
-            elif recPlayer2.colliderect(recPlayer3) and (player2.pressed == True and player3.pressed == False):
-                player2.colision(player3)
-
-            if self.num == 4:
-                if recPlayer4.colliderect(recPlayer1) and (player4.pressed == True and player1.pressed == False):
-                    player4.colision(player1)
-                elif recPlayer4.colliderect(recPlayer2) and (player4.pressed == True and player2.pressed == False):
-                    player4.colision(player2)
-                elif recPlayer4.colliderect(recPlayer3) and (player4.pressed == True and player3.pressed == False):
-                    player4.colision(player3)
-                elif recPlayer1.colliderect(recPlayer4) and (player1.pressed == True and player4.pressed == False):
-                    player1.colision(player4)
-                elif recPlayer2.colliderect(recPlayer4) and (player2.pressed == True and player4.pressed == False):
-                    player2.colision(player4)
-                elif recPlayer3.colliderect(recPlayer4) and (player3.pressed == True and player4.pressed == False):
-                    player3.colision(player4)
 
     def setBackground(self):
         global frame, count

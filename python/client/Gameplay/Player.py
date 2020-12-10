@@ -21,6 +21,11 @@ class Player(object):
         self.moveRight = False
         self.count = 8
 
+        #poderes
+        self.forcePush = False
+        self.doubleJump = False
+        self.shield = False
+
     def move(self, playersList):
         land = pygame.Rect(283, 468, 635, 210)
         leftCroc = pygame.Rect(300, 373, 105, 20)
@@ -28,9 +33,9 @@ class Player(object):
         rightStand = pygame.Rect(639, 300, 76, 10)
         rightBirb = pygame.Rect(795, 373, 105, 20)
         bottomland = pygame.Rect(0, 750, 1500, 1)
-        fix = pygame.Rect(0, 0, 1, 1)  # sin esto no se considera la plataforma anterior
-        platformsList = [land, leftCroc, rightBirb, leftStand, rightStand,fix]
+        platformsList = [land, leftCroc, rightBirb, leftStand, rightStand,bottomland]
 
+        # Push
         if self.count <= 0:
             self.count = 8
             self.push = False
@@ -50,7 +55,7 @@ class Player(object):
         if self.right:
             self.rect.x += self.speed_x
 
-        # revisar si pegó con la tierra
+        # Revisar si pegó con la tierra
         if self.rect.colliderect(land) and self.rect.bottom > land.top + 50:  # ///// Aquí el land.top+n lo tiene que ajustar para que sea como el piso máximo de los maecitos
             if self.left:
                 self.rect.left = land.right
@@ -92,21 +97,42 @@ class Player(object):
                 # si choca con una plataforma
                 if tryoutRect.colliderect(platform):
                     self.falling = False
+
         self.collide(playersList)
 
     def collide(self,playersList):
         for p in playersList:
             if self.rect.colliderect(p) and p.rect.x > self.rect.x:
-                if self.right == True and p.left == False:
-                    p.push = True
-                    p.moveRight = True
+                # force push power
+                if self.right == True and self.forcePush:
+                    p.count +=2
+                    self.forcePush = False
+                if p.left == True and p.forcePush:
+                    self.count +=2
+                    p.forcePush = False
+
+                # Collisions
+                if p.shield == False:
+                    if self.right == True and p.left == False:
+                        p.push = True
+                        p.moveRight = True
+                    if self.right == True and p.left == True:
+                        p.push = True
+                        p.moveRight = True
+                        self.push = True
+
+
                 if self.right == False and p.left == True:
                     self.push = True
-            if self.rect.colliderect(p) and(self.falling == True and p.rising == True):
-                print("owo")
 
 
     def jump(self):
+        if (self.falling or self.rising) and self.doubleJump:
+            self.speed_y = -20  # //////Aquí se cambia la velocidad incial cuando se salta//////
+            self.fallin = False
+            self.rising = True
+            self.doubleJump = False
+
         if not self.falling and not self.rising:
             self.speed_y = -20  # //////Aquí se cambia la velocidad incial cuando se salta//////
             self.rising = True
