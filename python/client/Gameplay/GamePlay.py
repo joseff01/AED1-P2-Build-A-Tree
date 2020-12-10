@@ -44,15 +44,15 @@ class gameplay:
 
     def game(self):
 
-        player1 = Player(475, 415, 50, 50)
-        player2 = Player(1000, 415, 50, 50)
+        player1 = Player(325, 415, 50, 50)
+        player2 = Player(850, 415, 50, 50)
         self.playersList.extend((player1, player2))
 
         if self.num > 2:
-            player3 = Player(646, 250, 50, 50)
+            player3 = Player(496, 250, 50, 50)
             self.playersList.append(player3)
             if self.num > 3:
-                player4 = Player(800, 257, 50, 50)
+                player4 = Player(650, 257, 50, 50)
                 self.playersList.append(player4)
 
         challengeRect = pygame.Rect(350, 630, 500, 30)
@@ -149,8 +149,7 @@ class gameplay:
             count = 0
         else:
             count += 1
-        self.screen.blit(self.background_image[frame], [150, 0]), self.screen.blit(self.background_image[frame],
-                                                                                   [150, 0])
+        self.screen.blit(self.background_image[frame], [0, 0])
 
     def receiveMessage(self):
         import json
@@ -163,4 +162,5 @@ class gameplay:
             # print(stringJSON)
             dicJSON = json.loads(stringJSON)
             print(dicJSON)
-            self.nodesList.append(Node((dicJSON['@type'], dicJSON['number'])))
+            if dicJSON['@type'][-5:] == "token":
+                self.nodesList.append(Node((dicJSON['@type'], dicJSON['number'])))

@@ -22,11 +22,11 @@ class Player(object):
         self.count = 8
 
     def move(self, playersList):
-        land = pygame.Rect(433, 468, 635, 210)
-        leftCroc = pygame.Rect(450, 373, 105, 20)
-        leftStand = pygame.Rect(635, 300, 76, 10)
-        rightStand = pygame.Rect(789, 300, 76, 10)
-        rightBirb = pygame.Rect(945, 373, 105, 20)
+        land = pygame.Rect(283, 468, 635, 210)
+        leftCroc = pygame.Rect(300, 373, 105, 20)
+        leftStand = pygame.Rect(485, 300, 76, 10)
+        rightStand = pygame.Rect(639, 300, 76, 10)
+        rightBirb = pygame.Rect(795, 373, 105, 20)
         bottomland = pygame.Rect(0, 750, 1500, 1)
         fix = pygame.Rect(0, 0, 1, 1)  # sin esto no se considera la plataforma anterior
         platformsList = [land, leftCroc, rightBirb, leftStand, rightStand,fix]
