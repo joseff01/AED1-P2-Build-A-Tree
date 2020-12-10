@@ -13,7 +13,7 @@ class Node:
         self.receiver = 0
         self.speed_y = 10
 
-    def fall(self):
+    def fall(self, nodesList):
         land = pygame.Rect(283, 461, 635, 213)
         leftCroc = pygame.Rect(300, 373, 105, 20)
         leftStand = pygame.Rect(485, 300, 76, 10)
@@ -25,7 +25,7 @@ class Node:
 
         # si toca plataforma
         if self.rect.collidelist(platformsList) != -1:
-            self.delete()
+            self.delete(nodesList)
 
     def draw(self, surface):
         borderWidth = 2
@@ -56,8 +56,8 @@ class Node:
             pygame.draw.polygon(surface, GREEN, trianglePoints)
             pygame.draw.polygon(surface, WHITE, trianglePoints, borderWidth)
 
-    def delete(self):
-        pass
+    def delete(self, nodesList):
+        nodesList.remove(self)
 
 
 def draw_text(text, font, color, surface, x, y):
