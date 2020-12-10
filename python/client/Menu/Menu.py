@@ -22,10 +22,10 @@ class Menu:
         WHITE = (255, 255, 255)
         BLACK = (0, 0, 0)
 
-        ipBox = pygame.Rect(550, 200, 550, 50)
-        portBox = pygame.Rect(550, 300, 550, 50)
+        ipBox = pygame.Rect(400, 200, 550, 50)
+        portBox = pygame.Rect(400, 300, 550, 50)
 
-        self.screen.blit(backgroundImg, [150, 0])
+        self.screen.blit(backgroundImg, [0, 0])
         self.draw_text("Server IP:", copperplateFont, BLACK, self.screen, ipBox.x - 190, ipBox.y + 10)
         self.draw_text("Server Port:", copperplateFont, BLACK, self.screen, portBox.x - 290, portBox.y + 10)
 
@@ -93,7 +93,7 @@ class Menu:
         running = True
 
         backgroundImg = pygame.image.load("Imgs\\beforeImage.png").convert()
-        self.screen.blit(backgroundImg, [150, 0])
+        self.screen.blit(backgroundImg, [0, 0])
 
         # elemento 0 = apagado, 1 = encendido (Escogido)
         twoButtonImg = [pygame.image.load("Imgs\\twoPlayers.png").convert_alpha(),
@@ -103,9 +103,9 @@ class Menu:
         fourButtonImg = [pygame.image.load("Imgs\\fourPlayers.png").convert_alpha(),
                          pygame.image.load("Imgs\\fourPlayersChoose.png").convert_alpha()]
 
-        twoButton = pygame.Rect(450, 400, 183, 80)
-        threeButton = pygame.Rect(675, 400, 183, 80)
-        fourButton = pygame.Rect(900, 400, 183, 80)
+        twoButton = pygame.Rect(300, 400, 183, 80)
+        threeButton = pygame.Rect(525, 400, 183, 80)
+        fourButton = pygame.Rect(750, 400, 183, 80)
 
         while running:
 
@@ -142,9 +142,9 @@ class Menu:
                     running = False
 
             if running:  # tal vez ocupe agregar un blit al fondo
-                self.screen.blit(twoButtonImg[1 if twoButtonHover else 0], [450, 400])
-                self.screen.blit(threeButtonImg[1 if threeButtonHover else 0], [675, 400])
-                self.screen.blit(fourButtonImg[1 if fourButtonHover else 0], [900, 400])
+                self.screen.blit(twoButtonImg[1 if twoButtonHover else 0], [300, 400])
+                self.screen.blit(threeButtonImg[1 if threeButtonHover else 0], [525, 400])
+                self.screen.blit(fourButtonImg[1 if fourButtonHover else 0], [750, 400])
 
                 pygame.display.flip()
                 self.clock.tick(14)
@@ -159,7 +159,7 @@ class Menu:
         playButtonImg = pygame.image.load("Imgs\\playButton.png").convert_alpha()
         playButtonOnImg = pygame.image.load("Imgs\\playButtonOn.png").convert_alpha()
 
-        playButton = pygame.Rect(690, 306, 170, 100)
+        playButton = pygame.Rect(540, 306, 170, 100)
 
         bgFrame = 0
 
@@ -185,9 +185,9 @@ class Menu:
             bgFrame = (0 if bgFrame >= 7 else bgFrame + 1)
 
             if running:
-                self.screen.blit(backgroundImg[bgFrame], [150, 0])
-                self.screen.blit(logoImg, [440, -20])
-                self.screen.blit(playButtonOnImg if playButtonHover else playButtonImg, [660, 305])
+                self.screen.blit(backgroundImg[bgFrame], [0, 0])
+                self.screen.blit(logoImg, [290, -20])
+                self.screen.blit(playButtonOnImg if playButtonHover else playButtonImg, [510, 305])
 
                 pygame.display.flip()
                 self.clock.tick(14)
