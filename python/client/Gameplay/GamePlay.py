@@ -1,6 +1,9 @@
 import pygame, threading
 from pygame.locals import *
 
+from python.client.Gameplay.Node import Node
+from python.client.Gameplay.Player import Player
+
 frame = 0
 count = 0
 
@@ -40,7 +43,6 @@ class gameplay:
         self.game()
 
     def game(self):
-        from python.client.Gameplay.Player import player
         playersList = []
 
         player1 = player(475, 415, 50, 50)
@@ -107,7 +109,7 @@ class gameplay:
                     pygame.draw.rect(self.screen, (150, 0, 0), player.rect)
 
                 pygame.display.flip()
-                self.clock.tick(30) # Aquí se controlan los FPS
+                self.clock.tick(30)  # Aquí se controlan los FPS
 
     def checkColision(self, recPlayer1, recPlayer2, recPlayer3, recPlayer4, player1, player2, player3, player4):
 
@@ -156,7 +158,11 @@ class gameplay:
         import json
         while self.running:
             messageJSON = self.socket.recv(1024)
-            #parse string
+            # parse string
             stringJSON = str(messageJSON)[2:-5]
+            if stringJSON[:6] == "server":
+                continue
+            # print(stringJSON)
             dicJSON = json.loads(stringJSON)
             print(dicJSON)
+            Node((dicJSON['@type'], dicJSON['number']))

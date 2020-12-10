@@ -1,7 +1,7 @@
 import pygame
 
 
-class player(object):
+class Player(object):
     def __init__(self, x, y, width, height):
         self.rect = pygame.Rect(x, y, width, height)
         # la idea es eventualmente cambiar esto con image.get_rect() cuando hayan sprites, por eso las llamadas en #position
