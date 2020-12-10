@@ -25,6 +25,8 @@ class Player(object):
         self.forcePush = False
         self.doubleJump = False
         self.shield = False
+        self.clock = 0
+        self.clockStart = pygame.time.Clock()
 
     def move(self, playersList):
         land = pygame.Rect(283, 468, 635, 210)
@@ -120,10 +122,29 @@ class Player(object):
                         p.push = True
                         p.moveRight = True
                         self.push = True
+                if p.clock == 0:
+                    p.clock = pygame.time.get_ticks() // 1000
+                    p.clockStart = pygame.time.get_ticks() // 1000
+                else:
+                    p.clock = pygame.time.get_ticks() // 1000
+                    if p.clock - p.clockStart>= 8:
+                        p.clock = 0
+                        p.clockStart = 0
+                        p.shield = False
 
+                if self.shield == False:
+                    if self.right == False and p.left == True:
+                        self.push = True
+                if self.clock == 0:
+                    self.clock = pygame.time.get_ticks() // 1000
+                    self.clockStart = pygame.time.get_ticks() // 1000
+                else:
+                    self.clock = pygame.time.get_ticks() // 1000
+                    if self.clock - p.clockStart>= 8:
+                        self.clock = 0
+                        self.clockStart = 0
+                        self.shield = False
 
-                if self.right == False and p.left == True:
-                    self.push = True
 
 
     def jump(self):
