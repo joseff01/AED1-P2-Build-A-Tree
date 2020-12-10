@@ -21,15 +21,19 @@ public class ChallengeSelectionAlgorithm{
 
     boolean newChallengeFlag = false;
 
+    ListeningAlgorithm listeningAlgorithm;
+
     public ChallengeSelectionAlgorithm(BufferedReader in, PrintWriter out){
 
         this.in = in;
         this.out = out;
 
         timer = new Timer(in,out, this);
+        listeningAlgorithm = new ListeningAlgorithm(in,out, this);
 
         selectChallenge();
         sendToken();
+
     }
 
     public void selectChallenge(){

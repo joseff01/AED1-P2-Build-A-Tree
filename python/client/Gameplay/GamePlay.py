@@ -35,6 +35,7 @@ class gameplay:
         receiveMessagesThread = threading.Thread(target=self.receiveMessage)
         receiveMessagesThread.start()
 
+
         self.game()
 
     def game(self):
@@ -44,6 +45,7 @@ class gameplay:
         player1 = player(325, 415, 50, 50)
         player2 = player(850, 415, 50, 50)
         playersList.extend((player1, player2))
+        challengeRect = pygame.Rect(350, 630, 500, 30)
         if self.num > 2:
             player3 = player(496, 250, 50, 50)
             playersList.append(player3)
@@ -53,6 +55,9 @@ class gameplay:
 
         while self.running:
             self.setBackground()
+
+            pygame.draw.rect(self.screen, (255, 255, 255), challengeRect)
+
             keys = pygame.key.get_pressed()
 
             player1.pressed = False
