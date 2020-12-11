@@ -2,6 +2,8 @@ package server;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import server.Messages.EndGameMessage;
+import server.Messages.Message;
 import server.Messages.TimerMessage;
 
 import java.io.BufferedReader;
@@ -21,10 +23,13 @@ public class Timer implements Runnable{
 
     boolean stopTime = false;
 
-    public  Timer(BufferedReader in, PrintWriter out, ChallengeSelectionAlgorithm challengeSelectionAlgorithm) {
+    private ObjectMapper objectMapper;
+
+    public  Timer(BufferedReader in, PrintWriter out, ChallengeSelectionAlgorithm challengeSelectionAlgorithm, ObjectMapper objectMapper) {
         this.in = in;
         this.out = out;
         this.challengeSelectionAlgorithm = challengeSelectionAlgorithm;
+        this.objectMapper = objectMapper;
         out.println(new TimerMessage(gameTimer,"game"));
         out.println(new TimerMessage(challengeTimer,"challenge"));
         System.out.println(gameTimer);
@@ -54,7 +59,12 @@ public class Timer implements Runnable{
                 challengeSelectionAlgorithm.selectChallenge();
             }
             if (gameTimer <= 0) {
-                ///SEND END GAME MESSAGE
+                try {
+                    String endMessageJSON = objectMapper.writeValueAsString(new EndGameMessage());
+                    out.println(endMessageJSON);
+                } catch (JsonProcessingException e) {
+                    e.printStackTrace();
+                }
             }
 
             try {

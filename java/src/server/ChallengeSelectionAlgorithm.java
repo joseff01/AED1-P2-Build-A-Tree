@@ -38,7 +38,7 @@ public class ChallengeSelectionAlgorithm{
         this.in = in;
         this.out = out;
 
-        timer = new Timer(in,out, this);
+        timer = new Timer(in,out, this, objectMapper);
         listeningAlgorithm = new ListeningAlgorithm(in,out, this, objectMapper);
 
         selectChallenge();
