@@ -5,12 +5,15 @@ from python.client.Gameplay.Node import Node
 from python.client.Gameplay.Player import Player
 
 frame = 0
+steps = 9
 count = 0
 
 
 class gameplay:
     def __init__(self, screen, s, num):
         self.running = True
+        #Todas las imagenes /////////////////////////////////////////////////////////////////////////////
+
         self.background_image = [pygame.image.load("Imgs\\GamePlay\\bgGame0.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame1.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame2.png").convert(),
@@ -31,8 +34,38 @@ class gameplay:
                                  pygame.image.load("Imgs\\GamePlay\\bgGame17.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame18.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame19.png").convert()]
+        self.greenSkinMove = [pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink0.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink1.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink2.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink3.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink4.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink5.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink6.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink7.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink8.png").convert_alpha()]
+        self.greenSkinMoveR = [pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink0R.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink1R.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink2R.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink3R.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink4R.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink5R.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink6R.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink7R.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink8R.png").convert_alpha()]
+        self.greenSkinMoveF = [pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink0F.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink1F.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink2F.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink3F.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink4F.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink5F.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink6F.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink7F.png").convert_alpha(),
+                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink8F.png").convert_alpha()]
+
+        #///////////////////////////////////////////////////////////////////////////////////////////////
         Node.Font = pygame.font.SysFont("Century Gothic", 20)  # Set font for nodes
         self.Font = pygame.font.SysFont("Century Gothic", 24)  # Set font of everything else
+        self.link = pygame.image.load("Imgs\\Sprites\\GreenLink\\Link.png").convert_alpha()
 
         self.challengeTimer = None
         self.gameTimer = None
@@ -49,15 +82,16 @@ class gameplay:
 
     def game(self):
 
-        player1 = Player(325, 415, 50, 50)
-        player2 = Player(850, 415, 50, 50)
+        player1 = Player(325, 415, 50, 50,1)
+        self.screen.blit(self.link,(player1.rect.x,player1.rect.y))
+        player2 = Player(850, 415, 50, 50,1)
         self.playersList.extend((player1, player2))
 
         if self.num > 2:
-            player3 = Player(496, 250, 50, 50)
+            player3 = Player(496, 250, 50, 50,1)
             self.playersList.append(player3)
             if self.num > 3:
-                player4 = Player(650, 257, 50, 50)
+                player4 = Player(650, 257, 50, 50,1)
                 self.playersList.append(player4)
 
         challengeRect = pygame.Rect(350, 630, 500, 30)
@@ -90,8 +124,11 @@ class gameplay:
                             [(K_a, K_d), (K_f, K_h), (K_j, K_l), (K_LEFT, K_RIGHT)][pNum]
                         if event.key == keyL:
                             p.left = False
+                            p.setMoveCount(0)
+
                         if event.key == keyR:
                             p.right = False
+                            p.setMoveCount(0)
                         pNum += 1
 
             # movimiento
@@ -112,8 +149,26 @@ class gameplay:
                 self.setTreeSidebar()
                 # pintar jugadores
                 for player in self.playersList:
-                    pygame.draw.rect(self.screen, (150, 0, 0), player.rect)
-                # pintar nodos
+                    if player.moveCount == 8:
+                        player.setMoveCount(0)
+                    else:
+                        player.setMoveCount(player.moveCount + 1)
+                    '''
+                    if player.falling:
+                        if player.fallingCount == 8:
+                            player.setfallingCount(0)
+                        else:
+                            player.setfallingCount(player.fallingCount + 1)
+                        self.screen.blit(self.greenSkinMoveF[player.fallingCount], (player.rect.x, player.rect.y))
+                    '''
+                    if player.left:
+                        self.screen.blit(self.greenSkinMove[player.moveCount], (player.rect.x, player.rect.y))
+                    elif player.right:
+                        self.screen.blit(self.greenSkinMoveR[player.moveCount], (player.rect.x, player.rect.y))
+
+                    else:
+                        self.screen.blit(self.link, (player.rect.x, player.rect.y))
+
                 for n in self.nodesList:
                     n.draw(self.screen)
                 # pintar rects para info de challenges y timer
