@@ -29,7 +29,7 @@ public class BSTree extends Tree{
     private Node inserting(Node node, int key) {
         //Key insertion
         if (node == null) {
-            return new Node(key);
+            return new Node(key,false);
         }
         //Going left
         if (key < node.key)
