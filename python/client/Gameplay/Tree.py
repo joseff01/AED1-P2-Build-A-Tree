@@ -1,6 +1,7 @@
 import pygame
 import math
 
+
 class Tree:
 
     def __init__(self, treeDict):
@@ -12,12 +13,12 @@ class Tree:
             else:
                 self.height = 0
         elif self.type == "BTree":
-            self.height = treeDict['height'] #BTree
+            self.height = treeDict['height']  # BTree
         self.owner = treeDict['owner']
 
     def draw(self, surface):
-        font = pygame.font.SysFont("Century Gothic", round(50*math.exp(-self.height/2.6)))  # Set font for trees
-        treeArea = pygame.rect.Rect(1200 + 5, ((self.owner-1) * 674 / 4) + 30, 290, 135)
+        font = pygame.font.SysFont("Century Gothic", round(50 * math.exp(-self.height / 2.6)))  # Set font for trees
+        treeArea = pygame.rect.Rect(1200 + 5, ((self.owner - 1) * 674 / 4) + 30, 290, 135)
         if self.type != "BTree":
             current = self.treeDict['root']
             self.draw_BSTree(surface, font, self.treeDict['root'], treeArea)
@@ -42,7 +43,7 @@ class Tree:
         GREEN = (1, 135, 6)
         YELLOW = (235, 192, 52)
         borderWidth = 1
-        nodeHeight = levelHeight*0.8
+        nodeHeight = levelHeight * 0.8
 
         numberString = str(current['key']) if current['key'] >= 10 else "0" + str(current['key'])
         numberText = font.render(numberString, 1, WHITE)
@@ -52,8 +53,7 @@ class Tree:
         if self.type == "BSTree":
             pygame.draw.circle(surface, YELLOW, (x + levelWidth / 2, y + nodeHeight / 2), nodeHeight / 2)
             pygame.draw.circle(surface, WHITE, (x + levelWidth / 2, y + nodeHeight / 2), nodeHeight / 2, borderWidth)
-            surface.blit(numberText, (x + (levelWidth-numberSize[0]) / 2, y + (nodeHeight-numberSize[1]) / 2))
-
+            surface.blit(numberText, (x + (levelWidth - numberSize[0]) / 2, y + (nodeHeight - numberSize[1]) / 2))
             # dibujar nodo
             # dibujar líneas hacia abajo
         elif self.type == "AVLTree":
@@ -65,13 +65,19 @@ class Tree:
                              (x, y + 2 * nodeHeight / 3), (x, y + nodeHeight / 3)]  # Puntos izquierda
             pygame.draw.polygon(surface, BLUE, hexagonPoints)
             pygame.draw.polygon(surface, WHITE, hexagonPoints, borderWidth)
-            surface.blit(numberText, (x + (levelWidth-numberSize[0]), y + (nodeHeight-numberSize[1]) / 2))
+            surface.blit(numberText, (x + (levelWidth - numberSize[0]), y + (nodeHeight - numberSize[1]) / 2))
         elif self.type == "SplayTree":
             trianglePoints = [(x + levelWidth / 2, y), (x, y + nodeHeight), (x + levelWidth, y + nodeHeight)]
             pygame.draw.polygon(surface, GREEN, trianglePoints)
             pygame.draw.polygon(surface, WHITE, trianglePoints, borderWidth)
-            surface.blit(numberText, (x + (levelWidth-numberSize[0]) / 2, y + 2*(nodeHeight-numberSize[1]) / 3))
+            surface.blit(numberText, (x + (levelWidth - numberSize[0]) / 2, y + 2 * (nodeHeight - numberSize[1]) / 3))
 
         x_diff = (1 / (2 ** (height + 2))) * treeArea.width
+        if current['left'] is not None:
+            pygame.draw.line(surface, WHITE, (x + levelWidth / 2, y + nodeHeight),
+                         ((x + levelWidth / 2) - x_diff, y + levelHeight),borderWidth)
+        if current['right'] is not None:
+            pygame.draw.line(surface, WHITE, (x + levelWidth / 2, y + nodeHeight),
+                             ((x + levelWidth / 2) + x_diff, y + levelHeight),borderWidth)
         self.draw_BSTree(surface, font, current['left'], treeArea, x - x_diff, height + 1, levelHeight, levelWidth)
         self.draw_BSTree(surface, font, current['right'], treeArea, x + x_diff, height + 1, levelHeight, levelWidth)
