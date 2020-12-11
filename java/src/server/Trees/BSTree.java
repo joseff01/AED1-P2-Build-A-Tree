@@ -27,21 +27,26 @@ public class BSTree extends Tree{
     }
 
     private Node inserting(Node node, int key) {
+        //Key insertion
         if (node == null) {
             return new Node(key);
         }
+        //Going left
         if (key < node.key)
             node.left = inserting(node.left, key);
+        //Going right
         else if (key > node.key)
             node.right = inserting(node.right, key);
+        //Node already in
         else
             return node;
-
+        //New height
         node.height = 1+Math.max((height(node.left)),height(node.right));
 
         return node;
     }
-    public int getOwner() {
+    public int get
+    Owner() {
         return Owner;
     }
 

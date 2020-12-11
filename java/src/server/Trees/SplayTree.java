@@ -1,4 +1,4 @@
-package server.Trees;
+apackage server.Trees;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

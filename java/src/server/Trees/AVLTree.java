@@ -8,7 +8,8 @@ public class AVLTree extends Tree{
 
     int Owner;
 
-    Node root;
+    private Node root;
+    private int Size =0;
 
     public void insert(int key) {
 
@@ -25,6 +26,10 @@ public class AVLTree extends Tree{
 
     public Node getRoot() {
         return this.root;
+    }
+
+    public int getSize(){
+        return this.Size;
     }
 
     private int height(Node node) {
@@ -58,12 +63,15 @@ public class AVLTree extends Tree{
     }
 
     private Node leftRotate(Node node) {
+        //getting Children
         Node right = node.right;
         Node change = right.left;
 
+        //Rotate
         right.left = node;
         node.right = change;
 
+        //New heights
         node.height = Math.max(height(node.right), height(node.left));
         right.height = Math.max(height(right.right), height(right.left));
 
@@ -71,16 +79,22 @@ public class AVLTree extends Tree{
     }
 
     private Node inserting(Node node, int key) {
+        //Node insertion
         if (node == null) {
+            this.Size++;
             return new Node(key);
         }
+        //going left
         if (key < node.key)
             node.left = inserting(node.left, key);
+        //Going right
         else if (key > node.key)
             node.right = inserting(node.right, key);
+        //Node already in
         else
             return node;
 
+        //Setting height
         node.height = 1 + Math.max((height(node.left)), height(node.right));
 
         int balance = getBalance(node);
@@ -109,7 +123,6 @@ public class AVLTree extends Tree{
     public int getOwner() {
         return Owner;
     }
-
     public void setOwner(int owner) {
         Owner = owner;
     }

@@ -117,7 +117,8 @@ public class BTree extends Tree{
                             check(page.parent);
                             i++;
                         }
-                    } else {
+                    }//Cambios en menor
+                    else {
                         menor.parent = page.parent;
                         int newkey = page.keys.get(0);
                         menor.insertkey(newkey);
@@ -144,6 +145,7 @@ public class BTree extends Tree{
     }
     private Page setnewRoot(Page page){
         while(page.parent!=null){
+            //going up
             page=page.parent;
         }
         return page;
