@@ -193,7 +193,6 @@ class gameplay:
         pygame.draw.rect(self.screen, BLACK, (1200, 0, 300, 674), 4)
         for n in range(4):  # 1-3
             pygame.draw.line(self.screen, BLACK, (1200, n * 674 / 4), (1500, n * 674 / 4), 4)
-            pygame.draw.rect(self.screen, WHITE, pygame.rect.Rect(1200 + 5, (n * 674 / 4) + 5, 280, 160))
         for n in range(self.num):
             self.draw_text("Jugador " + str(n + 1), self.Font, BLACK, self.screen, 1210, 2 + n * 674 / 4)
 
@@ -208,14 +207,14 @@ class gameplay:
             if self.currentChallenge["@type"] == "BMessage":
                 self.draw_text("Build a B Tree of order " + str(self.currentChallenge["order"])
                                + " with " + str(self.currentChallenge["level"]) + " levels", Font,
-                               YELLOW, self.screen, challengeRect.x, challengeRect.y)
+                               RED, self.screen, challengeRect.x, challengeRect.y)
             if self.currentChallenge["@type"] == "AVLMessage":
                 self.draw_text("Build an AVL Tree with " + str(self.currentChallenge["elementAmount"])
                                + " elements", Font, BLUE, self.screen, challengeRect.x,
                                challengeRect.y)
             if self.currentChallenge["@type"] == "BSTMessage":
                 self.draw_text("Build a BST Tree of depth " + str(self.currentChallenge["height"]),
-                               Font, RED, self.screen, challengeRect.x, challengeRect.y)
+                               Font, YELLOW, self.screen, challengeRect.x, challengeRect.y)
             if self.currentChallenge["@type"] == "SplayMessage":
                 self.draw_text("Build a Splay Tree with " + str(self.currentChallenge["elementAmount"])
                                + " elements", Font, GREEN, self.screen, challengeRect.x, challengeRect.y)
@@ -251,15 +250,15 @@ class gameplay:
             # parse string
             print(messageJSON)
             stringJSON = str(messageJSON)[2:-5]
+            #print(stringJSON)
             if stringJSON[:6] == "server":
                 continue
-            # print(stringJSON)
             dicJSON = json.loads(stringJSON)
             print(dicJSON)
             if dicJSON['@type'][-5:] == "Token":
                 self.nodesList.append(Node(dicJSON['@type'], dicJSON['number']))
                 continue
-            if dicJSON['@type'][-7:] == "Message":
+            elif dicJSON['@type'][-7:] == "Message":
                 if dicJSON['@type'] == "TimerMessage":
                     if dicJSON["timerType"] == "game":
                         self.gameTimer = dicJSON
@@ -269,7 +268,7 @@ class gameplay:
                         continue
                 self.currentChallenge = dicJSON
                 continue
-            if dicJSON['@type'][-4:] == "Tree":
+            elif dicJSON['@type'][-4:] == "Tree":
                 # Recibir Arboles
                 continue
 
