@@ -8,7 +8,7 @@ public class SplayTree extends Tree{
     private int size=0;
     private int height=0;
 
-    public int getHeight(){return this.height}
+    public int getHeight(){return this.height; }
     public Node getRoot(){return this.root; }
     public int getSize(){return this.size;}
     public void reset(){
