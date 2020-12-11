@@ -22,7 +22,8 @@ class Node:
         leftStand = pygame.Rect(485, 300, 76, 10)
         rightStand = pygame.Rect(639, 300, 76, 10)
         rightBirb = pygame.Rect(795, 373, 105, 20)
-        platformsList = [land, leftCroc, rightBirb, leftStand, rightStand]
+        extra = pygame.Rect(0, 0, 0, 0)
+        platformsList = [land, leftCroc, rightBirb, leftStand, rightStand,extra]
 
         self.rect.y += self.speed_y
 
