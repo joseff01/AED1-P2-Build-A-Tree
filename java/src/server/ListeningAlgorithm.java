@@ -49,6 +49,7 @@ public class ListeningAlgorithm implements Runnable {
                         treeArray[player] = tree;
                         int amount = ((AVLTree)tree).getSize();
                         if (amount == ((AVLMessage) currentChallenge).getElementAmount()){
+                            System.out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");
                             out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");
                             challengeSelectionAlgorithm.selectChallenge();
                         }
@@ -83,6 +84,7 @@ public class ListeningAlgorithm implements Runnable {
                         treeArray[player] = tree;
                         int height = ((BSTree)tree).getHeight();
                         if (height == ((BSTMessage) currentChallenge).getHeight()){
+                            System.out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");
                             out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");
                             challengeSelectionAlgorithm.selectChallenge();
                         }
@@ -118,6 +120,7 @@ public class ListeningAlgorithm implements Runnable {
                         treeArray[player] = tree;
                         int height = ((BTree)tree).getHeight();
                         if (height == ((BMessage) currentChallenge).getLevel()){
+                            System.out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");
                             out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");
                             challengeSelectionAlgorithm.selectChallenge();
                         }
@@ -152,6 +155,7 @@ public class ListeningAlgorithm implements Runnable {
                         treeArray[player] = tree;
                         int height = ((SplayTree)tree).getSize();
                         if (height == ((SplayMessage) currentChallenge).getElementAmount()){
+                            System.out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");
                             out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");
                             challengeSelectionAlgorithm.selectChallenge();
                         }

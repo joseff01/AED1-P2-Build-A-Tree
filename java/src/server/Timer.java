@@ -9,9 +9,9 @@ import java.io.PrintWriter;
 
 public class Timer implements Runnable{
 
-    private int gameTimer = 610;
+    volatile private int gameTimer = 610;
 
-    private int challengeTimer = 60;
+    volatile private int challengeTimer = 60;
 
     private BufferedReader in;
 
@@ -61,10 +61,11 @@ public class Timer implements Runnable{
                 String timerGameJSON = objectMapper.writeValueAsString(new TimerMessage(gameTimer, "game"));
                 String challengeGameJSON = objectMapper.writeValueAsString(new TimerMessage(challengeTimer, "challenge"));
                 out.println(timerGameJSON);
+                Thread.sleep(10);
                 out.println(challengeGameJSON);
                 System.out.println(gameTimer);
                 System.out.println(challengeTimer);
-            } catch (JsonProcessingException e) {
+            } catch (JsonProcessingException | InterruptedException e) {
                 e.printStackTrace();
             }
 
