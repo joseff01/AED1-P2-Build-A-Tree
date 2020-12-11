@@ -3,6 +3,7 @@ from pygame.locals import *
 
 from python.client.Gameplay.Node import Node
 from python.client.Gameplay.Player import Player
+from python.client.Gameplay.Tree import Tree
 
 frame = 0
 steps = 9
@@ -149,6 +150,9 @@ class gameplay:
                 self.setTreeSidebar()
                 # pintar jugadores
                 for player in self.playersList:
+                    #pintar árboles de los jugadores
+                    if player.tree is not None:
+                        player.tree.draw(self.screen)
                     if player.moveCount == 8:
                         player.setMoveCount(0)
                     else:
@@ -248,7 +252,7 @@ class gameplay:
         while self.running:
             messageJSON = self.socket.recv(1024)
             # parse string
-            print(messageJSON)
+            #print(messageJSON)
             stringJSON = str(messageJSON)[2:-5]
             #print(stringJSON)
             if stringJSON[:6] == "server":
@@ -269,7 +273,7 @@ class gameplay:
                 self.currentChallenge = dicJSON
                 continue
             elif dicJSON['@type'][-4:] == "Tree":
-                # Recibir Arboles
+                self.playersList[dicJSON['owner']-1].tree = Tree(dicJSON)
                 continue
 
     def draw_text(self, text, font, color, surface, x, y):
