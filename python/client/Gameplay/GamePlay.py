@@ -104,6 +104,7 @@ class gameplay:
         receiveMessagesThread = threading.Thread(target=self.receiveMessage)
         receiveMessagesThread.start()
         self.playersList = []
+        self.playerPointList = [0,0]
         self.nodesList = []
         self.powerUpsList = []
         self.game()
@@ -118,13 +119,20 @@ class gameplay:
         if self.num > 2:
             player3 = Player(496, 250, 50, 50,1)
             self.playersList.append(player3)
+            self.playerPointList.append(0)
             if self.num > 3:
                 player4 = Player(650, 257, 50, 50,1)
                 self.playersList.append(player4)
+                self.playerPointList.append(0)
 
         challengeRect = pygame.Rect(350, 630, 500, 30)
         gameTimerRect = pygame.Rect(425, 570, 50, 30)
         challengeTimerRect = pygame.Rect(540, 600, 30, 30)
+        player1PointRect = pygame.Rect(400, 530, 80, 30)
+        player2PointRect = pygame.Rect(500, 530, 80, 30)
+        player3PointRect = pygame.Rect(600, 530, 80, 30)
+        player4PointRect = pygame.Rect(700, 530, 80, 30)
+        pointRecs = [player1PointRect, player2PointRect, player3PointRect, player4PointRect]
 
         while self.running:
 
@@ -240,8 +248,13 @@ class gameplay:
                 pygame.draw.rect(self.screen, (255, 255, 255), challengeRect)
                 pygame.draw.rect(self.screen, (255, 255, 255), gameTimerRect)
                 pygame.draw.rect(self.screen, (255, 255, 255), challengeTimerRect)
+                pygame.draw.rect(self.screen, (255, 255, 255), player1PointRect)
+                pygame.draw.rect(self.screen, (255, 255, 255), player2PointRect)
+                pygame.draw.rect(self.screen, (255, 255, 255), player3PointRect)
+                pygame.draw.rect(self.screen, (255, 255, 255), player4PointRect)
                 # info de challenges y timer
                 self.setChallenge(challengeRect, challengeTimerRect)
+                self.setPlayerPoints(pointRecs)
                 self.setTimer(gameTimerRect)
                 self.draw_text("Timer:", self.Font, (255, 255, 255), self.screen, gameTimerRect.x - 75, gameTimerRect.y)
                 self.draw_text("Challenge Left:", self.Font, (255, 255, 255), self.screen, challengeTimerRect.x - 190,
@@ -292,13 +305,27 @@ class gameplay:
             else:
                 self.draw_text("60", Font, BLACK, self.screen, challengeTimerRect.x, challengeTimerRect.y)
 
+    def setPlayerPoints(self, recs):
+        Font = self.Font
+        BLACK = (0, 0, 0)
+        WHITE = (255,255,255)
+        for i in range(self.num):
+            self.draw_text(str(self.playerPointList[i]), Font, BLACK,self.screen, recs[i].x, recs[i].y)
+            self.draw_text("Player " + str(i+1), Font, WHITE,self.screen, recs[i].x, recs[i].y - 30)
+
+
+
+
+
+
+
     def setTimer(self, gameTimerRect):
         Font = self.Font
         if self.gameTimer is not None:
             self.draw_text(str(self.gameTimer["timerNumber"]), Font, (0, 0, 0), self.screen, gameTimerRect.x,
                            gameTimerRect.y)
         else:
-            self.draw_text("600", Font, (0, 0, 0), self.screen, gameTimerRect.x, gameTimerRect.y)
+            self.draw_text("610", Font, (0, 0, 0), self.screen, gameTimerRect.x, gameTimerRect.y)
 
     def setBackground(self):
         global frame, count
@@ -340,6 +367,11 @@ class gameplay:
             elif dicJSON['@type'][-4:] == "Tree":
                 self.playersList[dicJSON['owner']-1].tree = Tree(dicJSON)
                 continue
+
+            elif dicJSON['@type'][-6:] == "Points":
+                self.playerPointList[dicJSON["player"]] += 100
+                continue
+
 
     def draw_text(self, text, font, color, surface, x, y):
         """
