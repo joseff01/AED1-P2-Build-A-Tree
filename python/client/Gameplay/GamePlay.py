@@ -34,8 +34,6 @@ class gameplay:
                                  pygame.image.load("Imgs\\GamePlay\\bgGame17.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame18.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame19.png").convert()]
-        Node.Font = pygame.font.SysFont("Century Gothic", 20)  # Set font for nodes
-        self.Font = pygame.font.SysFont("Century Gothic", 24)  # Set font of everything else
         self.greenSkinMove = [pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink0.png").convert_alpha(),
                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink1.png").convert_alpha(),
                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink2.png").convert_alpha(),
@@ -65,7 +63,8 @@ class gameplay:
                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink8F.png").convert_alpha()]
 
         #///////////////////////////////////////////////////////////////////////////////////////////////
-
+        Node.Font = pygame.font.SysFont("Century Gothic", 20)  # Set font for nodes
+        self.Font = pygame.font.SysFont("Century Gothic", 24)  # Set font of everything else
         self.link = pygame.image.load("Imgs\\Sprites\\GreenLink\\Link.png").convert_alpha()
 
         self.challengeTimer = None
