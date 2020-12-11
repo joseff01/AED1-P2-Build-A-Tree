@@ -193,6 +193,7 @@ class gameplay:
         pygame.draw.rect(self.screen, BLACK, (1200, 0, 300, 674), 4)
         for n in range(4):  # 1-3
             pygame.draw.line(self.screen, BLACK, (1200, n * 674 / 4), (1500, n * 674 / 4), 4)
+            pygame.draw.rect(self.screen, WHITE, pygame.rect.Rect(1200 + 5, (n * 674 / 4) + 5, 280, 160))
         for n in range(self.num):
             self.draw_text("Jugador " + str(n + 1), self.Font, BLACK, self.screen, 1210, 2 + n * 674 / 4)
 
@@ -268,10 +269,9 @@ class gameplay:
                         continue
                 self.currentChallenge = dicJSON
                 continue
-            if dicJSON['@type'] [-4:] == "Tree":
+            if dicJSON['@type'][-4:] == "Tree":
                 # Recibir Arboles
                 continue
-
 
     def draw_text(self, text, font, color, surface, x, y):
         """

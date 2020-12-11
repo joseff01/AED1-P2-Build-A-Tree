@@ -49,10 +49,10 @@ class Node:
         x = self.rect.x
         y = self.rect.y
         numberText = self.Font.render(str(self.number) if self.number >= 10 else "0" + str(self.number), 1, WHITE)
-        if self.type == "BSTToken":  # red square
-            pygame.draw.rect(surface, RED, self.rect)
-            pygame.draw.rect(surface, WHITE, self.rect, borderWidth)
-            surface.blit(numberText, (x + self.rect.width / 5, y + self.rect.height / 6))
+        if self.type == "BSTToken":  # yellow circle
+            pygame.draw.circle(surface, YELLOW, self.rect.center, self.rect.width / 2)
+            pygame.draw.circle(surface, WHITE, self.rect.center, self.rect.width / 2, borderWidth)
+            surface.blit(numberText, (x + self.rect.width / 5, y + self.rect.height / 7))
         elif self.type == "AVLToken":  # blue hexagon
             hexagonPoints = [(x + self.rect.width / 3, y), (x + 2 * self.rect.width / 3, y),  # Puntos arriba
                              (self.rect.right, y + self.rect.height / 3),
@@ -64,10 +64,10 @@ class Node:
             pygame.draw.polygon(surface, BLUE, hexagonPoints)
             pygame.draw.polygon(surface, WHITE, hexagonPoints, borderWidth)
             surface.blit(numberText, (x + self.rect.width / 5, y + self.rect.height / 6))
-        elif self.type == "BToken":  # yellow circle
-            pygame.draw.circle(surface, YELLOW, self.rect.center, self.rect.width / 2)
-            pygame.draw.circle(surface, WHITE, self.rect.center, self.rect.width / 2, borderWidth)
-            surface.blit(numberText, (x + self.rect.width / 5, y + self.rect.height / 7))
+        elif self.type == "BToken":  # red square
+            pygame.draw.rect(surface, RED, self.rect)
+            pygame.draw.rect(surface, WHITE, self.rect, borderWidth)
+            surface.blit(numberText, (x + self.rect.width / 5, y + self.rect.height / 6))
         elif self.type == "SplayToken":  # green tringle
             trianglePoints = [self.rect.midtop, self.rect.bottomleft, self.rect.bottomright]
             pygame.draw.polygon(surface, GREEN, trianglePoints)

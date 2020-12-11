@@ -11,7 +11,7 @@ class Player(object):
         self.rect.y = y
 
         # movement
-        self.speed_x = 10  # esta es constante
+        self.speed_x = 15  # esta es constante
         self.speed_y = 0  # esta varía
         self.left = False
         self.right = False
@@ -29,6 +29,9 @@ class Player(object):
         self.shield = False
         self.clock = 0
         self.clockStart = 0
+
+        #arbol
+        self.tree = None
 
     def move(self, playersList):
         land = pygame.Rect(283, 468, 635, 210)
