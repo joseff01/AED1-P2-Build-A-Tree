@@ -18,6 +18,7 @@ import javax.sound.midi.Receiver;
         @JsonSubTypes.Type(value = BSTToken.class, name = "BSTToken"),
         @JsonSubTypes.Type(value = SplayToken.class, name = "SplayToken"),
         @JsonSubTypes.Type(value = TimerMessage.class, name = "TimerMessage"),
+        @JsonSubTypes.Type(value = Message.class, name = "Message"),
 
 })
 

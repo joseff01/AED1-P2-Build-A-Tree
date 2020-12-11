@@ -16,6 +16,7 @@ count = 0
 class gameplay:
     def __init__(self, screen, s, num):
         self.running = True
+        self.endGame = False
         # Todas las imagenes /////////////////////////////////////////////////////////////////////////////
 
         # background
@@ -132,10 +133,14 @@ class gameplay:
         player2PointRect = pygame.Rect(500, 530, 80, 30)
         player3PointRect = pygame.Rect(600, 530, 80, 30)
         player4PointRect = pygame.Rect(700, 530, 80, 30)
+
+        winnerSurface = pygame.Surface((1000, 474))
+        winnerSurface.set_alpha(128)
+        winnerSurface.fill((255, 255, 255))
+
         pointRecs = [player1PointRect, player2PointRect, player3PointRect, player4PointRect]
 
         while self.running:
-
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.socket.send("Stop Server Connection\n".encode())
@@ -259,6 +264,32 @@ class gameplay:
                 self.draw_text("Timer:", self.Font, (255, 255, 255), self.screen, gameTimerRect.x - 75, gameTimerRect.y)
                 self.draw_text("Challenge Left:", self.Font, (255, 255, 255), self.screen, challengeTimerRect.x - 190,
                                challengeTimerRect.y)
+                if self.endGame:
+                    endGameFont0 = pygame.font.SysFont("Century Gothic", 30)
+                    self.screen.blit(winnerSurface, (100, 100))
+                    self.draw_text("GAME OVER", endGameFont0, (0, 0, 0), self.screen, 486, 115)
+                    self.draw_text("Total Points", endGameFont0, (0, 0, 0), self.screen, 486, 150)
+                    self.draw_text("Player 1:       " + str(self.playerPointList[0]), self.Font, (0, 0, 0), self.screen, 450, 200)
+                    self.draw_text("Player 2:       " + str(self.playerPointList[1]), self.Font, (0, 0, 0), self.screen, 450, 250)
+                    if self.num > 2:
+                        self.draw_text("Player 3:       " + str(self.playerPointList[2]), self.Font, (0, 0, 0), self.screen, 450, 300)
+                        if self.num > 3:
+                            self.draw_text("Player 4:       " + str(self.playerPointList[3]), self.Font, (0, 0, 0), self.screen, 450, 350)
+                    winner = []
+                    for i in range(self.num):
+                        if not winner or winner[0][0] == self.playerPointList[i]:
+                            winner.append((self.playerPointList[i], i + 1))
+                        if winner[0][0] < self.playerPointList[i]:
+                            winner = [self.playerPointList[i], i + 1]
+                    if len(winner) > 1:
+                        self.draw_text("Winners:", endGameFont0, (0, 0, 0), self.screen, 200, 500)
+                        x = 350
+                        for i in range(len(winner)):
+                            self.draw_text("Player " + str(winner[i][1]), endGameFont0, (0, 0, 0), self.screen, x, 500)
+                            x += 150
+                    else:
+                        self.draw_text("Winner:            Player " + str(winner[0][1]), endGameFont0, (0, 0, 0), self.screen, 486, 500)
+
 
                 pygame.display.flip()
                 self.clock.tick(30)  # Aquí se controlan los FPS
@@ -314,11 +345,6 @@ class gameplay:
             self.draw_text("Player " + str(i+1), Font, WHITE,self.screen, recs[i].x, recs[i].y - 30)
 
 
-
-
-
-
-
     def setTimer(self, gameTimerRect):
         Font = self.Font
         if self.gameTimer is not None:
@@ -362,8 +388,13 @@ class gameplay:
                     if dicJSON["timerType"] == "challenge":
                         self.challengeTimer = dicJSON
                         continue
-                self.currentChallenge = dicJSON
-                continue
+                if dicJSON['@type'] == "EndGameMessage":
+                    self.endGame = True
+                    self.socket.send("Stop Server Connection\n".encode())
+                    continue
+                else:
+                    self.currentChallenge = dicJSON
+                    continue
             elif dicJSON['@type'][-4:] == "Tree":
                 self.playersList[dicJSON['owner']-1].tree = Tree(dicJSON)
                 continue
