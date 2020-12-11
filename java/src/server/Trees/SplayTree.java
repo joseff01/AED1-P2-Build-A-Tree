@@ -1,8 +1,5 @@
 package server.Trees;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties(value = { "height" })
 public class SplayTree extends Tree{
 
     private int Owner;

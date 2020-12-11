@@ -7,12 +7,12 @@ class Tree:
     def __init__(self, treeDict):
         self.treeDict = treeDict
         self.type = treeDict['@type']
-        if self.type != "BTree":
+        if self.type == "BSTree" or self.type == "AVLTree":
             if treeDict['root'] is not None:
                 self.height = treeDict['root']['height']
             else:
                 self.height = 0
-        elif self.type == "BTree":
+        elif self.type == "BTree" or self.type == "SplayTree":
             self.height = treeDict['height']  # BTree
         self.owner = treeDict['owner']
 
