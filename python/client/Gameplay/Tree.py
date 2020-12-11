@@ -54,6 +54,11 @@ class Tree:
             pygame.draw.polygon(surface, BLUE, hexagonPoints)
             pygame.draw.polygon(surface, WHITE, hexagonPoints, borderWidth)
             surface.blit(numberText, (x + levelWidth / 5, y + levelHeight / 6))
+        elif self.type == "SplayTree":
+            trianglePoints = [(x + levelWidth / 2, y), (x, y + levelHeight), (x + levelWidth, y + levelHeight)]
+            pygame.draw.polygon(surface, GREEN, trianglePoints)
+            pygame.draw.polygon(surface, WHITE, trianglePoints, borderWidth)
+            surface.blit(numberText, (x + levelWidth / 4, y + 3 * levelHeight / 8))
         x_diff = (1 / (2 ** (height + 2))) * treeArea.width
         self.draw_BSTree(surface, current['left'], treeArea, x - x_diff, height + 1, levelHeight, levelWidth)
         self.draw_BSTree(surface, current['right'], treeArea, x + x_diff, height + 1, levelHeight, levelWidth)
