@@ -50,7 +50,7 @@ public class ChallengeSelectionAlgorithm{
         timer.setChallengeTimer(60);
         int challengeType = random.nextInt(4);
 
-        challengeType = 0; //for testing
+        challengeType = 2   ; //for testing
 
         if (challengeType == 0){
             //Challenge BST
