@@ -17,7 +17,10 @@ public class SplayTree extends Tree{
     public void insert(int key){
         this.root=inserting(this.root,key);
         this.root=splay(this.root,key);
-        this.height=findHeight(this.root);
+        this.height=findHeight(this.root)-1;
+        if (this.height < 0) {
+            this.height = 0;
+        }
     }
     private int findHeight (Node node){
         if (node==null){

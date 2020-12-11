@@ -69,10 +69,12 @@ class Tree:
             pygame.draw.polygon(surface, WHITE, hexagonPoints, borderWidth)
             surface.blit(numberText, (hex_x + (nodeWidth - numberSize[0]) / 2, y + (nodeHeight - numberSize[1]) / 2))
         elif self.type == "SplayTree":
-            trianglePoints = [(x + levelWidth / 2, y), (x, y + nodeHeight), (x + levelWidth, y + nodeHeight)]
+            nodeWidth = nodeHeight
+            tri_x = x + (levelWidth - nodeWidth) / 2
+            trianglePoints = [(tri_x + nodeWidth / 2, y), (tri_x, y + nodeHeight), (tri_x + nodeWidth, y + nodeHeight)]
             pygame.draw.polygon(surface, GREEN, trianglePoints)
             pygame.draw.polygon(surface, WHITE, trianglePoints, borderWidth)
-            surface.blit(numberText, (x + (levelWidth - numberSize[0]) / 2, y + 2 * (nodeHeight - numberSize[1]) / 3))
+            surface.blit(numberText, (tri_x + (nodeWidth - numberSize[0]) / 2, y + nodeHeight - 5 * numberSize[1] / 6))
 
         x_diff = (1 / (2 ** (height + 2))) * treeArea.width
         if current['left'] is not None:
