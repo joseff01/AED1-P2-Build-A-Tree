@@ -37,6 +37,7 @@ public class ListeningAlgorithm implements Runnable {
                 String messageJson = in.readLine();
                 System.out.println("received: " + messageJson);
                 if (messageJson.equals("Stop Server Connection")){
+                    Thread.sleep(100);
                     System.exit(0);
                 }
                 Message receivedMessage = objectMapper.readValue(messageJson, Message.class);
@@ -154,18 +155,18 @@ public class ListeningAlgorithm implements Runnable {
                     } else if (receivedMessage instanceof SplayToken) {
                         player = ((SplayToken) receivedMessage).getReceiver() - 1;
                         tree = treeArray[player];
-                        ((SplayTree)tree).insert(((SplayToken) receivedMessage).getNumber());
+                        ((SplayTree) tree).insert(((SplayToken) receivedMessage).getNumber());
                         treeArray[player] = tree;
-                        int height = ((SplayTree)tree).getSize();
-                        if (height == ((SplayMessage) currentChallenge).getElementAmount()){
+                        int height = ((SplayTree) tree).getSize();
+                        if (height == ((SplayMessage) currentChallenge).getElementAmount()) {
                             System.out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");
                             out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");
                             challengeSelectionAlgorithm.selectChallenge();
                         }
                     }
-                    Thread.sleep(10);
-                    System.out.println(objectMapper.writeValueAsString(tree));
-                    out.println(objectMapper.writeValueAsString(tree));
+                    String treeJSON = objectMapper.writeValueAsString(tree);
+                    System.out.println(treeJSON);
+                    out.println(treeJSON);
                 } else {
                     System.out.println("THIS SHOULD NOT BE HAPPENING. LOOK INTO THIS");
                 }

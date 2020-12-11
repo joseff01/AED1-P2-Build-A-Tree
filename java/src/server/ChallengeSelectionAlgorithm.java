@@ -126,6 +126,11 @@ public class ChallengeSelectionAlgorithm{
             e.printStackTrace();
         }
         System.out.println("sent: " + messageJSON);
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         out.println(messageJSON);
 
     }

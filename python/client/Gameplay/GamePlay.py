@@ -288,8 +288,7 @@ class gameplay:
                             self.draw_text("Player " + str(winner[i][1]), endGameFont0, (0, 0, 0), self.screen, x, 500)
                             x += 150
                     else:
-                        self.draw_text("Winner:            Player " + str(winner[0][1]), endGameFont0, (0, 0, 0), self.screen, 486, 500)
-
+                        self.draw_text("Winner: Player " + str(winner[0][1]), endGameFont0, (0, 0, 0), self.screen, 450, 500)
 
                 pygame.display.flip()
                 self.clock.tick(30)  # Aquí se controlan los FPS
