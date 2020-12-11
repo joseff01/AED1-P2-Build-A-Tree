@@ -1,8 +1,5 @@
 package server.Trees;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties(value = { "height" })
 public class SplayTree extends Tree{
 
     private int Owner;
@@ -11,7 +8,7 @@ public class SplayTree extends Tree{
     private int size=0;
     private int height=0;
 
-    public int getHeight(){return this.height}
+    public int getHeight(){return this.height; }
     public Node getRoot(){return this.root; }
     public int getSize(){return this.size;}
     public void reset(){
@@ -20,7 +17,10 @@ public class SplayTree extends Tree{
     public void insert(int key){
         this.root=inserting(this.root,key);
         this.root=splay(this.root,key);
-        this.height=findHeight(this.root);
+        this.height=findHeight(this.root)-1;
+        if (this.height < 0) {
+            this.height = 0;
+        }
     }
     private int findHeight (Node node){
         if (node==null){
