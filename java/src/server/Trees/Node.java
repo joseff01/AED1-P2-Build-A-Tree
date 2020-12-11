@@ -11,7 +11,7 @@ public class Node {
         if (AVL){
             this.height=1;
         }else{
-            this.height=0
+            this.height=0;
         }
 
     }

@@ -130,6 +130,7 @@ class gameplay:
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
+                    self.socket.send("Stop Server Connection\n".encode())
                     self.running = False
                 # checking for keypresses
                 if event.type == pygame.KEYDOWN:
@@ -314,6 +315,7 @@ class gameplay:
         import json
         while self.running:
             messageJSON = self.socket.recv(1024)
+            print(messageJSON)
             # parse string
             #print(messageJSON)
             stringJSON = str(messageJSON)[2:-5]

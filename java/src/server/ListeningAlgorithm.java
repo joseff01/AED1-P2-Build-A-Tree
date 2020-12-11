@@ -36,6 +36,9 @@ public class ListeningAlgorithm implements Runnable {
             try {
                 String messageJson = in.readLine();
                 System.out.println("received: " + messageJson);
+                if (messageJson.equals("Stop Server Connection")){
+                    System.exit(0);
+                }
                 Message receivedMessage = objectMapper.readValue(messageJson, Message.class);
                 Message currentChallenge = challengeSelectionAlgorithm.getCurrentChallenge();
                 Tree[] treeArray = challengeSelectionAlgorithm.getTreeArray();
@@ -160,6 +163,7 @@ public class ListeningAlgorithm implements Runnable {
                             challengeSelectionAlgorithm.selectChallenge();
                         }
                     }
+                    Thread.sleep(10);
                     System.out.println(objectMapper.writeValueAsString(tree));
                     out.println(objectMapper.writeValueAsString(tree));
                 } else {
@@ -170,6 +174,8 @@ public class ListeningAlgorithm implements Runnable {
             } catch (IOException e) {
                 e.printStackTrace();
                 disconnectionFlag = true;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
     }
