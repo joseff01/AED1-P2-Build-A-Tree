@@ -367,9 +367,8 @@ class gameplay:
         import json
         while self.running:
             messageJSON = self.socket.recv(1024)
-            print(messageJSON)
             # parse string
-            #print(messageJSON)
+            print(messageJSON)
             stringJSON = str(messageJSON)[2:-5]
             #print(stringJSON)
             if stringJSON[:6] == "server":

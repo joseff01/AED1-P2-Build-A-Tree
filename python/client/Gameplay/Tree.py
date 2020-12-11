@@ -10,6 +10,8 @@ class Tree:
         if self.type == "BSTree" or self.type == "AVLTree":
             if treeDict['root'] is not None:
                 self.height = treeDict['root']['height']
+                if self.type == "AVLTree":
+                    self.height -= 1
             else:
                 self.height = 0
         elif self.type == "BTree" or self.type == "SplayTree":

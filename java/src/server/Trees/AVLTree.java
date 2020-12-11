@@ -56,8 +56,8 @@ public class AVLTree extends Tree{
         node.left = change;
 
         //new heights
-        node.height = Math.max(height(node.left), height(node.right));
-        left.height = Math.max(height(left.left), height(left.right));
+        node.height = Math.max(height(node.left), height(node.right))+1;
+        left.height = Math.max(height(left.left), height(left.right))+1;
 
         return left;
     }
@@ -72,8 +72,8 @@ public class AVLTree extends Tree{
         node.right = change;
 
         //New heights
-        node.height = Math.max(height(node.right), height(node.left));
-        right.height = Math.max(height(right.right), height(right.left));
+        node.height = Math.max(height(node.right), height(node.left))+1;
+        right.height = Math.max(height(right.right), height(right.left))+1;
 
         return right;
     }

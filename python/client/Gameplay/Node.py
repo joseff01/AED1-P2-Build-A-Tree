@@ -14,7 +14,7 @@ class Node:
         self.type = node_type
         self.number = number
         self.receiver = 0
-        self.speed_y = 7
+        self.speed_y = 6
 
     def fall(self, nodesList):
         land = pygame.Rect(283, 461, 635, 213)
