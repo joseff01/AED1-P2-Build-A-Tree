@@ -2,7 +2,7 @@ import pygame
 
 
 class Player(object):
-    def __init__(self, x, y, width, height):
+    def __init__(self, x, y, width, height,skin):
         self.rect = pygame.Rect(x, y, width, height)
         # la idea es eventualmente cambiar esto con image.get_rect() cuando hayan sprites, por eso las llamadas en #position
 
@@ -20,13 +20,15 @@ class Player(object):
         self.push = False
         self.moveRight = False
         self.count = 10
+        self.moveCount = 0
+        self.fallingCount = 0
 
         #poderes
         self.forcePush = False
         self.doubleJump = False
         self.shield = False
         self.clock = 0
-        self.clockStart = pygame.time.Clock()
+        self.clockStart = 0
 
     def move(self, playersList):
         land = pygame.Rect(283, 468, 635, 210)
@@ -145,8 +147,6 @@ class Player(object):
                         self.clockStart = 0
                         self.shield = False
 
-
-
     def jump(self):
         if (self.falling or self.rising) and self.doubleJump:
             self.speed_y = -20  # //////Aquí se cambia la velocidad incial cuando se salta//////
@@ -157,5 +157,10 @@ class Player(object):
         if not self.falling and not self.rising:
             self.speed_y = -20  # //////Aquí se cambia la velocidad incial cuando se salta//////
             self.rising = True
+
+    def setMoveCount(self,moveCount):
+        self.moveCount = moveCount
+    def setfallingCount(self,fallingCount):
+        self.fallingCount = fallingCount
 
 
