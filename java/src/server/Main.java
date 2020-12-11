@@ -2,7 +2,9 @@ package server;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import server.Trees.BTree;
 import server.Trees.SplayTree;
+import server.Trees.Tree;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -15,13 +17,14 @@ public class Main {
 
         /*
 
-        SplayTree bTree = new SplayTree();
-        bTree.insert(5);
-        bTree.insert(6);
-        bTree.insert(4);
-        bTree.insert(2);
-        bTree.insert(1);
-        bTree.insert(10);
+        Tree bTree = new BTree(5);
+        ((BTree) bTree).setOwner(3);
+        ((BTree) bTree).insert(5);
+        ((BTree) bTree).insert(6);
+        ((BTree) bTree).insert(4);
+        ((BTree) bTree).insert(2);
+        ((BTree) bTree).insert(1);
+        ((BTree) bTree).insert(10);
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             System.out.println(objectMapper.writeValueAsString(bTree));

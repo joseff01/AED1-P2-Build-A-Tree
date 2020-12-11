@@ -29,13 +29,17 @@ public class ChallengeSelectionAlgorithm{
     Tree player3Tree = null;
     Tree player4Tree = null;
 
+    Tree[] treeArray = new Tree[4];
+
+    Message currentChallenge;
+
     public ChallengeSelectionAlgorithm(BufferedReader in, PrintWriter out){
 
         this.in = in;
         this.out = out;
 
         timer = new Timer(in,out, this);
-        listeningAlgorithm = new ListeningAlgorithm(in,out, this);
+        listeningAlgorithm = new ListeningAlgorithm(in,out, this, objectMapper);
 
         selectChallenge();
         sendToken();
@@ -45,42 +49,76 @@ public class ChallengeSelectionAlgorithm{
     public void selectChallenge(){
         int challengeType = random.nextInt(4);
 
-        Message message;
-
         if (challengeType == 0){
             //Challenge BST
-            message = new BSTMessage();
+            currentChallenge = new BSTMessage();
             player1Tree = new BSTree();
+            ((BSTree)player1Tree).setOwner(1);
             player2Tree = new BSTree();
+            ((BSTree)player2Tree).setOwner(2);
             player3Tree = new BSTree();
+            ((BSTree)player3Tree).setOwner(3);
             player4Tree = new BSTree();
+            ((BSTree)player4Tree).setOwner(4);
+            treeArray[0] = player1Tree;
+            treeArray[1] = player2Tree;
+            treeArray[2] = player3Tree;
+            treeArray[3] = player4Tree;
+
         } else if (challengeType == 1){
             //Challenge Type B
-            message = new BMessage();
-            int order = ((BMessage) message).getOrder();
+            currentChallenge = new BMessage();
+            int order = ((BMessage) currentChallenge).getOrder();
             player1Tree = new BTree(order);
+            ((BTree)player1Tree).setOwner(1);
             player2Tree = new BTree(order);
+            ((BTree)player2Tree).setOwner(2);
             player3Tree = new BTree(order);
+            ((BTree)player3Tree).setOwner(3);
             player4Tree = new BTree(order);
+            ((BTree)player4Tree).setOwner(4);
+            treeArray[0] = player1Tree;
+            treeArray[1] = player2Tree;
+            treeArray[2] = player3Tree;
+            treeArray[3] = player4Tree;
+
         } else if (challengeType == 2){
             //Challenge AVL
-            message = new AVLMessage();
+            currentChallenge = new AVLMessage();
             player1Tree = new AVLTree();
+            ((AVLTree)player1Tree).setOwner(1);
             player2Tree = new AVLTree();
+            ((AVLTree)player2Tree).setOwner(2);
             player3Tree = new AVLTree();
+            ((AVLTree)player3Tree).setOwner(3);
             player4Tree = new AVLTree();
+            ((AVLTree)player4Tree).setOwner(4);
+            treeArray[0] = player1Tree;
+            treeArray[1] = player2Tree;
+            treeArray[2] = player3Tree;
+            treeArray[3] = player4Tree;
+
         } else {
             //Challenge Splay
-            message = new SplayMessage();
+            currentChallenge = new SplayMessage();
             player1Tree = new SplayTree();
+            ((SplayTree)player1Tree).setOwner(1);
             player2Tree = new SplayTree();
+            ((SplayTree)player2Tree).setOwner(2);
             player3Tree = new SplayTree();
+            ((SplayTree)player3Tree).setOwner(3);
             player4Tree = new SplayTree();
+            ((SplayTree)player4Tree).setOwner(4);
+            treeArray[0] = player1Tree;
+            treeArray[1] = player2Tree;
+            treeArray[2] = player3Tree;
+            treeArray[3] = player4Tree;
+
         }
 
         String messageJSON = null;
         try {
-            messageJSON = objectMapper.writeValueAsString(message);
+            messageJSON = objectMapper.writeValueAsString(currentChallenge);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
@@ -129,6 +167,14 @@ public class ChallengeSelectionAlgorithm{
         }
 
         sendToken();
+    }
+
+    public Message getCurrentChallenge() {
+        return currentChallenge;
+    }
+
+    public Tree[] getTreeArray() {
+        return treeArray;
     }
 
 }

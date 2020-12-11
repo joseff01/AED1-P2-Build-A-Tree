@@ -14,6 +14,9 @@ public class AVLToken extends Message{
         this.receiver = receiver;
 
     }
+    public AVLToken(){
+        super();
+    }
 
     public int getNumber() {
         return number;

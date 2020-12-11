@@ -1,6 +1,13 @@
 package server.Trees;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(value = { "height" })
+
 public class AVLTree extends Tree{
+
+    int Owner;
+
     Node root;
 
     public void insert(int key) {
@@ -98,5 +105,12 @@ public class AVLTree extends Tree{
         }
 
         return node;
+    }
+    public int getOwner() {
+        return Owner;
+    }
+
+    public void setOwner(int owner) {
+        Owner = owner;
     }
 }

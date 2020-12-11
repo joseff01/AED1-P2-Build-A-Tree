@@ -212,6 +212,10 @@ class gameplay:
                         continue
                 self.currentChallenge = dicJSON
                 continue
+            if dicJSON['@type'] [-4:] == "Tree":
+                # Recibir Arboles
+                continue
+
 
     def draw_text(self, text, font, color, surface, x, y):
         """

@@ -1,6 +1,12 @@
 package server.Trees;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(value = { "height" })
 public class SplayTree extends Tree{
+
+    private int Owner;
+
     private Node root;
     private int size=0;
 
@@ -84,5 +90,13 @@ public class SplayTree extends Tree{
         node.right=change;
 
         return right;
+    }
+
+    public int getOwner() {
+        return Owner;
+    }
+
+    public void setOwner(int owner) {
+        Owner = owner;
     }
 }

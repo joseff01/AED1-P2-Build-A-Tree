@@ -1,6 +1,12 @@
 package server.Trees;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(value = { "height" })
 public class BSTree extends Tree{
+
+    int Owner;
+
     Node root;
     public void insert(int key){
         this.root=inserting(this.root,key);
@@ -34,5 +40,12 @@ public class BSTree extends Tree{
         node.height = 1+Math.max((height(node.left)),height(node.right));
 
         return node;
+    }
+    public int getOwner() {
+        return Owner;
+    }
+
+    public void setOwner(int owner) {
+        Owner = owner;
     }
 }

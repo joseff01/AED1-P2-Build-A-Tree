@@ -11,6 +11,9 @@ public class BSTToken extends Message{
         this.receiver = receiver;
 
     }
+    public BSTToken(){
+        super();
+    }
 
     public int getNumber() {
         return number;

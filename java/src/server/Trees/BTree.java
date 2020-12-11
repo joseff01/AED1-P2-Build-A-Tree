@@ -1,6 +1,11 @@
 package server.Trees;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(value = { "height" })
 public class BTree extends Tree{
+
+    int Owner;
 
     private Page root;
     private int M, height;
@@ -142,5 +147,12 @@ public class BTree extends Tree{
             page=page.parent;
         }
         return page;
+    }
+    public int getOwner() {
+        return Owner;
+    }
+
+    public void setOwner(int owner) {
+        Owner = owner;
     }
 }
