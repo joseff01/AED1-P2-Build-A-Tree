@@ -82,7 +82,7 @@ public class AVLTree extends Tree{
         //Node insertion
         if (node == null) {
             this.Size++;
-            return new Node(key);
+            return new Node(key,true);
         }
         //going left
         if (key < node.key)

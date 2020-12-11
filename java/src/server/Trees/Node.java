@@ -5,10 +5,14 @@ public class Node {
     int key;
     int height;
 
-    public Node(int Key){
+    public Node(int Key,boolean AVL){
         this.key=Key;
         this.left=this.right=null;
-        this.height=0;
+        if (AVL){
+            this.height=1;
+        }else{
+            this.height=0;
+        }
 
     }
 

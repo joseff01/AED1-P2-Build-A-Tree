@@ -33,7 +33,7 @@ public class SplayTree extends Tree{
     private Node inserting(Node node, int key){
         if (node == null){
             this.size++;
-            return new Node(key);
+            return new Node(key,false);
         }
         if (key < node.key)
             node.left = inserting(node.left, key);
