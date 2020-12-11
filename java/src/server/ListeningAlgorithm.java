@@ -47,6 +47,11 @@ public class ListeningAlgorithm implements Runnable {
                         tree = treeArray[player];
                         ((AVLTree)tree).insert(((AVLToken) receivedMessage).getNumber());
                         treeArray[player] = tree;
+                        int amount = ((AVLTree)tree).getSize();
+                        if (amount == ((AVLMessage) currentChallenge).getElementAmount()){
+                            out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");
+                            challengeSelectionAlgorithm.selectChallenge();
+                        }
                     } else if (receivedMessage instanceof BSTToken) {
                         player = ((BSTToken) receivedMessage).getReceiver() - 1;
                         tree = new AVLTree();
@@ -76,6 +81,11 @@ public class ListeningAlgorithm implements Runnable {
                         tree = treeArray[player];
                         ((BSTree)tree).insert(((BSTToken) receivedMessage).getNumber());
                         treeArray[player] = tree;
+                        int height = ((BSTree)tree).getHeight();
+                        if (height == ((BSTMessage) currentChallenge).getHeight()){
+                            out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");
+                            challengeSelectionAlgorithm.selectChallenge();
+                        }
                     } else if (receivedMessage instanceof BToken) {
                         player = ((BToken) receivedMessage).getReceiver() - 1;
                         tree = new BSTree();
@@ -106,6 +116,11 @@ public class ListeningAlgorithm implements Runnable {
                         tree = treeArray[player];
                         ((BTree)tree).insert(((BToken) receivedMessage).getNumber());
                         treeArray[player] = tree;
+                        int height = ((BTree)tree).getHeight();
+                        if (height == ((BMessage) currentChallenge).getLevel()){
+                            out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");
+                            challengeSelectionAlgorithm.selectChallenge();
+                        }
                     } else if (receivedMessage instanceof SplayToken) {
                         player = ((SplayToken) receivedMessage).getReceiver() - 1;
                         tree = new BTree(order);
@@ -135,6 +150,11 @@ public class ListeningAlgorithm implements Runnable {
                         tree = treeArray[player];
                         ((SplayTree)tree).insert(((SplayToken) receivedMessage).getNumber());
                         treeArray[player] = tree;
+                        int height = ((SplayTree)tree).getSize();
+                        if (height == ((SplayMessage) currentChallenge).getElementAmount()){
+                            out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");
+                            challengeSelectionAlgorithm.selectChallenge();
+                        }
                     }
                     System.out.println(objectMapper.writeValueAsString(tree));
                     out.println(objectMapper.writeValueAsString(tree));

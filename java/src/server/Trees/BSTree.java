@@ -45,8 +45,8 @@ public class BSTree extends Tree{
 
         return node;
     }
-    public int get
-    Owner() {
+
+    public int getOwner() {
         return Owner;
     }
 

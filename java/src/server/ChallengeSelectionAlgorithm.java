@@ -47,6 +47,7 @@ public class ChallengeSelectionAlgorithm{
     }
 
     public void selectChallenge(){
+        timer.setChallengeTimer(60);
         int challengeType = random.nextInt(4);
 
         if (challengeType == 0){
@@ -161,11 +162,10 @@ public class ChallengeSelectionAlgorithm{
         out.println(messageJSON);
 
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         sendToken();
     }
 

@@ -9,15 +9,15 @@ import java.io.PrintWriter;
 
 public class Timer implements Runnable{
 
-    int gameTimer = 610;
+    private int gameTimer = 610;
 
-    int challengeTimer = 60;
+    private int challengeTimer = 60;
 
-    BufferedReader in;
+    private BufferedReader in;
 
-    PrintWriter out;
+    private PrintWriter out;
 
-    ChallengeSelectionAlgorithm challengeSelectionAlgorithm;
+    private ChallengeSelectionAlgorithm challengeSelectionAlgorithm;
 
     boolean stopTime = false;
 
@@ -70,4 +70,9 @@ public class Timer implements Runnable{
 
         }
     }
+
+    public void setChallengeTimer(int challengeTimer) {
+        this.challengeTimer = challengeTimer;
+    }
+
 }

@@ -11,7 +11,7 @@ class Player(object):
         self.rect.y = y
 
         # movement
-        self.speed_x = 5  # esta es constante
+        self.speed_x = 10  # esta es constante
         self.speed_y = 0  # esta varía
         self.left = False
         self.right = False
@@ -19,7 +19,7 @@ class Player(object):
         self.falling = False
         self.push = False
         self.moveRight = False
-        self.count = 8
+        self.count = 10
 
         #poderes
         self.forcePush = False
@@ -39,7 +39,7 @@ class Player(object):
 
         # Push
         if self.count <= 0:
-            self.count = 8
+            self.count = 10
             self.push = False
             self.moveRight = False
 

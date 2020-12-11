@@ -1,4 +1,4 @@
-apackage server.Trees;
+package server.Trees;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -99,4 +99,6 @@ public class SplayTree extends Tree{
     public void setOwner(int owner) {
         Owner = owner;
     }
+
+
 }
