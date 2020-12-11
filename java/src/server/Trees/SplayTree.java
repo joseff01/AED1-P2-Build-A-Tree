@@ -9,7 +9,9 @@ public class SplayTree extends Tree{
 
     private Node root;
     private int size=0;
+    private int height=0;
 
+    public int getHeight(){return this.height}
     public Node getRoot(){return this.root; }
     public int getSize(){return this.size;}
     public void reset(){
@@ -18,8 +20,16 @@ public class SplayTree extends Tree{
     public void insert(int key){
         this.root=inserting(this.root,key);
         this.root=splay(this.root,key);
+        this.height=findHeight(this.root);
     }
-
+    private int findHeight (Node node){
+        if (node==null){
+            return 0;
+        }
+        else{
+            return Math.max(findHeight(node.left),findHeight(node.right))+1;
+        }
+    }
     private Node inserting(Node node, int key){
         if (node == null){
             this.size++;
