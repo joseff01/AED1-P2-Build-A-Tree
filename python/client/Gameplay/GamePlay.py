@@ -1,9 +1,12 @@
+import random
+
 import pygame, threading
 from pygame.locals import *
 
 from python.client.Gameplay.Node import Node
 from python.client.Gameplay.Player import Player
 from python.client.Gameplay.Tree import Tree
+from python.client.Gameplay.PowerUps import PowerUps
 
 frame = 0
 steps = 9
@@ -13,8 +16,9 @@ count = 0
 class gameplay:
     def __init__(self, screen, s, num):
         self.running = True
-        #Todas las imagenes /////////////////////////////////////////////////////////////////////////////
+        # Todas las imagenes /////////////////////////////////////////////////////////////////////////////
 
+        # background
         self.background_image = [pygame.image.load("Imgs\\GamePlay\\bgGame0.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame1.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame2.png").convert(),
@@ -35,6 +39,7 @@ class gameplay:
                                  pygame.image.load("Imgs\\GamePlay\\bgGame17.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame18.png").convert(),
                                  pygame.image.load("Imgs\\GamePlay\\bgGame19.png").convert()]
+        # movement
         self.greenSkinMove = [pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink0.png").convert_alpha(),
                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink1.png").convert_alpha(),
                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink2.png").convert_alpha(),
@@ -62,8 +67,29 @@ class gameplay:
                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink6F.png").convert_alpha(),
                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink7F.png").convert_alpha(),
                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink8F.png").convert_alpha()]
+        # shield
+        self.shield = [pygame.image.load("Imgs\\Sprites\\Shield\\Shield0.png").convert_alpha(),
+                       pygame.image.load("Imgs\\Sprites\\Shield\\Shield1.png").convert_alpha(),
+                       pygame.image.load("Imgs\\Sprites\\Shield\\Shield2.png").convert_alpha(),
+                       pygame.image.load("Imgs\\Sprites\\Shield\\Shield3.png").convert_alpha(),
+                       pygame.image.load("Imgs\\Sprites\\Shield\\Shield4.png").convert_alpha(),
+                       pygame.image.load("Imgs\\Sprites\\Shield\\Shield5.png").convert_alpha(),
+                       pygame.image.load("Imgs\\Sprites\\Shield\\Shield6.png").convert_alpha(),
+                       pygame.image.load("Imgs\\Sprites\\Shield\\Shield7.png").convert_alpha(),
+                       pygame.image.load("Imgs\\Sprites\\Shield\\Shield8.png").convert_alpha(),
+                       pygame.image.load("Imgs\\Sprites\\Shield\\Shield9.png").convert_alpha(),
+                       pygame.image.load("Imgs\\Sprites\\Shield\\Shield10.png").convert_alpha()]
+        # weight
+        self.pesa = [pygame.image.load("Imgs\\Sprites\\Weight\\Weight0.png").convert_alpha(),
+                     pygame.image.load("Imgs\\Sprites\\Weight\\Weight1.png").convert_alpha(),
+                     pygame.image.load("Imgs\\Sprites\\Weight\\Weight2.png").convert_alpha()]
+        #wing
+        self.wing = [pygame.image.load("Imgs\\Sprites\\Wing\\Wing0.png").convert_alpha(),
+                     pygame.image.load("Imgs\\Sprites\\Wing\\Wing1.png").convert_alpha(),
+                     pygame.image.load("Imgs\\Sprites\\Wing\\Wing2.png").convert_alpha(),
+                     pygame.image.load("Imgs\\Sprites\\Wing\\Wing3.png").convert_alpha()]
 
-        #///////////////////////////////////////////////////////////////////////////////////////////////
+        # ///////////////////////////////////////////////////////////////////////////////////////////////
         Node.Font = pygame.font.SysFont("Century Gothic", 20)  # Set font for nodes
         self.Font = pygame.font.SysFont("Century Gothic", 24)  # Set font of everything else
         self.link = pygame.image.load("Imgs\\Sprites\\GreenLink\\Link.png").convert_alpha()
@@ -79,6 +105,7 @@ class gameplay:
         receiveMessagesThread.start()
         self.playersList = []
         self.nodesList = []
+        self.powerUpsList = []
         self.game()
 
     def game(self):
@@ -143,6 +170,16 @@ class gameplay:
                     n.delete(self.nodesList)
                     n.send(self.socket)
 
+            for power in self.powerUpsList:
+                power.fall(self.powerUpsList)
+                if power.catchCheck(self.playersList):
+                    power.deletePow(self.powerUpsList)
+
+            rNum = random.randint(1, 400)
+
+            if (rNum == 1 or rNum == 2) or rNum == 3:
+                self.powerUpsList.append(PowerUps(rNum))
+
             if self.running:
                 # pintar fondo
                 self.setBackground()
@@ -175,6 +212,29 @@ class gameplay:
 
                 for n in self.nodesList:
                     n.draw(self.screen)
+
+                for pow in self.powerUpsList:
+                    if pow.type == 1:
+                        if pow.count == 3:
+                            pow.setCount(0)
+                        else:
+                            pow.setCount(pow.count+1)
+                        self.screen.blit(self.wing[pow.count], (pow.rect.x, pow.rect.y))
+                    if pow.type == 2:
+                        if pow.count == 10:
+                            pow.setCount(0)
+                        else:
+                            pow.setCount(pow.count+1)
+                        self.screen.blit(self.shield[pow.count], (pow.rect.x, pow.rect.y))
+                    if pow.type == 3:
+                        if pow.count == 1:
+                            pow.setCount(0)
+                        else:
+                            pow.setCount(pow.count+1)
+                        self.screen.blit(self.pesa[pow.count], (pow.rect.x, pow.rect.y))
+
+
+
                 # pintar rects para info de challenges y timer
                 pygame.draw.rect(self.screen, (255, 255, 255), challengeRect)
                 pygame.draw.rect(self.screen, (255, 255, 255), gameTimerRect)
@@ -188,6 +248,8 @@ class gameplay:
 
                 pygame.display.flip()
                 self.clock.tick(30)  # Aquí se controlan los FPS
+
+
 
     def setTreeSidebar(self):
         WHITE = (255, 255, 255)
@@ -207,6 +269,7 @@ class gameplay:
         RED = (171, 10, 10)
         GREEN = (1, 135, 6)
         YELLOW = (235, 192, 52)
+
         if self.currentChallenge is not None:
             if self.currentChallenge["@type"] == "BMessage":
                 self.draw_text("Build a B Tree of order " + str(self.currentChallenge["order"])
