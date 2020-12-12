@@ -21,5 +21,8 @@ import javax.sound.midi.Receiver;
         @JsonSubTypes.Type(value = Message.class, name = "Message"),
 
 })
-
+/**
+ * @author Jose Antonio Retana
+ * Clase encargada del manejo de los mensajes y con JSONS
+ */
 public abstract class Message { }
