@@ -86,7 +86,7 @@ public class ListeningAlgorithm implements Runnable {
                         tree = treeArray[player];
                         ((BSTree)tree).insert(((BSTToken) receivedMessage).getNumber());
                         treeArray[player] = tree;
-                        int height = ((BSTree)tree).getHeight() + 1;
+                        int height = ((BSTree)tree).getHeight();
                         if (height == ((BSTMessage) currentChallenge).getHeight()){
                             System.out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");
                             out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");
@@ -122,7 +122,7 @@ public class ListeningAlgorithm implements Runnable {
                         tree = treeArray[player];
                         ((BTree)tree).insert(((BToken) receivedMessage).getNumber());
                         treeArray[player] = tree;
-                        int height = ((BTree)tree).getHeight() + 1;
+                        int height = ((BTree)tree).getHeight();
                         if (height == ((BMessage) currentChallenge).getLevel()){
                             System.out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");
                             out.println("{\"@type\":\"AddPoints\",\"Points\":100,\"player\":" + player + "}");

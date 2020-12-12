@@ -16,23 +16,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-
-
-        Tree bTree = new BSTree();
-        ((BSTree) bTree).insert(5);
-        ((BSTree) bTree).insert(6);
-        ((BSTree) bTree).insert(4);
-        ((BSTree) bTree).insert(2);
-        /*
-        ((BSTree) bTree).insert(1);
-        ((BSTree) bTree).insert(10);
-        ((BSTree) bTree).insert(12);
-         */
-
-        System.out.println(((BSTree) bTree).getHeight());
-
-
-
         ServerSocket listenSocket = null;
 
         boolean foundSocketFlag = false;
