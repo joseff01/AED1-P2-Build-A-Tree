@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(value = { "height" })
 /**
  *Clase del árbol AVL
+ * @author Marcelo Truque
  */
 public class AVLTree extends Tree{
 
@@ -16,6 +17,7 @@ public class AVLTree extends Tree{
     /**
      *insersción de una llave en un árbol
      * @param key
+     * @author Marcelo Truque
      */
     public void insert(int key) {
 
@@ -40,7 +42,7 @@ public class AVLTree extends Tree{
 
     /**
      * @author Marcelo Truque
-     * @returnla raíz del árbol
+     * @return la raíz del árbol
      */
     public Node getRoot() {
         return this.root;
@@ -173,7 +175,7 @@ public class AVLTree extends Tree{
     }
 
     /**
-     * @author Jose Antonio Retana
+     * @author Jose Retana
      * @return El dueño del árbol
      */
     public int getOwner() {
@@ -181,7 +183,7 @@ public class AVLTree extends Tree{
     }
 
     /**
-     * @author Jose Antonio Retana
+     * @author Jose Retana
      * set del  dueño de este árbol
      * @param owner
      */
