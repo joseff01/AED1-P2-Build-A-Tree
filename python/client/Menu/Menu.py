@@ -6,15 +6,25 @@ pygame.init()
 
 
 class Menu:
-
     def __init__(self):
-
+        """
+        Crea el menu principal del videojuego, permite que el usuario escoja cuantos jugadores van a jugar y conecta el servidor con el cliente
+        Authors: Mariana, Ignacio
+        Creates the main window, the main clock and calls main_menu().
+        """
         self.screen = pygame.display.set_mode((1500, 674))
         self.clock = pygame.time.Clock()
 
         self.main_menu()
 
     def connect_menu(self, playerNum):
+        """
+        Conecta el menu con el servidor y activa GamePlay
+        Authors: Ignacio, Jose Antonio
+        :param playerNum:
+        :return:
+        Restrictions: playerNum must be an int
+        """
         running = True
 
         backgroundImg = pygame.image.load("Imgs\\beforeImage2.png").convert()
@@ -90,6 +100,11 @@ class Menu:
                 self.clock.tick(60)
 
     def choose_menu(self):
+        """
+        Muestra un menu que le permite al jugador escoger la cantidad de jugadores
+        Authors:Mariana, Ignacio
+        :return:
+        """
         running = True
 
         backgroundImg = pygame.image.load("Imgs\\beforeImage.png").convert()
@@ -150,6 +165,11 @@ class Menu:
                 self.clock.tick(14)
 
     def main_menu(self):
+        """
+        Muestra el fondo inicial y le permite al jugador escoger si va a jugar
+        Authors: Mariana
+        :return:
+        """
         running = True
         backgroundImg = [pygame.image.load("Imgs\\Bg1.png").convert(), pygame.image.load("Imgs\\Bg2.png").convert(),
                          pygame.image.load("Imgs\\Bg3.png").convert(), pygame.image.load("Imgs\\Bg4.png").convert(),
@@ -194,12 +214,18 @@ class Menu:
 
     def draw_text(self, text, font, color, surface, x, y):
         """
-        Parameters: text, font, color, surface, x, y
-
-        Return: None
-
-        Restrictions1: text must be string, font must be pygame font object
+        Dibuja en el fondo inicial el texto 
+        Author: Ignacio
+        :param text:
+        :param font:
+        :param color:
+        :param surface:
+        :param x:
+        :param y:
+        :return:
+        Restrictions: text must be string, font must be pygame font object
         """
+
         if text == "":
             return
         text = font.render(text, 1, color)

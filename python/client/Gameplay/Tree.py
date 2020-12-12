@@ -3,8 +3,13 @@ import math
 
 
 class Tree:
-
     def __init__(self, treeDict):
+        """
+        Dibuja los arboles del jugador en la ventana principal del juego y verifica que tipo de arbol construye
+        Author: Ignacio
+        :param treeDict:
+        Restrictions:
+        """
         self.treeDict = treeDict
         self.type = treeDict['@type']
         if self.type == "BSTree" or self.type == "AVLTree":
@@ -20,6 +25,12 @@ class Tree:
         self.order = None
 
     def draw(self, surface):
+        """
+        Dibuja el fondo de los arboles del jugador en la ventana  principal
+        Author: Ignacio
+        :param surface:
+        :return:
+        """
         treeArea = pygame.rect.Rect(1200 + 5, ((self.owner - 1) * 674 / 4) + 30, 290, 135)
         if self.type != "BTree":
             font = pygame.font.SysFont("Century Gothic", round(50 * math.exp(-self.height / 2.6)))  # Set font for trees
@@ -29,6 +40,20 @@ class Tree:
             self.draw_BTree(surface, font, self.treeDict['root'], treeArea)
 
     def draw_BTree(self, surface, font, current, treeArea, levelHeight=0, maxWidth=0, x=0, height=0):
+        """
+        Dibuja los arboles del jugador en la ventana  principal
+        Author: Ignacio
+        :param surface:
+        :param font:
+        :param current:
+        :param treeArea:
+        :param x:
+        :param height:
+        :param levelHeight:
+        :param levelWidth:
+        :return:
+        Restrictions: x, height, levelHeight, levelWidth, current must be an int.
+        """
         if current is None or self.order is None:
             return
         if height == 0:

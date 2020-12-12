@@ -3,6 +3,16 @@ import pygame
 
 class Player(object):
     def __init__(self, x, y, width, height,skin):
+        """
+        Devuelve el objeto jugador y contiene los metodos de su movimiento y colision
+        Authors: Ignacio, Mariana
+        :param x:
+        :param y:
+        :param width:
+        :param height:
+        :param skin:
+        Restrictions: x,y,width, height, skin must be an int
+        """
         self.rect = pygame.Rect(x, y, width, height)
         # la idea es eventualmente cambiar esto con image.get_rect() cuando hayan sprites, por eso las llamadas en #position
 
@@ -34,6 +44,13 @@ class Player(object):
         self.tree = None
 
     def move(self, playersList):
+        """
+        Define el movimiento del jugador y los poderes que tiene
+        Authors: Ignacio, Mariana
+        :param playersList:
+        :return:
+        Restrictions: playerList must be a list
+        """
         land = pygame.Rect(283, 468, 635, 210)
         leftCroc = pygame.Rect(300, 373, 105, 20)
         leftStand = pygame.Rect(485, 300, 76, 10)
@@ -108,6 +125,13 @@ class Player(object):
         self.collide(playersList)
 
     def collide(self,playersList):
+        """
+        verifica las colisiones entre los jugadores
+        Authors: Mariana
+        :param playersList:
+        :return:
+        Restrictions: playerList must be a list
+        """
         for p in playersList:
             if self.rect.colliderect(p) and p.rect.x > self.rect.x:
                 # force push power
@@ -151,6 +175,11 @@ class Player(object):
                         self.shield = False
 
     def jump(self):
+        """
+        Define el salto del jugador
+        Authors: Mariana
+        :return:
+        """
         if (self.falling or self.rising) and self.doubleJump:
             self.speed_y = -20  # //////Aquí se cambia la velocidad incial cuando se salta//////
             self.fallin = False

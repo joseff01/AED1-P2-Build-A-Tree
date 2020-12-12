@@ -5,8 +5,14 @@ import pygame
 
 class Node:
     Font = None
-
     def __init__(self, node_type, number):
+        """
+        Mueve los nodos hacia abajo y verifica que jugador colisiona con el objeto de poder.
+        Author: Ignacio
+        :param node_type:
+        :param number:
+        Restrictions: node_type must be a string and number must an int
+        """
         x = random.randint(30, 1200 - 30)
 
         self.rect = pygame.Rect(x, 0, 35, 35)
@@ -17,6 +23,13 @@ class Node:
         self.speed_y = 6
 
     def fall(self, nodesList):
+        """
+        Mueve los nodos hacia abajo, Verifica si el objeto colisiona con las plataformas
+        Author: Ignacio
+        :param nodesList:
+        :return:
+        Restrictions: nodeList must be a list
+        """
         land = pygame.Rect(283, 461, 635, 213)
         leftCroc = pygame.Rect(300, 373, 105, 20)
         leftStand = pygame.Rect(485, 300, 76, 10)
@@ -32,6 +45,13 @@ class Node:
             self.delete(nodesList)
 
     def check_catch(self, playersList):
+        """
+        Verifica si el nodo colisiona con el jugador
+        Author: Ignacio
+        :param playersList:
+        :return:
+        Restrictions: playersList must be a list
+        """
         pNum = 1
         for player in playersList:
             if self.rect.colliderect(player.rect):
@@ -41,6 +61,12 @@ class Node:
         return False
 
     def draw(self, surface):
+        """
+        Dibuja los nodos en el window original
+        Author: Ignacio
+        :param surface:
+        :return:
+        """
         borderWidth = 2
         WHITE = (255, 255, 255)
         BLUE = (32, 28, 176)
@@ -76,10 +102,24 @@ class Node:
             surface.blit(numberText, (x + self.rect.width / 4, y + 3 * self.rect.height / 8))
 
     def delete(self, nodesList):
+        """
+        Elimina el nodo de la lista
+        Author: Ignacio
+        :param nodesList:
+        :return:
+        Restrictions: nodeList must be a list
+        """
         if self in nodesList:
             nodesList.remove(self)
 
     def send(self, socket):
+        """
+        Crea un Json y y envia un socket
+        Authors: Ignacio
+        :param socket:
+        :return:
+        Restrictions: socket must be a string
+        """
         objectDict = {'@type': self.type, 'number': self.number, 'receiver': self.receiver}
         objectJSON = json.dumps(objectDict)
         socket.sendall((objectJSON + "\n").encode())

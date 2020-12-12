@@ -15,6 +15,15 @@ count = 0
 
 class gameplay:
     def __init__(self, screen, s, num):
+        """
+        Crea la ventana principal del juego, verifica el movimiento de los jugadores, anuncia todos
+        los challegnes, crea el timer.
+        Authors: Mariana
+        :param screen:
+        :param s:
+        :param num:
+        Restictions: num must be an int and s must be a string
+        """
         self.running = True
         self.endGame = False
         # Todas las imagenes /////////////////////////////////////////////////////////////////////////////
@@ -111,10 +120,16 @@ class gameplay:
         self.game()
 
     def game(self):
-
+        """
+        Crea los jugadores, crea el movimiento de los personajes, verifica las colisiones de los
+        personajes con los jugadores
+        Author: Mariana
+        :return:
+        """
         player1 = Player(325, 415, 50, 50, 1)
         self.screen.blit(self.link, (player1.rect.x, player1.rect.y))
         player2 = Player(850, 415, 50, 50, 1)
+        
         self.playersList.extend((player1, player2))
 
         if self.num > 2:
@@ -302,6 +317,11 @@ class gameplay:
                 self.clock.tick(30)  # Aquí se controlan los FPS
 
     def setTreeSidebar(self):
+        """
+        Dibuja los nodos de los arboles en el screen principal
+        Author Ignacio
+        :return:
+        """
         WHITE = (255, 255, 255)
         BLACK = (0, 0, 0)
         LIGHTYELLOW = (242, 212, 143)
@@ -313,6 +333,13 @@ class gameplay:
             self.draw_text("Jugador " + str(n + 1), self.Font, BLACK, self.screen, 1210, 2 + n * 674 / 4)
 
     def setChallenge(self, challengeRect, challengeTimerRect):
+        """
+        Crea los challengues que el jugador tiene que seguir
+        Author: Ignacio
+        :param challengeRect:
+        :param challengeTimerRect:
+        :return:
+        """
         Font = self.Font
         BLACK = (0, 0, 0)
         BLUE = (32, 28, 176)
@@ -345,6 +372,12 @@ class gameplay:
                 self.draw_text("60", Font, BLACK, self.screen, challengeTimerRect.x, challengeTimerRect.y)
 
     def setPlayerPoints(self, recs):
+        """
+        Asigna los putnos del jugador
+        Authors: Ignacio
+        :param recs:
+        :return:
+        """
         Font = self.Font
         BLACK = (0, 0, 0)
         WHITE = (255, 255, 255)
@@ -353,6 +386,12 @@ class gameplay:
             self.draw_text("Player " + str(i + 1), Font, WHITE, self.screen, recs[i].x, recs[i].y - 30)
 
     def setTimer(self, gameTimerRect):
+        """
+        Crea el timer del juego
+        Authors: Ignacio
+        :param gameTimerRect:
+        :return:
+        """
         Font = self.Font
         if self.gameTimer is not None:
             self.draw_text(str(self.gameTimer["timerNumber"]), Font, (0, 0, 0), self.screen, gameTimerRect.x,
@@ -361,6 +400,11 @@ class gameplay:
             self.draw_text("610", Font, (0, 0, 0), self.screen, gameTimerRect.x, gameTimerRect.y)
 
     def setBackground(self):
+        """
+        Crea el diseño del fondo de la ventana
+        Authors: Ignacio, Mariana
+        :return:
+        """
         global frame, count
         if frame >= 19:
             frame = 0
@@ -372,6 +416,11 @@ class gameplay:
         self.screen.blit(self.background_image[frame], [0, 0])
 
     def receiveMessage(self):
+        """
+        Recive los mensaje Json
+        Authors: Ignacio, Jose Antonio
+        :return:
+        """
         import json
         while self.running and not self.endGame:
             messageJSON = self.socket.recv(1024)
@@ -411,11 +460,16 @@ class gameplay:
 
     def draw_text(self, text, font, color, surface, x, y):
         """
-        Parameters: text, font, color, surface, x, y
-
-        Return: None
-
-        Restrictions1: text must be string, font must be pygame font object
+        Dibuja el texto del window
+        Author: Ignacio
+        :param text:
+        :param font:
+        :param color:
+        :param surface:
+        :param x:
+        :param y:
+        :return:
+        Restrictions: text must be string, font must be pygame font object
         """
         if text == "":
             return
