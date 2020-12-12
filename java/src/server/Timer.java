@@ -9,6 +9,11 @@ import server.Messages.TimerMessage;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 
+/**
+ * Método de los timers
+ * Se encarga de crear y mantener los timers, mand{a}ndole estos como mensajes individuales al cliente
+ * @author Jose Retana
+ */
 public class Timer implements Runnable{
 
     volatile private int gameTimer = 610;
@@ -25,6 +30,16 @@ public class Timer implements Runnable{
 
     private ObjectMapper objectMapper;
 
+    /**
+     * Constructor de Timer
+     * Recibe el BufferedReader, PrintWriter, la instancia del
+     * ChallengeSelectionAlgorithm, y el ObjectMapper
+     * @param in
+     * @param out
+     * @param challengeSelectionAlgorithm
+     * @param objectMapper
+     * @author Jose Retana
+     */
     public  Timer(BufferedReader in, PrintWriter out, ChallengeSelectionAlgorithm challengeSelectionAlgorithm, ObjectMapper objectMapper) {
         this.in = in;
         this.out = out;
@@ -38,11 +53,15 @@ public class Timer implements Runnable{
         timerThread.start();
     }
 
-    public void stopAllTimers(){
-        stopTime = true;
-    }
 
     @Override
+    /**
+     * Método modificado run implementado por Runnable
+     * Este se encarga de mantener los timers y que se envíen al cliente
+     * Cuando el timer de challenge se acaba, se carga otro challenge distinto
+     * Cuando el timer del juego se acaba, el server se finaliza, recibiendo el mensaje apropiado del ciente
+     * @author Jose Retana
+     */
     public void run() {
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -82,6 +101,12 @@ public class Timer implements Runnable{
         }
     }
 
+    /**
+     * Setter del timer del challenge
+     * Utilizado por ChallengeSelectionAlgorithm para resetear el timer del challenge
+     * @param challengeTimer
+     * @author Jose Retana
+     */
     public void setChallengeTimer(int challengeTimer) {
         this.challengeTimer = challengeTimer;
     }

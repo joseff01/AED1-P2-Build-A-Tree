@@ -8,6 +8,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * Clase de escucha de mensajes del server
+ * Se encarga de recibir todos los mensajes que le mande el cliente
+ * y manipularlos de la manera correcta
+ * @author Jose Retana
+ */
 public class ListeningAlgorithm implements Runnable {
 
     ObjectMapper objectMapper;
@@ -28,6 +34,14 @@ public class ListeningAlgorithm implements Runnable {
     }
 
     @Override
+    /**
+     * Método modificado run implementado por Runnable
+     * Recibe los nodos recolectados del cliente y lo analiza para agregarlo al árbol
+     * del jugador correspondiente, o para eliminarlo si era el incorrecto. También se encarga
+     * de revisar si el chalelnge se completó para mandar los puntos y asignar un nuevo challenge
+     *
+     * @author Jose Retana
+     */
     public void run() {
 
         boolean disconnectionFlag = false;

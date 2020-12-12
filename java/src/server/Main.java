@@ -13,7 +13,13 @@ import java.net.Socket;
 
 public class Main {
 
-
+    /**
+     * Crea las especificaciones iniciales del server, como los sockets, el BufferedReader y
+     * el PrintWriter para mandar y recibir mensajes
+     *
+     * @param args
+     * @author Jose Retana
+     */
     public static void main(String[] args) {
 
         ServerSocket listenSocket = null;

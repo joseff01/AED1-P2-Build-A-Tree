@@ -191,7 +191,7 @@ class gameplay:
             for power in self.powerUpsList:
                 if not self.endGame:
                     power.fall(self.powerUpsList)
-                    if power.catchCheck(self.playersList):
+                    if power.catchCheck(sebbbbbbbbbbbbbbbbbbbbblf.playersList):
                         power.deletePow(self.powerUpsList)
 
             rNum = random.randint(1, 400)

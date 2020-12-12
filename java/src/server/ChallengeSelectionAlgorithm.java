@@ -9,6 +9,12 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.Random;
 
+/**
+ * Clase principal del servidor.
+ * Manda los nodos, mantiene los árboles de los jugadores
+ *
+ * @Author Jose Retana
+ */
 public class ChallengeSelectionAlgorithm{
 
     Timer timer;
@@ -33,6 +39,14 @@ public class ChallengeSelectionAlgorithm{
 
     Message currentChallenge;
 
+    /**
+     * Constructor
+     * Recibe el BufferedReader y PrintWriter creados en el main
+     *
+     * @param in
+     * @param out
+     * @author Jose Retana
+     */
     public ChallengeSelectionAlgorithm(BufferedReader in, PrintWriter out){
 
         this.in = in;
@@ -46,6 +60,12 @@ public class ChallengeSelectionAlgorithm{
 
     }
 
+    /**
+     * Método de selección, creación y envío del challenge al cliente
+     * Resetea los árboles actuales y cambia el timer del challenge
+     *
+     * @author Jose Retana
+     */
     public void selectChallenge(){
         timer.setChallengeTimer(60);
         int challengeType = random.nextInt(4);
@@ -135,6 +155,11 @@ public class ChallengeSelectionAlgorithm{
 
     }
 
+    /**
+     * Método de selección y envío de tokes al cliente
+     *
+     * @author Jose Retana
+     */
     public void sendToken(){
 
         int tokenType = random.nextInt(4);
@@ -176,10 +201,18 @@ public class ChallengeSelectionAlgorithm{
         sendToken();
     }
 
+    /**
+     * Getter del challenge activo
+     * @return currentChallenge
+     */
     public Message getCurrentChallenge() {
         return currentChallenge;
     }
 
+    /**
+     * Getter del array con los árboles de los jugadores
+     * @return treeArray
+     */
     public Tree[] getTreeArray() {
         return treeArray;
     }
