@@ -19,8 +19,8 @@ public class BMessage extends Message{
      *Constructor del mensaje del árbol B copn números random
      */
     public BMessage(){
-        this.order = random.nextInt(3) + 3;
-        this.level = random.nextInt(3) + 2;
+        this.level = random.nextInt(2) + 1;
+        this.order = (this.level == 1 ? ( random.nextInt(2)+4) : 3);
     }
 
     /**
