@@ -11,7 +11,7 @@ class Player(object):
         self.rect.y = y
 
         # movement
-        self.speed_x = 8  # esta es constante
+        self.speed_x = 15  # esta es constante
         self.speed_y = 0  # esta varía
         self.left = False
         self.right = False
