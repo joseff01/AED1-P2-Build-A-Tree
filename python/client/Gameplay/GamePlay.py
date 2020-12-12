@@ -403,11 +403,6 @@ class gameplay:
                     continue
             elif dicJSON['@type'][-4:] == "Tree":
                 self.playersList[dicJSON['owner'] - 1].tree = Tree(dicJSON)
-                if dicJSON['@type'] == "BTree":
-                    if dicJSON['height'] == self.currentChallenge['level']:
-                        self.playersList[dicJSON['owner'] - 1].tree = Tree(
-                            {'@type': 'BTree', 'root': None, 'height': 0, 'owner': dicJSON['owner']})
-
                 continue
 
             elif dicJSON['@type'][-6:] == "Points":
