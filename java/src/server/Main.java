@@ -15,25 +15,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        /*
-
-        Tree bTree = new BTree(5);
-        ((BTree) bTree).setOwner(3);
-        ((BTree) bTree).insert(5);
-        ((BTree) bTree).insert(6);
-        ((BTree) bTree).insert(4);
-        ((BTree) bTree).insert(2);
-        ((BTree) bTree).insert(1);
-        ((BTree) bTree).insert(10);
-        ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            System.out.println(objectMapper.writeValueAsString(bTree));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-
-        */
-
         ServerSocket listenSocket = null;
 
         boolean foundSocketFlag = false;
