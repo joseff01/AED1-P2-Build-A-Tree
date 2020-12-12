@@ -3,7 +3,9 @@ package server.Trees;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(value = { "height" })
-
+/**
+ *Clase del árbol AVL
+ */
 public class AVLTree extends Tree{
 
     int Owner;
@@ -11,27 +13,52 @@ public class AVLTree extends Tree{
     private Node root;
     private int Size =0;
 
+    /**
+     *insersción de una llave en un árbol
+     * @param key
+     */
     public void insert(int key) {
 
         this.root = inserting(this.root, key);
     }
 
+    /**
+     * Borra por completo
+     * @author Marcelo Truque
+     */
     public void reset() {
         this.root = null;
     }
 
+    /**
+     * @author Marcelo Truque
+     * @return la altura del árbol
+     */
     public int getHeight() {
         return this.root.height;
     }
 
+    /**
+     * @author Marcelo Truque
+     * @returnla raíz del árbol
+     */
     public Node getRoot() {
         return this.root;
     }
 
+    /**
+     * @author Marcelo Truque
+     * @return La cantidad de nodos en el árbol
+     */
     public int getSize(){
         return this.Size;
     }
 
+    /**
+     * @author Marcelo Truque
+     * @param node
+     * @return La altura del nodo, si es null edvuelve 0
+     */
     private int height(Node node) {
         if (node == null) {
             return 0;
@@ -39,6 +66,11 @@ public class AVLTree extends Tree{
         return node.height;
     }
 
+    /**
+     * @author Marcelo Truque
+     * @param node
+     * @return El valor del balance del nodo
+     */
     private int getBalance(Node node) {
         if (node == null) {
             return 0;
@@ -46,6 +78,12 @@ public class AVLTree extends Tree{
         return height(node.left) - height(node.right);
     }
 
+    /**
+     * @author Marcelo Truque
+     * Rotación hacia la derecha de un nodo
+     * @param node
+     * @return nuevo nodo después de la rotación
+     */
     private Node rightRotate(Node node) {
         //getting children
         Node left = node.left;
@@ -62,6 +100,12 @@ public class AVLTree extends Tree{
         return left;
     }
 
+    /**
+     * @author Marcelo Truque
+     * Rotación hacia la izquierda de un nodo
+     * @param node
+     * @returnnuevo nodo después de la rotación
+     */
     private Node leftRotate(Node node) {
         //getting Children
         Node right = node.right;
@@ -78,6 +122,13 @@ public class AVLTree extends Tree{
         return right;
     }
 
+    /**
+     * @author Marcelo Truque
+     * Manejo de la inserción y las rotaciones en el árbol AVL
+     * @param node
+     * @param key
+     * @return Nodo donde se incializó con los cambios pertinentes
+     */
     private Node inserting(Node node, int key) {
         //Node insertion
         if (node == null) {
@@ -120,9 +171,20 @@ public class AVLTree extends Tree{
 
         return node;
     }
+
+    /**
+     * @author Jose Antonio Retana
+     * @return El dueño del árbol
+     */
     public int getOwner() {
         return Owner;
     }
+
+    /**
+     * @author Jose Antonio Retana
+     * set del  dueño de este árbol
+     * @param owner
+     */
     public void setOwner(int owner) {
         Owner = owner;
     }

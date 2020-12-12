@@ -1,5 +1,9 @@
 package server.Trees;
 
+/**
+ * @author Marcelo Truque
+ * Clase que contiene al árbol tipo B
+ */
 public class BTree extends Tree{
 
     int Owner;
@@ -7,26 +11,58 @@ public class BTree extends Tree{
     private Page root;
     private int M, height;
 
+    /**
+     * @author Marcelo Truque
+     * Builder del árbol
+     * @param order
+     */
     public BTree(int order) {
         this.root = null;
         this.M = order;
         this.height = 0;
     }
 
+    /**
+     * @author Marcelo Truque
+     * Inserción de una llave dentro del árbol
+     * @param Key
+     */
     public void insert(int Key) {
         this.root = inserting(this.root, Key);
         this.root=setnewRoot(this.root);
     }
+
+    /**
+     * @author Marcelo Truque
+     * Reseteo del árbol
+     */
     public void reset(){
         this.root=null;
     }
+
+    /**
+     * @author Marcelo Truque
+     * @return La altura del árbol
+     */
     public int getHeight(){
         return this.height;
     }
+
+    /**
+     * @author Marcelo Truque
+     * @return devuelve la raíz del árbol
+     */
     public Page getRoot(){
         return this.root;
     }
 
+    /**
+     * @author Marcelo Truque
+     * Manejo de la inserción de la llave en el árbol
+     * @param page
+     * @param Key
+     * @return Nodo que se incializó con los cambios pertinentes
+     */
     private Page inserting(Page page, int Key) {
         //Caso se este construyendo un árbol
         if (page == null) {
@@ -46,6 +82,13 @@ public class BTree extends Tree{
         }
         return page;
     }
+
+    /**
+     * @author Marcelo Truque
+     * Revisión de la cantidad de ramas en la página versus
+     * el orden del árbol y eventual partición si se excede
+     * @param page
+     */
     private void  check(Page page) {
         //llegó a su capacidad
         if (page.keys.size() == M) {
@@ -140,6 +183,13 @@ public class BTree extends Tree{
             }
         }
     }
+
+    /**
+     * @author Marcelo Truque
+     * Busqueda de una página sin parent (root)
+     * @param page
+     * @return página sin parent
+     */
     private Page setnewRoot(Page page){
         while(page.parent!=null){
             //going up
@@ -147,10 +197,20 @@ public class BTree extends Tree{
         }
         return page;
     }
+
+    /**
+     * @author Jose Antonio Retana
+     * @return Dueño del árbol
+     */
     public int getOwner() {
         return Owner;
     }
 
+    /**
+     * @author Jose Antionio Retana
+     * Set del dueño del árbol
+     * @param owner
+     */
     public void setOwner(int owner) {
         Owner = owner;
     }

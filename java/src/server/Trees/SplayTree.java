@@ -1,5 +1,9 @@
 package server.Trees;
 
+/**
+ * @author Marcelo Truque
+ * Clase que contiene el árbol Splay
+ */
 public class SplayTree extends Tree{
 
     private int Owner;
@@ -8,12 +12,37 @@ public class SplayTree extends Tree{
     private int size=0;
     private int height=0;
 
+    /**
+     * @author Marcelo Truque
+     * @return La altura del árbol.
+     */
     public int getHeight(){return this.height; }
+
+    /**
+     * @author Marcelo Truque
+     * @return La raíz del árbol
+     */
     public Node getRoot(){return this.root; }
+
+    /**
+     * @author Marcelo Truque
+     * @return Devuelve la cantidad de nodos dentro del árbol
+     */
     public int getSize(){return this.size;}
+
+    /**
+     * @author Marcelo Truque
+     * Resetea el árbol
+     */
     public void reset(){
         this.root=null;
     }
+
+    /**
+     *@author Marcelo Truque
+     * Inserción de un valor en el árbol y su acomode
+     * @param key
+     */
     public void insert(int key){
         this.root=inserting(this.root,key);
         this.root=splay(this.root,key);
@@ -22,6 +51,13 @@ public class SplayTree extends Tree{
             this.height = 0;
         }
     }
+
+    /**
+     * @author Marcelo Truque
+     * Función que recorre el árbol
+     * @param node
+     * @return Depth del árbol
+     */
     private int findHeight (Node node){
         if (node==null){
             return 0;
@@ -30,6 +66,14 @@ public class SplayTree extends Tree{
             return Math.max(findHeight(node.left),findHeight(node.right))+1;
         }
     }
+
+    /**
+     * @author Marcelo Truque
+     * Manejo de la inserción en el árbol
+     * @param node
+     * @param key
+     * @return Nodo incial de la inserción
+     */
     private Node inserting(Node node, int key){
         if (node == null){
             this.size++;
@@ -44,6 +88,14 @@ public class SplayTree extends Tree{
 
         return node;
     }
+
+    /**
+     * @author Marcelo Truque
+     * Splay del árbol
+     * @param node
+     * @param key
+     * @return Nodo conteniente del key indicado y todos los cambios en el árbol
+     */
     private Node splay(Node node, int key){
         if (node == null||   node.key==key)
             return node;
@@ -80,6 +132,13 @@ public class SplayTree extends Tree{
             return (node.right==null) ? node:leftRotate(node);
         }
     }
+
+    /**
+     * @author Marcelo Truque
+     * Rotación hacia la derecha del un nodo
+     * @param node
+     * @return Nodo nuevo despuñes de la rotación
+     */
     private Node rightRotate(Node node){
         //getting children
         Node left= node.left;
@@ -90,6 +149,13 @@ public class SplayTree extends Tree{
         node.left=change;
         return left;
     }
+
+    /**
+     * @author Marcelo Truque
+     * Rotación hacia la izquierda de un nodo
+     * @param node
+     * @return Nodo nuevo depués de la rotación
+     */
     private  Node leftRotate(Node node){
         //getting children
         Node right=node.right;
@@ -102,10 +168,19 @@ public class SplayTree extends Tree{
         return right;
     }
 
+    /**
+     * @author Jose Antonio Retana
+     * @return El dueño del árbol
+     */
     public int getOwner() {
         return Owner;
     }
 
+    /**
+     * @author Jose Antonio Retana
+     * Set del dueño del árbol
+     * @param owner
+     */
     public void setOwner(int owner) {
         Owner = owner;
     }

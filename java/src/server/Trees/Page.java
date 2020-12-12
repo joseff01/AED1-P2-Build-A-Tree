@@ -5,17 +5,31 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.ArrayList;
 
 @JsonIgnoreProperties(value = { "parent" })
-
+/**
+ * @author Marcelo Truque
+ * Clase de las páginas especialmente para el árbol B
+ */
 public class Page {
 
     ArrayList<Integer> keys=new ArrayList<Integer>();
     ArrayList<Page> Branches=new ArrayList<Page>();
     Page parent;
 
+    /**
+     * @author Marcelo Truque
+     *Builder de la hoja
+     */
     public Page(){
         this.parent=null;
     }
 
+    /**
+     * @author Marcelo Truque
+     * Clase para buscar en una lista un valor, devolverá el índice ya sea del valor,
+     * o del branch al que se debe de acceder para encontrarlo
+     * @param key
+     * @return index
+     */
     public int search(int key){
         //Variable de índice donde se debe colocar
         int accsess=this.keys.size();
@@ -33,6 +47,12 @@ public class Page {
         return accsess;
     }
 
+    /**
+     * @author Marcelo Truque
+     * Inserción de una rama y su eventual ajuste para mantener el orden
+     * @param page
+     * @param index
+     */
     public void insertbranch(Page page, int index){
         while(index!=this.Branches.size()+1){
             if(index == this.Branches.size()){
@@ -47,6 +67,12 @@ public class Page {
         }
     }
 
+    /**
+     * @author Marcelo Truque
+     * Inserción de una llave en la lista de llaves y
+     * cambios para mantener el orden
+     * @param Key
+     */
     public void insertkey(int Key){
         //La página no tiene elementos
         if (this.keys.size()==0){
@@ -77,10 +103,18 @@ public class Page {
         }
     }
 
+    /**
+     * @author Marcelo Truque
+     * @return Arreglo con las llaves
+     */
     public ArrayList<Integer> getKeys() {
         return keys;
     }
 
+    /**
+     * @author Marcelo Truque
+     * @return Arreglo con las ramas
+     */
     public ArrayList<Page> getBranches() {
         return Branches;
     }
