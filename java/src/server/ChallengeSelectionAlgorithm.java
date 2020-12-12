@@ -69,9 +69,7 @@ public class ChallengeSelectionAlgorithm{
     public void selectChallenge(){
         timer.setChallengeTimer(60);
         int challengeType = random.nextInt(4);
-
-        //challengeType = 1; //for testing
-
+        
         if (challengeType == 0){
             //Challenge BST
             currentChallenge = new BSTMessage();
