@@ -70,6 +70,7 @@ class Tree:
             if self.order % 2 == 0 and n == 0:
                 n += 1
             new_x = x + n * x_diff_order * maxWidth
+            pygame.draw.line(surface, WHITE, (x, y+nodeHeight),(new_x,treeArea.y + (height+1) * levelHeight),borderWidth)
             self.draw_BTree(surface, font, branch, treeArea, levelHeight, maxWidth, new_x, height + 1)
             n += 1
             i += 1

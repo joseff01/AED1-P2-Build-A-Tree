@@ -51,23 +51,23 @@ class gameplay:
                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink7.png").convert_alpha(),
                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink8.png").convert_alpha()]
         self.greenSkinMoveR = [pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink0R.png").convert_alpha(),
-                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink1R.png").convert_alpha(),
-                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink2R.png").convert_alpha(),
-                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink3R.png").convert_alpha(),
-                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink4R.png").convert_alpha(),
-                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink5R.png").convert_alpha(),
-                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink6R.png").convert_alpha(),
-                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink7R.png").convert_alpha(),
-                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink8R.png").convert_alpha()]
+                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink1R.png").convert_alpha(),
+                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink2R.png").convert_alpha(),
+                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink3R.png").convert_alpha(),
+                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink4R.png").convert_alpha(),
+                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink5R.png").convert_alpha(),
+                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink6R.png").convert_alpha(),
+                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink7R.png").convert_alpha(),
+                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink8R.png").convert_alpha()]
         self.greenSkinMoveF = [pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink0F.png").convert_alpha(),
-                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink1F.png").convert_alpha(),
-                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink2F.png").convert_alpha(),
-                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink3F.png").convert_alpha(),
-                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink4F.png").convert_alpha(),
-                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink5F.png").convert_alpha(),
-                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink6F.png").convert_alpha(),
-                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink7F.png").convert_alpha(),
-                              pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink8F.png").convert_alpha()]
+                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink1F.png").convert_alpha(),
+                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink2F.png").convert_alpha(),
+                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink3F.png").convert_alpha(),
+                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink4F.png").convert_alpha(),
+                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink5F.png").convert_alpha(),
+                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink6F.png").convert_alpha(),
+                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink7F.png").convert_alpha(),
+                               pygame.image.load("Imgs\\Sprites\\GreenLink\\GLink8F.png").convert_alpha()]
         # shield
         self.shield = [pygame.image.load("Imgs\\Sprites\\Shield\\Shield0.png").convert_alpha(),
                        pygame.image.load("Imgs\\Sprites\\Shield\\Shield1.png").convert_alpha(),
@@ -84,7 +84,7 @@ class gameplay:
         self.pesa = [pygame.image.load("Imgs\\Sprites\\Weight\\Weight0.png").convert_alpha(),
                      pygame.image.load("Imgs\\Sprites\\Weight\\Weight1.png").convert_alpha(),
                      pygame.image.load("Imgs\\Sprites\\Weight\\Weight2.png").convert_alpha()]
-        #wing
+        # wing
         self.wing = [pygame.image.load("Imgs\\Sprites\\Wing\\Wing0.png").convert_alpha(),
                      pygame.image.load("Imgs\\Sprites\\Wing\\Wing1.png").convert_alpha(),
                      pygame.image.load("Imgs\\Sprites\\Wing\\Wing2.png").convert_alpha(),
@@ -105,7 +105,7 @@ class gameplay:
         receiveMessagesThread = threading.Thread(target=self.receiveMessage)
         receiveMessagesThread.start()
         self.playersList = []
-        self.playerPointList = [0,0]
+        self.playerPointList = [0, 0]
         self.nodesList = []
         self.powerUpsList = []
         self.game()
@@ -206,7 +206,7 @@ class gameplay:
                 self.setTreeSidebar()
                 # pintar jugadores
                 for player in self.playersList:
-                    #pintar árboles de los jugadores
+                    # pintar árboles de los jugadores
                     if player.tree is not None:
                         player.tree.draw(self.screen)
                     if player.moveCount == 8:
@@ -237,22 +237,20 @@ class gameplay:
                         if pow.count == 3:
                             pow.setCount(0)
                         else:
-                            pow.setCount(pow.count+1)
+                            pow.setCount(pow.count + 1)
                         self.screen.blit(self.wing[pow.count], (pow.rect.x, pow.rect.y))
                     if pow.type == 2:
                         if pow.count == 10:
                             pow.setCount(0)
                         else:
-                            pow.setCount(pow.count+1)
+                            pow.setCount(pow.count + 1)
                         self.screen.blit(self.shield[pow.count], (pow.rect.x, pow.rect.y))
                     if pow.type == 3:
                         if pow.count == 1:
                             pow.setCount(0)
                         else:
-                            pow.setCount(pow.count+1)
+                            pow.setCount(pow.count + 1)
                         self.screen.blit(self.pesa[pow.count], (pow.rect.x, pow.rect.y))
-
-
 
                 # pintar rects para info de challenges y timer
                 pygame.draw.rect(self.screen, (255, 255, 255), challengeRect)
@@ -274,12 +272,16 @@ class gameplay:
                     self.screen.blit(winnerSurface, (100, 100))
                     self.draw_text("GAME OVER", endGameFont0, (0, 0, 0), self.screen, 486, 115)
                     self.draw_text("Total Points", endGameFont0, (0, 0, 0), self.screen, 486, 150)
-                    self.draw_text("Player 1:       " + str(self.playerPointList[0]), self.Font, (0, 0, 0), self.screen, 450, 200)
-                    self.draw_text("Player 2:       " + str(self.playerPointList[1]), self.Font, (0, 0, 0), self.screen, 450, 250)
+                    self.draw_text("Player 1:       " + str(self.playerPointList[0]), self.Font, (0, 0, 0), self.screen,
+                                   450, 200)
+                    self.draw_text("Player 2:       " + str(self.playerPointList[1]), self.Font, (0, 0, 0), self.screen,
+                                   450, 250)
                     if self.num > 2:
-                        self.draw_text("Player 3:       " + str(self.playerPointList[2]), self.Font, (0, 0, 0), self.screen, 450, 300)
+                        self.draw_text("Player 3:       " + str(self.playerPointList[2]), self.Font, (0, 0, 0),
+                                       self.screen, 450, 300)
                         if self.num > 3:
-                            self.draw_text("Player 4:       " + str(self.playerPointList[3]), self.Font, (0, 0, 0), self.screen, 450, 350)
+                            self.draw_text("Player 4:       " + str(self.playerPointList[3]), self.Font, (0, 0, 0),
+                                           self.screen, 450, 350)
                     winner = []
                     for i in range(self.num):
                         if not winner or winner[0][0] == self.playerPointList[i]:
@@ -293,12 +295,11 @@ class gameplay:
                             self.draw_text("Player " + str(winner[i][1]), endGameFont0, (0, 0, 0), self.screen, x, 500)
                             x += 150
                     else:
-                        self.draw_text("Winner: Player " + str(winner[0][1]), endGameFont0, (0, 0, 0), self.screen, 450, 500)
+                        self.draw_text("Winner: Player " + str(winner[0][1]), endGameFont0, (0, 0, 0), self.screen, 450,
+                                       500)
 
                 pygame.display.flip()
                 self.clock.tick(30)  # Aquí se controlan los FPS
-
-
 
     def setTreeSidebar(self):
         WHITE = (255, 255, 255)
@@ -346,11 +347,10 @@ class gameplay:
     def setPlayerPoints(self, recs):
         Font = self.Font
         BLACK = (0, 0, 0)
-        WHITE = (255,255,255)
+        WHITE = (255, 255, 255)
         for i in range(self.num):
-            self.draw_text(str(self.playerPointList[i]), Font, BLACK,self.screen, recs[i].x, recs[i].y)
-            self.draw_text("Player " + str(i+1), Font, WHITE,self.screen, recs[i].x, recs[i].y - 30)
-
+            self.draw_text(str(self.playerPointList[i]), Font, BLACK, self.screen, recs[i].x, recs[i].y)
+            self.draw_text("Player " + str(i + 1), Font, WHITE, self.screen, recs[i].x, recs[i].y - 30)
 
     def setTimer(self, gameTimerRect):
         Font = self.Font
@@ -376,9 +376,9 @@ class gameplay:
         while self.running and not self.endGame:
             messageJSON = self.socket.recv(1024)
             # parse string
-            #print(messageJSON)
+            # print(messageJSON)
             stringJSON = str(messageJSON)[2:-5]
-            #print(stringJSON)
+            # print(stringJSON)
             if stringJSON[:6] == "server":
                 continue
             dicJSON = json.loads(stringJSON)
@@ -402,13 +402,17 @@ class gameplay:
                     self.currentChallenge = dicJSON
                     continue
             elif dicJSON['@type'][-4:] == "Tree":
-                self.playersList[dicJSON['owner']-1].tree = Tree(dicJSON)
+                self.playersList[dicJSON['owner'] - 1].tree = Tree(dicJSON)
+                if dicJSON['@type'] == "BTree":
+                    if dicJSON['height'] == self.currentChallenge['level']:
+                        self.playersList[dicJSON['owner'] - 1].tree = Tree(
+                            {'@type': 'BTree', 'root': None, 'height': 0, 'owner': dicJSON['owner']})
+
                 continue
 
             elif dicJSON['@type'][-6:] == "Points":
                 self.playerPointList[dicJSON["player"]] += 100
                 continue
-
 
     def draw_text(self, text, font, color, surface, x, y):
         """
