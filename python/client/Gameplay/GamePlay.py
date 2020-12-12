@@ -112,17 +112,17 @@ class gameplay:
 
     def game(self):
 
-        player1 = Player(325, 415, 50, 50,1)
-        self.screen.blit(self.link,(player1.rect.x,player1.rect.y))
-        player2 = Player(850, 415, 50, 50,1)
+        player1 = Player(325, 415, 50, 50, 1)
+        self.screen.blit(self.link, (player1.rect.x, player1.rect.y))
+        player2 = Player(850, 415, 50, 50, 1)
         self.playersList.extend((player1, player2))
 
         if self.num > 2:
-            player3 = Player(496, 250, 50, 50,1)
+            player3 = Player(496, 250, 50, 50, 1)
             self.playersList.append(player3)
             self.playerPointList.append(0)
             if self.num > 3:
-                player4 = Player(650, 257, 50, 50,1)
+                player4 = Player(650, 257, 50, 50, 1)
                 self.playersList.append(player4)
                 self.playerPointList.append(0)
 
@@ -143,8 +143,11 @@ class gameplay:
         while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    self.socket.send("Stop Server Connection\n".encode())
-                    self.running = False
+                    if self.endGame:
+                        self.running = False
+                    else:
+                        self.socket.send("Stop Server Connection\n".encode())
+                        self.running = False
                 # checking for keypresses
                 if event.type == pygame.KEYDOWN:
                     pNum = 0
@@ -179,19 +182,21 @@ class gameplay:
 
             # manejo de nodos
             for n in self.nodesList:
-                n.fall(self.nodesList)
-                if n.check_catch(self.playersList):
-                    n.delete(self.nodesList)
-                    n.send(self.socket)
+                if not self.endGame:
+                    n.fall(self.nodesList)
+                    if n.check_catch(self.playersList):
+                        n.delete(self.nodesList)
+                        n.send(self.socket)
 
             for power in self.powerUpsList:
-                power.fall(self.powerUpsList)
-                if power.catchCheck(self.playersList):
-                    power.deletePow(self.powerUpsList)
+                if not self.endGame:
+                    power.fall(self.powerUpsList)
+                    if power.catchCheck(self.playersList):
+                        power.deletePow(self.powerUpsList)
 
             rNum = random.randint(1, 400)
 
-            if (rNum == 1 or rNum == 2) or rNum == 3:
+            if ((rNum == 1 or rNum == 2) or rNum == 3) and not self.endGame:
                 self.powerUpsList.append(PowerUps(rNum))
 
             if self.running:
@@ -365,7 +370,7 @@ class gameplay:
 
     def receiveMessage(self):
         import json
-        while self.running:
+        while self.running and not self.endGame:
             messageJSON = self.socket.recv(1024)
             # parse string
             print(messageJSON)
