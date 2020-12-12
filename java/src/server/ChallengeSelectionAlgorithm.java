@@ -49,7 +49,7 @@ public class ChallengeSelectionAlgorithm{
     public void selectChallenge(){
         timer.setChallengeTimer(60);
         int challengeType = random.nextInt(4);
-
+        
         //challengeType = 0; //for testing
 
         if (challengeType == 0){

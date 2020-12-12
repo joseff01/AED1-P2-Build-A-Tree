@@ -324,6 +324,9 @@ class gameplay:
                 self.draw_text("Build a B Tree of order " + str(self.currentChallenge["order"])
                                + " with " + str(self.currentChallenge["level"]) + " levels", Font,
                                RED, self.screen, challengeRect.x, challengeRect.y)
+                for player in self.playersList:
+                    if player.tree is not None:
+                        player.tree.set_BTree_order(self.currentChallenge['order'])
             if self.currentChallenge["@type"] == "AVLMessage":
                 self.draw_text("Build an AVL Tree with " + str(self.currentChallenge["elementAmount"])
                                + " elements", Font, BLUE, self.screen, challengeRect.x,
@@ -373,7 +376,7 @@ class gameplay:
         while self.running and not self.endGame:
             messageJSON = self.socket.recv(1024)
             # parse string
-            print(messageJSON)
+            #print(messageJSON)
             stringJSON = str(messageJSON)[2:-5]
             #print(stringJSON)
             if stringJSON[:6] == "server":
